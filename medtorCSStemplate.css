@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: white;
+  color: #000000;
+}
+
+h2 {
+  color: #ebf5ff;
+}
+
+.topContainer {
+  max-width: 1700px;
+  width: 96%;
+  background: #ebf5ff;
+  margin: auto;
+  overflow: hidden;
+}
+
+/*----Header Navigation Bar----*/
+
+header {
+  background: #ebf5ff;
+  margin-bottom: 0px;
+}
+
+.upperLogo {
+  float: left;
+  margin-top: 15px;
+  width: 163px;
+}
+
+nav {
+  float: right;
+  line-height: 70px;
+}
+
+nav li {
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 10px;
+  line-height: normal;
+
+  background: rgba(255, 0, 0, 0.0);
+  border-color: rgba(255, 0, 0, 0.0);
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+}
+
+.logIn {
+  background: #1975af;
+  border-radius: 20px;
+  color: white;
+  border: 1.5px solid #1975af
+}
+
+.logIn:hover {
+  background: white;
+  border-radius: 20px;
+  color: #1975af;
+  border: 1.5px solid #1975af
+}
+
+a {
+  color: black;
+}
+
+a:active {
+  color: #1975af;
+}
+
+.logColor {
+  color: white;
+}
+
+.logColor:hover {
+  color: #1975af;
+}
+
+.logColor:active {
+  color: #1975af;
+}
+
+
+/* bottom section */
+.containerBottom {
+  max-width: 1700px;
+  width: 100%;
+  background: white;
+  padding-top: 35px;
+  padding-bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+
+  font-style: normal;
+  font-size: 20px;
+
+}
+
+.contactUs {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+
+  margin-top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+
+  width: 155px;
+  height: 41px;
+  border-radius: 20px;
+
+  background: #1975af;
+  color: white;
+}
+
+.contactUs:hover {
+  color: #1975af;
+  background: white;
+  border: 1.5px solid #1975af
+}
+
+.infoText {
+  font-weight: 300;
+  line-height: 24px;
+  font-size: 15px;
+  text-align: center;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+/* iPhone and other tablet resizing smaller than typical laptop */
+@media only screen and (max-width: 630px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    padding-top: 0%;
+    padding-bottom: 20%;
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .contactUs {
+    width: 110px; /* changed */
+    height: 34px;
+    font-size: 14px;
+  }
+
+  .infoText {
+    font-weight: 300;
+    line-height: 24px;
+    text-align: center;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+}
+
+/* super small iPhone and other tablet resizing like iPhone 5*/
+@media only screen and (max-width: 365px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    padding-top: 0%;
+    padding-bottom: 20%;
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 3px; /* changed */
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+
+}
