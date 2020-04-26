@@ -104,6 +104,9 @@ a:active {
   font-style: normal;
   font-size: 20px;
 
+  position: absolute;
+  bottom: 0px;
+
 }
 
 .contactUs {
