@@ -1,0 +1,411 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #ebf5ff;
+  color: #000000;
+}
+
+h2 {
+  color: #ebf5ff;
+}
+
+.container {
+  max-width: 1700px;
+  width: 96%;
+  margin: auto;
+}
+
+/*----Header Navigation Bar----*/
+
+header {
+  background: #ebf5ff;
+  margin-bottom: 0px;
+}
+
+.upperLogo {
+  float: left;
+  margin-top: 15px;
+  width: 163px;
+}
+
+nav {
+  float: right;
+  line-height: 70px;
+}
+
+nav li {
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 10px;
+  line-height: normal;
+
+  background: rgba(255, 0, 0, 0.0);
+  border-color: rgba(255, 0, 0, 0.0);
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+}
+
+.logIn {
+  background: #1975af;
+  border-radius: 20px;
+  color: white;
+  border: 1.5px solid #1975af
+}
+
+.logIn:hover {
+  background: white;
+  border-radius: 20px;
+  color: #1975af;
+  border: 1.5px solid #1975af
+}
+
+/* ---- Logo and Buttons ---- */
+
+.mainLogo {
+  display: block;
+  width: 77%;
+  margin: 3% 8%;
+  padding: 50px 20px;
+}
+
+.iPhoneLogo {
+  display: none;
+}
+
+button {
+  display: inline-block;
+
+  width: 128px;
+  height: 34px;
+  border-radius: 60px;
+
+  float: right;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+
+  margin-top: -10px;
+  margin-left: 20px;
+
+}
+.menBtn {
+  background: #1975af;
+  margin-right: 80px;
+  color: white;
+  border: 1.5px solid #1975af
+}
+.menBtn:hover {
+  background: white;
+  color: #1975af;
+  border: 1.5px solid #1975af
+}
+
+.studBtn {
+  background: #ffffff;
+  color: #1975af;
+  border: 1.5px solid #1975af;
+}
+.studBtn:hover {
+  background: #1975af;
+  color: white;
+  border: 1.5px solid #1975af
+}
+
+/* ---- How it works section ---- */
+
+.containerTwo {
+  width: 100%;
+  max-width: 1700px;
+  margin: auto;
+  background: #ffffff;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 43px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.steps {
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+/* icons */
+.icons {
+  background: #ffffff;
+  width: 32%;
+  min-width: 290px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  /* min-width: 396px; */
+}
+
+.profile {
+  height: 130px;
+}
+.match {
+  height: 130px;
+}
+.connect {
+  height: 130px;
+}
+
+h4 {
+  /* display: inline-block; */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom: 12px;
+  margin-top: 25px;
+}
+
+.worksText {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: center;
+}
+
+
+/* bottom section */
+.containerBottom {
+  max-width: 1700px;
+  width: 100%;
+  background: #ebf5ff;
+  padding-top: 35px;
+  padding-bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+
+  font-style: normal;
+  font-size: 20px;
+
+}
+
+.contactUs {
+  font-weight: 600;
+
+  width: 155px;
+  height: 41px;
+
+  float: left;
+  background: #1975af;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.contactUs:hover {
+  color: #1975af;
+  background: white;
+  border: 1.5px solid #1975af
+}
+
+.infoText {
+  font-weight: 300;
+  line-height: 24px;
+  font-size: 15px;
+  text-align: center;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+/* iPhone and other tablet resizing */
+@media only screen and (max-width: 630px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    padding-top: 0%;
+    padding-bottom: 20%;
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .mainLogo {
+    display: none;
+  }
+
+  .iPhoneLogo {
+    display: block;
+    width: 85%;
+    margin: 0% 3%;
+    padding: 60px 20px;
+  }
+
+  button {
+    display: inline-block;
+
+    width: 128px;
+    height: 34px;
+    border-radius: 60px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+
+    margin-top: -10px;
+
+  }
+  .menBtn {
+    float: right;
+    background: #1975af;
+    margin-right: 10%;
+    color: white;
+    border: 1.5px solid #1975af
+  }
+  .studBtn {
+    float: left;
+    background: #ffffff;
+    margin-left: 10%;
+    color: #1975af;
+    border: 1.5px solid #1975af;
+  }
+
+  .infoText {
+    font-weight: 300;
+    line-height: 24px;
+    text-align: center;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+}
+
+/* extreme iPhone and other tablet resizing like iPhone 5*/
+@media only screen and (max-width: 365px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    padding-top: 0%;
+    padding-bottom: 20%;
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 3px; /* changed */
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .mainLogo {
+    display: none;
+  }
+
+  .iPhoneLogo {
+    display: block;
+    width: 85%;
+    margin: 0% 3%;
+    padding: 60px 20px;
+  }
+
+  button {
+    display: inline-block;
+
+    width: 110px; /* changed */
+    height: 34px;
+    border-radius: 60px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+
+    margin-top: -10px;
+
+  }
+  .menBtn {
+    float: right;
+    background: #1975af;
+    margin-right: 10%;
+    color: white;
+    border: 1.5px solid #1975af
+  }
+  .studBtn {
+    float: left;
+    background: #ffffff;
+    margin-left: 10%;
+    color: #1975af;
+    border: 1.5px solid #1975af;
+  }
+
+}
