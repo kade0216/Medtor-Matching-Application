@@ -25,24 +25,27 @@
     </header>
 
 
-    <div class="middleContainer">
+    <div class="middleContainer" id = "theForm">
       <div class="headerText">
         <img class = "profileLogo" src = "Icons/registerIcon2.png">
         <h3>Mentor Profile</h3>
       </div>
       <!-- <hr> -->
-      <div class="innerSection">
-        <div class="form">
-          <input type="text" name="email" autocomplete="off" required />
-          <label for="email" class = "label-email">
-            <span class="content-email">Email</span>
-          </label>
+      <form name = "getEmail">
+        <div class="innerSection">
+          <div class="form">
+            <input type="text" id = "emailInput" name="email" autocomplete="off" required />
+            <label for="email" class = "label-email">
+              <span class="content-email">Email</span>
+            </label>
+            <input type="hidden" id="hiddenVal" name="keyVal" />
+          </div>
+          <div class="lining">
+            <span>Please use .edu email</span>
+          </div>
         </div>
-        <div class="lining">
-          <span>Please use .edu email</span>
-        </div>
-      </div>
-      <button class="registerButton">Register</button>
+        <button class="registerButton" id="registerBtn" type="submit">Register</button>
+      </form>
     </div>
 
 
@@ -56,6 +59,8 @@
         © 2020 Medtor. Trademarks and brands are the property of their respective owners.
       </article>
     </div>
+
+    <script src="medtorAuth.js"></script>
 
   </body>
 </html>
