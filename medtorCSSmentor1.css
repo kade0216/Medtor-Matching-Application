@@ -1,9 +1,15 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   background: white;
   color: #000000;
+  height: 100%
 }
 
 h2 {
@@ -143,7 +149,7 @@ h3 {
 }*/
 
 .innerSection {
-  width: 800px;
+  width: 75%;
   height: 600px;
   border: 3px solid #1975af;
   background-color: white;
@@ -154,15 +160,72 @@ h3 {
 }
 
 .form {
-  width: 400px;
+  width: 45%;
   position: relative;
   height: 40px;
   overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 15px;
+  margin-right: 15px;
   margin-top: 45px;
-
+  display:inline-block;
 }
+
+.custom-select {
+  width: 45%;
+  position: relative;
+  height: 40px;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 45px;
+  display:inline-block;
+
+  line-height: 3;
+  border-radius: .25em;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: white;
+  background-image: none;
+  border:1px solid black;
+}
+
+select {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.custom-select::after {
+  content: '\25BC';
+  color: #27abff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  pointer-events: none;
+}
+
+select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
 
 .form input {
   width: 100%;
@@ -388,8 +451,8 @@ button {
     max-width: 1700px;
     width: 96%;
     margin: auto;
-    padding-top: 0%;
-    padding-bottom: 20%;
+    /* padding-top: 0%;
+    padding-bottom: 20%; */
   }
 
   .upperLogo {
@@ -418,6 +481,32 @@ button {
     text-align: center;
   }
 
+  .middleContainer {
+    min-height: calc(100vh - 50px - 100px - 30px);
+  }
+
+  .profileLogo {
+    height: 65px;
+    margin-right: 5px;
+    margin-left: -5px;
+  }
+
+  h3 {
+    font-size: 25px
+  }
+
+  .innerSection {
+    width: 300px;
+  }
+
+  .form {
+    width: 240px;
+  }
+
+  .custom-select {
+    width: 240px;
+  }
+
   .contactUs {
     width: 110px; /* changed */
     height: 34px;
@@ -427,6 +516,7 @@ button {
   .infoText {
     font-weight: 300;
     line-height: 24px;
+    font-size: 10px;
     text-align: center;
 
     margin-top: 5px;
