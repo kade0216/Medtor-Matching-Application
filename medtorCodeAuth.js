@@ -6,7 +6,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbxskeV2MousRxCSpJoEw8
 //const scriptURL = 'https://script.google.com/macros/s/AKfycbz8Gvf08qIfMIeck_7aavu9vvNhgY75a2YuRjQ82-UwPaTgkP9w/exec';
 //const scriptURL = 'https://script.google.com/macros/s/AKfycbw0KN3s7fCh_FmhjSekE9doQ95ayTqY1qTyaSRlCojbNiE-qiw/exec';
 const form = document.forms['getEmail'];
-
+// window.alert(localStorage.getItem("confCode"));
 console.log("working");
 
 function checkFormatting(inputText){
@@ -37,19 +37,19 @@ function checkEdu(inputText) {
 
 
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  emailText = emailIn.value;
-  if (checkFormatting(emailText)){
-    key = Math.floor(100000 + Math.random() * 900000);
-    document.getElementById("hiddenVal").value = key;
-    if (key != 0) {
-      localStorage.setItem("confCode", key);
-    }
-    fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-      .then(response => window.location.href = 'medtorCodeAuth.html')
-      .catch(error => console.error('Error!', error.message))
-
-    console.log(key);
-  }
-})
+// form.addEventListener('submit', e => {
+//   e.preventDefault();
+//   emailText = emailIn.value;
+//   if (checkFormatting(emailText)){
+//     key = Math.floor(100000 + Math.random() * 900000);
+//     document.getElementById("hiddenVal").value = key;
+//     if (key != 0) {
+//       localStorage.setItem("confCode", key);
+//     }
+//     fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+//       .then(response => window.location.href = 'medtorHome.html')
+//       .catch(error => console.error('Error!', error.message))
+//
+//     console.log(key);
+//   }
+// })
