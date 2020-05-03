@@ -6,6 +6,20 @@
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="medtorHome.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
   </head>
 
 
@@ -19,7 +33,7 @@
         <nav>
           <li><a style="text-decoration:none" href="#">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logIn"><a style="text-decoration:none" href="#" class="logColor">Log In</a></li>
+          <li class = "logIn"><a href="medtorAuthPass.html" style="text-decoration:none" class="logColor" id = "upperLogIn">Log In</a></li>
           <!-- <li>Data</li> -->
         </nav>
       </div>
@@ -29,7 +43,7 @@
       <div class="content">
         <img class="mainLogo" src="Icons/frontLogo.png">
         <img class = "iPhoneLogo" src="Icons/MedtorDesignsiphoneLogo.png">
-        <a href="medtorAuth.html"><button class="menBtn">Mentor</button></a>
+        <a href="medtorAuthPass.html"><button class="menBtn">Mentor</button></a>
         <a href="#"><button class="studBtn">Student</button></a>
       </div>
     </div>
@@ -90,6 +104,7 @@
     <!-- other fonts -->
     <!-- <button class = "studBtn">Student</button>
     <button class = "menBtn">Mentor</button> -->
+    <script src="medtorHome.js"></script>
 
   </body>
 </html>
