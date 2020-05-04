@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorFormMentor1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="#"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="#">Home</a></li>
+          <li><a style="text-decoration:none" href="#">About</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor">Log Out</a></li>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="middleContainer">
+      <div class="headerText">
+        <img class = "profileLogo" src = "Icons/registerIcon2.png">
+        <h3>Mentor Profile</h3>
+      </div>
+
+      <div class="innerSection">
+        <div class="description">
+          <span id = upperText>Please fill out your general information</span>
+        </div>
+        <section class = "firstPage">
+          <div class="form">
+            <input type="text" id = "fNameInput" name="fname" autocomplete="off" required />
+            <label for="fname" class = "nameForInput">
+              <span class="codeText">First Name</span>
+            </label>
+          </div>
+
+          <div class="form">
+            <input type="text" id = "lNameInput" name="lname" autocomplete="off" required />
+            <label for="lname" class = "nameForInput">
+              <span class="codeText">Last Name</span>
+            </label>
+          </div>
+
+          <div class="form">
+            <input type="tel" id = "phoneNumInput" name="phone_num" autocomplete="off" maxlength="15" required />
+            <label for="phone_num" class = "nameForInput">
+              <span class="codeText">Phone Number</span>
+            </label>
+          </div>
+
+          <div class="custom-select" >
+            <select name = "slct" id = "homeStateInput">
+              <option value="none">Home State</option>
+              <option value="AL">Alabama</option>
+            	<option value="AK">Alaska</option>
+            	<option value="AZ">Arizona</option>
+            	<option value="AR">Arkansas</option>
+            	<option value="CA">California</option>
+            	<option value="CO">Colorado</option>
+            	<option value="CT">Connecticut</option>
+            	<option value="DE">Delaware</option>
+            	<option value="DC">District Of Columbia</option>
+            	<option value="FL">Florida</option>
+            	<option value="GA">Georgia</option>
+            	<option value="HI">Hawaii</option>
+            	<option value="ID">Idaho</option>
+            	<option value="IL">Illinois</option>
+            	<option value="IN">Indiana</option>
+            	<option value="IA">Iowa</option>
+            	<option value="KS">Kansas</option>
+            	<option value="KY">Kentucky</option>
+            	<option value="LA">Louisiana</option>
+            	<option value="ME">Maine</option>
+            	<option value="MD">Maryland</option>
+            	<option value="MA">Massachusetts</option>
+            	<option value="MI">Michigan</option>
+            	<option value="MN">Minnesota</option>
+            	<option value="MS">Mississippi</option>
+            	<option value="MO">Missouri</option>
+            	<option value="MT">Montana</option>
+            	<option value="NE">Nebraska</option>
+            	<option value="NV">Nevada</option>
+            	<option value="NH">New Hampshire</option>
+            	<option value="NJ">New Jersey</option>
+            	<option value="NM">New Mexico</option>
+            	<option value="NY">New York</option>
+            	<option value="NC">North Carolina</option>
+            	<option value="ND">North Dakota</option>
+            	<option value="OH">Ohio</option>
+            	<option value="OK">Oklahoma</option>
+            	<option value="OR">Oregon</option>
+            	<option value="PA">Pennsylvania</option>
+            	<option value="RI">Rhode Island</option>
+            	<option value="SC">South Carolina</option>
+            	<option value="SD">South Dakota</option>
+            	<option value="TN">Tennessee</option>
+            	<option value="TX">Texas</option>
+            	<option value="UT">Utah</option>
+            	<option value="VT">Vermont</option>
+            	<option value="VA">Virginia</option>
+            	<option value="WA">Washington</option>
+            	<option value="WV">West Virginia</option>
+            	<option value="WI">Wisconsin</option>
+            	<option value="WY">Wyoming</option>
+            </select>
+          </div>
+
+          <div class="custom-select">
+            <select name = "slct" id = "gend">
+              <option value="none">Gender</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Other</option>
+            </select>
+          </div>
+
+          <div class="custom-select">
+            <select name = "slct" id = "hobby1">
+              <option value="none">Hobbies/Passions (1)</option>
+              <option value="1">Dance</option>
+              <option value="2">Sports</option>
+              <option value="3">Puzzles</option>
+              <option value="4">Singing</option>
+              <option value="5">Music</option>
+              <option value="6">Art</option>
+              <option value="7">Digital Media</option>
+              <option value="8">Film</option>
+              <option value="9">Travel</option>
+              <option value="10">Video Games</option>
+              <option value="11">Blogging</option>
+              <option value="12">Reading</option>
+              <option value="13">Strategic Games</option>
+              <option value="14">Yoga</option>
+              <option value="15">Photography/Videography</option>
+              <option value="16">Languages</option>
+              <option value="17">Coding</option>
+              <option value="18">Cooking</option>
+              <option value="19">Comedy</option>
+              <option value="20">Baking</option>
+            </select>
+          </div>
+
+          <div class="custom-select">
+            <select name = "slct" id = "hobby2">
+              <option value="none">Hobbies/Passions (2)</option>
+              <option value="1">Dance</option>
+              <option value="2">Sports</option>
+              <option value="3">Puzzles</option>
+              <option value="4">Singing</option>
+              <option value="5">Music</option>
+              <option value="6">Art</option>
+              <option value="7">Digital Media</option>
+              <option value="8">Film</option>
+              <option value="9">Travel</option>
+              <option value="10">Video Games</option>
+              <option value="11">Blogging</option>
+              <option value="12">Reading</option>
+              <option value="13">Strategic Games</option>
+              <option value="14">Yoga</option>
+              <option value="15">Photography/Videography</option>
+              <option value="16">Languages</option>
+              <option value="17">Coding</option>
+              <option value="18">Cooking</option>
+              <option value="19">Comedy</option>
+              <option value="20">Baking</option>
+            </select>
+          </div>
+
+          <div class="custom-select">
+            <select name = "slct" id = "hobby3">
+              <option value="none">Hobbies/Passions (3)</option>
+              <option value="1">Dance</option>
+              <option value="2">Sports</option>
+              <option value="3">Puzzles</option>
+              <option value="4">Singing</option>
+              <option value="5">Music</option>
+              <option value="6">Art</option>
+              <option value="7">Digital Media</option>
+              <option value="8">Film</option>
+              <option value="9">Travel</option>
+              <option value="10">Video Games</option>
+              <option value="11">Blogging</option>
+              <option value="12">Reading</option>
+              <option value="13">Strategic Games</option>
+              <option value="14">Yoga</option>
+              <option value="15">Photography/Videography</option>
+              <option value="16">Languages</option>
+              <option value="17">Coding</option>
+              <option value="18">Cooking</option>
+              <option value="19">Comedy</option>
+              <option value="20">Baking</option>
+            </select>
+          </div>
+        </section>
+      </div>
+      <a href="medtorHTMLmentor2.html"><button class="nextButton1">Next</button></a>
+    </div>
+
+    <div class="containerBottom">
+      <button class="contactUs">Contact Us</button>
+      <article class="infoText">
+        Created by Vin Somasundaram, Karan Desai, and Anshu Jonnalagadda
+      </article>
+      <article class="infoText">
+        © 2020 Medtor. Trademarks and brands are the property of their respective owners.
+      </article>
+    </div>
+
+    <script src="medtorFormMentor1.js"></script>
+
+  </body>
+
+</html>
