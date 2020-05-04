@@ -135,7 +135,7 @@ h3 {
 
   margin: auto;
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 10px;
 }
 
 /*hr {
@@ -149,48 +149,259 @@ h3 {
 }*/
 
 .innerSection {
-  position: absolute;
-  width: 50%;
-  height: 10px;
-  left: 25%;
-  top: 30%;
+  width: 75%;
+  height: 325px;
+  border: 3px solid #1975af;
+  background-color: white;
+  border-radius: 10px;
 
-  background: #1975AF;
-  border-radius: 6050px;
+  margin-top: -10px;
+  margin-bottom: 60px;
 }
 
-h4 {
-  position: absolute;
-  width: 100%;
-  height: 20%;
-  left: 0%;
-  top: 0px;
-
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 30px;
-  text-align: center;
-
-  color: #000000;
+.secondPage {
+  width: 80%;
+  padding-left: 0%;
+  padding-right: 0%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
 }
 
-.mainLogo {
-  position: absolute;
-  width: 175px;
-  height: 175px;
-
-  top: 57%;
-  margin-right: auto;
+.form {
+  width: 40%;
+  position: relative;
+  height: 70px;
+  overflow: hidden;
   margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-select {
+  width: 40%;
+  position: relative;
+  height: 40px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 
-  background: url(MedTorLogo2.png);
+  line-height: 3;
+  border-radius: .25em;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: white;
+  background-image: none;
+  border:1px solid black;
+}
+
+select {
+  width: 97%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .3em;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  color: rgb(169, 169, 169, 80.0); black;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.custom-select::after {
+  content: '\25BC';
+  color: #27abff;
+  position: absolute;
+  top: -8px;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  pointer-events: none;
+}
+
+select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
 }
 
 
+.form input {
+  width: 95%;
+  position: absolute;
+  bottom: 0px;
+  height: 50%;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  padding-left: 5px;
+}
 
+.form label {
+  position: absolute;
+  margin-left: 10px;
+  bottom: 0px;
+  left: 0%;
+  width: 95%;
+  height: 100%;
+  pointer-events: none;
+  color: rgb(169, 169, 169, 80.0); black;
+}
+
+.codeText {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+
+
+.form input:focus + .label-fname .codeText, .form input:valid + .label-fname .codeText{
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: 4px;
+
+}
+
+.form input:focus {
+    border:1px solid #1975af;
+}
+
+
+.form input:focus + .label-lname .codeText, .form input:valid + .label-lname .codeText{
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: 4px;
+
+}
+
+
+.form input:focus + .label-home_state .codeText, .form input:valid + .label-home_state .codeText{
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: 4px;
+}
+
+.form input:focus + .label-gend .codeText, .form input:valid + .label-gend .codeText{
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: 4px;
+}
+
+
+.form input:focus + .label-hob .codeText, .form input:valid + .label-hob .codeText{
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: 4px;
+}
+
+.form input:focus + .label-medloc .codeText, .form input:valid + .label-medloc .codeText{
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: 4px;
+}
+
+
+.buttons {
+  text-align: center;
+  float:left;
+}
+
+.buttons button{
+  display: inline-block;
+}
+#previousButton1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+
+  margin-top: -10px;
+
+  margin-bottom: 40px;
+
+  width: 155px;
+  height: 41px;
+  border-radius: 10px;
+
+  background: #27abff;
+  color: white;
+  outline: none;
+
+  float:left;
+}
+#nextButton1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+
+  margin-top: -10px;
+
+  margin-bottom: 40px;
+
+  width: 155px;
+  height: 41px;
+  border-radius: 10px;
+
+  background: #27abff;
+  color: white;
+  outline: none;
+
+  float:right;
+}
+
+#previousButton1:hover {
+  background: white;
+  color: #27abff;
+  border: 1.5px solid #27abff
+}
+
+#nextButton1:hover {
+  background: white;
+  color: #27abff;
+  border: 1.5px solid #27abff
+}
 
 /* bottom section */
 .containerBottom {
@@ -251,6 +462,18 @@ h4 {
 }
 
 
+@media only screen and (max-width: 1200px) {
+  .form label {
+    font-size: 14px;
+  }
+
+  select {
+    font-size: 14px;
+  }
+
+
+}
+
 
 
 /* iPhone and other tablet resizing smaller than typical laptop */
@@ -303,28 +526,25 @@ h4 {
     font-size: 25px
   }
 
-  h4 {
-    width: 100%;
-    height: 20%;
-    left: 0%;
-    top: 0px;
-
-    font-size: 18px;
-  }
-
   .innerSection {
-    width: 50%;
-    height: 5px;
-    top: 25%;
+    width: 75%;
+    height: 500px;
   }
 
-  .mainLogo {
-    width: 150px;
-    height: 150px;
+  .form {
+    width: 70%;
+  }
 
-    top: 58%;
+  .form label {
+    font-size: 14px;
+  }
 
-    background: url(MedTorLogo2.png);
+  .custom-select {
+    width: 70%;
+  }
+
+  select {
+    font-size: 14px;
   }
 
   .contactUs {
@@ -366,7 +586,6 @@ h4 {
     float: right;
     line-height: 50px;
   }
-
 
   nav li {
     display: inline-block;
