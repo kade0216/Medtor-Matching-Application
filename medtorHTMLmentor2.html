@@ -19,7 +19,7 @@
         <nav>
           <li><a style="text-decoration:none" href="#">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logIn"><a style="text-decoration:none" href="#" class="logColor">Log In</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor">Log Out</a></li>
         </nav>
       </div>
     </header>
@@ -32,64 +32,84 @@
       </div>
 
       <div class="innerSection">
-        <div class="form">
-          <input type="text" name="fname" autocomplete="off" required />
-          <label for="fname" class = "label-fname">
-            <span class="content-fname">Undergraduate Institution</span>
-          </label>
-        </div>
+        <section class = "secondPage">
+          <div class="form">
+            <input type="text" id = "undergradinstInput" name="fname" autocomplete="off" required />
+            <label for="fname" class = "label-fname">
+              <span class="codeText">Undergraduate Institution</span>
+            </label>
+          </div>
 
-        <div class="form">
-          <input type="text" name="lname" autocomplete="off" required />
-          <label for="lname" class = "label-lname">
-            <span class="content-lname">University Location</span>
-          </label>
-        </div>
+          <div class="form">
+            <input type="text" id = "univlocationInput" name="lname" autocomplete="off" required />
+            <label for="lname" class = "label-lname">
+              <span class="codeText">University Location</span>
+            </label>
+          </div>
 
-        <div class="form">
-          <input type="tel" name="phone_num" autocomplete="off" maxlength="15" required />
-          <label for="phone_num" class = "label-phone_num">
-            <span class="content-phone_num">Graduating Year</span>
-          </label>
-        </div>
+          <div class="custom-select">
+            <select name = "slct" id = "gradyearInput">
+              <option value="none">Graduating Year (Undergrad)</option>
+              <option value="1">2015</option>
+              <option value="2">2016</option>
+              <option value="3">2017</option>
+              <option value="4">2018</option>
+              <option value="5">2019</option>
+              <option value="6">2020</option>
+              <option value="7">2021</option>
+              <option value="8">2022</option>
+            </select>
+          </div>
 
-        <div class="form">
-          <input type="text" name="home_state" autocomplete="off" required />
-          <label for="home_state" class = "label-home_state">
-            <span class="content-home_state">Major</span>
-          </label>
-        </div>
+          <div class="form">
+            <input type="text" id = "majorInput" name="home_state" autocomplete="off" required />
+            <label for="home_state" class = "label-home_state">
+              <span class="codeText">Major</span>
+            </label>
+          </div>
 
-        <div class="form">
-          <input type="text" name="gend" autocomplete="off" required />
-          <label for="gend" class = "label-gend">
-            <span class="content-gend">Minor/Second Major (if applicable)</span>
-          </label>
-        </div>
+          <div class="form">
+            <input type="text" id = "secmajororminorInput" name="gend" autocomplete="off" required />
+            <label for="gend" class = "label-gend">
+              <span class="codeText">Minor/Second Major</span>
+            </label>
+          </div>
 
-        <div class="form">
-          <input type="text" name="hob" autocomplete="off" required />
-          <label for="hob" class = "label-hob">
-            <span class="content-hob">Medical School</span>
-          </label>
-        </div>
+          <div class="form">
+            <input type="text" id = "medschoolInput" name="hob" autocomplete="off" required />
+            <label for="hob" class = "label-hob">
+              <span class="codeText">Medical School</span>
+            </label>
+          </div>
 
-        <div class="form">
-          <input type="text" name="medloc" autocomplete="off" required />
-          <label for="medloc" class = "label-medloc">
-            <span class="content-medloc">Medical School Location</span>
-          </label>
-        </div>
+          <div class="form">
+            <input type="text" id = "medschoollocInput" name="medloc" autocomplete="off" required />
+            <label for="medloc" class = "label-medloc">
+              <span class="codeText">Med School Location</span>
+            </label>
+          </div>
 
-        <div class="form">
-          <input type="text" name="grad" autocomplete="off" required />
-          <label for="grad" class = "label-grad">
-            <span class="content-grad">Intended Graduation Year</span>
-          </label>
-        </div>
+          <div class="custom-select">
+            <select name = "slct" id = "gradyearInput">
+              <option value="none">Intended Graduation Year</option>
+              <option value="1">2019</option>
+              <option value="2">2020</option>
+              <option value="3">2021</option>
+              <option value="4">2022</option>
+              <option value="5">2023</option>
+              <option value="6">2024</option>
+              <option value="7">2025</option>
+              <option value="8">2026</option>
+            </select>
+          </div>
+        </section>
 
       </div>
-      <button class="nextButton">Next</button>
+
+      <div class = "buttons">
+        <a href="medtorHTMLmentor1.html"><button id="previousButton1">Previous</button></a>
+        <a href="medtorHTMLmentor3.html"><button id="nextButton1">Next</button></a>
+      </div>
     </div>
 
 
