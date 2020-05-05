@@ -28,8 +28,8 @@ firebase.auth().onAuthStateChanged(function(user) {
       console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
-    if (user.displayName == "Student") {
-      window.location.href = "medtorAuthStud.html";
+    if (user.displayName == "Mentor") {
+      window.location.href = "medtorAuthPass.html";
     }
     //user signed in
     console.log("here");
@@ -81,15 +81,14 @@ function goNext(e) {
         hobby2: hobIn2,
         hobby3: hobIn3,
       }
-      theCurrUser = databaseRef.child("mentorUsers").child(user.uid);
+      theCurrUser = databaseRef.child("studentUsers").child(user.uid);
       theCurrUser.update(extraData).then(function() {
         //new code
         console.log("entered new data")
-        //GO TO NEXT PAGE
-        // var returnedPerson = firebase.functions().httpsCallable('findMatches');
-        // returnedPerson( {text: " "}).then(function(result){
-        //   theObject = result;
-        //   console.log(theObject);
+        var returnedPerson = firebase.functions().httpsCallable('findMatches');
+        returnedPerson( {text: " "}).then(function(result){
+          theObject = result;
+          console.log(theObject);
         });
 
       });

@@ -42,8 +42,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     };
 
     //checks to see if student or mentor
-    if (user.displayName == "Student") {
-      window.location.href = "medtorAuthStud.html"
+    if (user.displayName == "Mentor") {
+      window.location.href = "medtorAuthPass.html"
     }
 
     //takes away display of form and replaces it with loggedIn header
@@ -74,13 +74,14 @@ firebase.auth().onAuthStateChanged(function(user) {
       //display use specific text
       var email_id = user.email;
       var email_verified = user.emailVerified;
-      document.getElementById('loggedInText').innerHTML = "A verification email has been sent to " + email_id + ". <br/> <br/> Refresh the page once you have verified your email to create your profile. <br/><br/>Verified: " + email_verified;
+      var userType = user.displayName;
+      document.getElementById('loggedInText').innerHTML = "A verification email has been sent to " + email_id + ". <br/> <br/> Refresh the page once you have verified your email to create your profile. <br/><br/>Type: " + userType;
       document.getElementById('')
 
       //If email is verified, check to see if user has already been placed into database, if NOT then add to database and then move on to next page, if already done then move on to next page.
       if (user.emailVerified) {
         window.localStorage.setItem('userUID', user.uid); //unnecessary
-        databaseRef.child("mentorUsers").orderByChild("email").equalTo(email_id).once("value",snapshot => {
+        databaseRef.child("studentUsers").orderByChild("email").equalTo(email_id).once("value",snapshot => {
           if (snapshot.exists()){
             //go to next page
             console.log("would go to next page");
@@ -88,7 +89,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           }
           else {
             //adds data to database
-            allUsers = databaseRef.child("mentorUsers");
+            allUsers = databaseRef.child("studentUsers");
             theCurrUser = allUsers.child(user.uid);
             theCurrUser.set({
               email: user.email,
@@ -198,9 +199,10 @@ function createAccount(e) {
     firebase.auth().createUserWithEmailAndPassword(emailIn, passwordIn).then(function(){
       var user = firebase.auth().currentUser;
       user.updateProfile({
-        displayName: "Mentor"
+        displayName: "Student"
       })
       sendVerification();
+
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -208,6 +210,7 @@ function createAccount(e) {
       console.log("its not created")
       window.alert("Error: " + errorMessage);
     });
+
   }
 
 }

@@ -62,14 +62,14 @@ nav li {
   background: #1975af;
   border-radius: 20px;
   color: white;
-  border: 1.5px solid #1975af
+  border: 1.5px solid #1975af;
 }
 
 .logIn:hover {
   background: white;
   border-radius: 20px;
   color: #1975af;
-  border: 1.5px solid #1975af
+  border: 1.5px solid #1975af;
 }
 
 a {

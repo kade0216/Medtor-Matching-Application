@@ -18,6 +18,7 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
 
   </head>
@@ -33,7 +34,11 @@
         <nav>
           <li><a style="text-decoration:none" href="#">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logIn"><a href="medtorAuthPass.html" style="text-decoration:none" class="logColor" id = "upperLogIn">Log In</a></li>
+          <li class = "logIn" id = "itemLogIn" href="medtorAuthPass.html">
+            <a onclick = null href="medtorAuthPass.html" style="text-decoration:none" class="logColor" id = "upperLogIn">
+              Log In
+            </a>
+          </li>
           <!-- <li>Data</li> -->
         </nav>
       </div>
@@ -44,7 +49,7 @@
         <img class="mainLogo" src="Icons/frontLogo.png">
         <img class = "iPhoneLogo" src="Icons/MedtorDesignsiphoneLogo.png">
         <a href="medtorAuthPass.html"><button class="menBtn">Mentor</button></a>
-        <a href="#"><button class="studBtn">Student</button></a>
+        <a href="medtorAuthStud.html"><button class="studBtn">Student</button></a>
       </div>
     </div>
 
