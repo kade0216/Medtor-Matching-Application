@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="medtorFormStudent1.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
 
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
   </head>
 
 
@@ -28,13 +28,13 @@
     <header>
       <div class="topContainer">
         <div class="containsLogo">
-          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+          <a href="#"><img class = "upperLogo" src="Icons/logoText.png"></a>
         </div>
 
         <nav>
-          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <li><a style="text-decoration:none" href="#">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id = "upperLogIn">Log Out</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor">Log Out</a></li>
         </nav>
       </div>
     </header>
@@ -47,27 +47,29 @@
       </div>
 
       <div class="innerSection">
+
         <div class="description">
           <span id = upperText>Please fill out your general information</span>
         </div>
+
         <section class = "firstPage">
           <div class="form">
             <input type="text" id = "fNameInput" name="fname" autocomplete="off" required />
-            <label for="fname" class = "nameForInput">
+            <label for="fname" class = "label-fname">
               <span class="codeText">First Name</span>
             </label>
           </div>
 
           <div class="form">
             <input type="text" id = "lNameInput" name="lname" autocomplete="off" required />
-            <label for="lname" class = "nameForInput">
+            <label for="lname" class = "label-lname">
               <span class="codeText">Last Name</span>
             </label>
           </div>
 
           <div class="form">
             <input type="tel" id = "phoneNumInput" name="phone_num" autocomplete="off" maxlength="15" required />
-            <label for="phone_num" class = "nameForInput">
+            <label for="phone_num" class = "label-phone_num">
               <span class="codeText">Phone Number</span>
             </label>
           </div>
@@ -217,7 +219,7 @@
           </div>
         </section>
       </div>
-      <button class="nextButton1" onclick = "goNext(event)">Next</button>
+      <a href="medtorFormStudent2.html"><button class="nextButton1">Next</button></a>
     </div>
 
     <div class="containerBottom">
@@ -230,7 +232,7 @@
       </article>
     </div>
 
-    <script src="medtorFormStudent1.js"></script>
+      <script src="medtorFormMentor1.js"></script>
 
   </body>
 
