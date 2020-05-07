@@ -113,21 +113,43 @@ a:active {
 
 }
 
+.headerArea {
+  width: 80%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  /* border: 3px solid #1975af; */
+
+}
+
+.headerText {
+  width: calc(80vw - 160px);
+  /* padding-right: 12%; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10px;
+  /* margin-right: auto; */
+  margin-left: 0px;
+  padding-right: 80px;
+  align-items: center;
+  /* border: 3px solid #1975af; */
+
+  /* padding-left: 2%; */
+  /* margin-bottom: 30px; */
+}
+
 .profileLogo {
-  display: inline-block;
-  background: #ffffff;
+  background: rgb(0, 0, 0, 0.0);
   height: 85px;
-
-  padding-top: 20px;
-
-  vertical-align: middle;
-  margin-bottom: 35px;
-  margin-right: 15px;
-  margin-left: -10px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 h3 {
-  display: inline-block;
+  /* display: inline-block; */
   font-style: normal;
   font-weight: bold;
   font-size: 35px;
@@ -135,234 +157,7 @@ h3 {
 
   margin: auto;
   text-align: center;
-  margin-bottom: 10px;
-}
-
-/*hr {
-  width: 500px;
-  border: none;
-  height: 3px;
-  border-radius: 2px;
-  background-color: #1975af;
-  margin-top: -10px;
-  margin-bottom: 60px;
-}*/
-
-.innerSection {
-  /* height: 390px; */
-  box-sizing: content-box;
-  width: 760px;
-  border: 3px solid #1975af;
-  background-color: white;
-  border-radius: 10px;
-
-  margin-top: -10px;
-  margin-bottom: 60px;
-
-  padding-bottom: 40px;
-}
-
-.description {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
-  color: black;
-  left:0px;
-  text-align: center;
-}
-
-.firstPage {
-  width: 95%;
-  padding-left: 0%;
-  padding-right: 0%;
-  margin-top: -15px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-}
-
-.eachSide {
-  box-sizing: content-box;
-  width: 45%;
-  min-width: 360px;
-  padding-left: 0%;
-  padding-right: 0%;
-  margin-top: 0px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-}
-
-.form {
-  width: 40%;
-  min-width: 300px;
-  position: relative;
-  height: 60px;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.eachSelect {
-  width: 40%;
-  min-width: 300px;
-  position: relative;
-  height: 35px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 35px;
-}
-
-.custom-select2 {
-  width: 100%;
-  height: 35px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  line-height: 3;
-  border-radius: .25em;
-}
-
-.selectLabel {
-  position:absolute;
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  margin-left: 9px;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-top: -8px;
-  display: none;
-}
-
-/*.custom-select {
-  width = 40%;
-  min-width: 300px;
-  position: relative;
-  height: 35px;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  line-height: 3;
-  border-radius: .25em;
-} */
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  background: white;
-  background-image: none;
-  border:1px solid black;
-  border-radius: 5px;
-}
-
-select {
-  width: 97%;
-  height: 100%;
-  margin: 0;
-  padding: 0 0 0 4px;
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
-  color: rgb(169, 169, 169, 80.0); black;
-}
-
-select::after {
-  font-size: 12px;
-}
-
-select::-ms-expand {
-  display: none;
-}
-
-.custom-select2::after {
-  content: '\25BC';
-  color: #27abff;
-  position: absolute;
-  top: -10px;
-  right: 0;
-  bottom: 0;
-  padding: 0 15px;
-  pointer-events: none;
-}
-
-select::after {
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
-}
-
-
-.form input {
-  width: 95%;
-  position: absolute;
-  bottom: 0px;
-  height: 50%;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-  padding-left: 5px;
-}
-
-.form label {
-  position: absolute;
-  margin-left: 8px;
-  bottom: 0px;
-  left: 0%;
-  width: 95%;
-  height: 100%;
-  pointer-events: none;
-  color: rgb(169, 169, 169, 80.0); black;
-}
-
-.codeText {
-  position: absolute;
-  bottom: 5px;
-  left: 0px;
-  transition: all 0.3s ease;
-}
-
-
-.form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-  transform: translateY(-150%);
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: -1px;
-
-}
-
-.form input:focus {
-    border:1px solid #1975af;
+  margin-bottom: 20px;
 }
 
 
@@ -371,24 +166,159 @@ button {
   font-size: 17px;
   font-weight: 600;
 
-  margin-top: -10px;
+  margin-top: 35px;
+  /* margin-right: auto; */
+  /* margin-bottom: 30px; */
+  /* margin-bottom: 60px; */
 
-  margin-bottom: 40px;
-
-  width: 165px;
+  width: 155px;
   height: 41px;
   border-radius: 10px;
+  margin-left: 0px;
 
   background: #27abff;
   color: white;
   outline: none;
+  display: inline-block;
   border: none;
+}
+
+.backBtn {
+  width: 80px;
 }
 
 button:hover {
   background: white;
   color: #27abff;
   border: 1.5px solid #27abff
+}
+
+.innerSection {
+  box-sizing: content-box;
+  width: 75%;
+  padding-bottom: 20px;
+  /* height: 700px; */
+  border: 3px solid #1975af;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 20px;
+
+  margin-top: 20px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: "Montserrat";
+  background: #ebf5ff;
+}
+
+.nameTitle {
+  width: 90%;
+  height: 48px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 45px;
+  text-align: center;
+  /* border: 3px solid #1975af; */
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5px;
+  overflow: hidden;
+}
+
+.edSection {
+  box-sizing: content-box;
+  width: 85%;
+  padding-left: 4%;
+  padding-right: 4%;
+  border-radius: 20px;
+  /* height: 250px; */
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 4%;
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* border: 3px solid #1975af; */
+}
+
+.pathSection {
+  box-sizing: content-box;
+  width: 85%;
+  padding-left: 4%;
+  padding-right: 4%;
+  border-radius: 20px;
+  /* height: 160px; */
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 4%;
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* border: 3px solid #1975af; */
+}
+
+.passionSection {
+  box-sizing: content-box;
+  width: 85%;
+  padding-left: 4%;
+  padding-right: 4%;
+  border-radius: 20px;
+  /* height: 100px; */
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 4%;
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* border: 3px solid #1975af; */
+}
+
+
+
+.secTitle {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 43px;
+  color: #27abff;
+  width: 100%;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sectionLogo {
+  background: rgb(0, 0, 0, 0.0);
+  height: 31px;
+  margin-right: 15px;
+}
+
+.innerInfo {
+  /* border: 3px solid #1975af; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+
+  margin-bottom: 10px;
+
+  width: 90%;
+
 }
 
 
@@ -450,11 +380,8 @@ button:hover {
   padding-right: 5px;
 }
 
-
-
-
 /* iPhone and other tablet resizing smaller than typical laptop */
-@media only screen and (max-width: 971px) {
+@media only screen and (max-width: 745px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -493,40 +420,48 @@ button:hover {
     min-height: calc(100vh - 50px - 100px - 30px);
   }
 
+  .headerArea {
+    height: 120px;
+    /* padding-right: 80px; */
+  }
+
   .profileLogo {
     height: 65px;
-    margin-right: 5px;
-    margin-left: -5px;
+    margin-bottom:0px;
   }
 
   h3 {
     font-size: 25px
   }
 
-  /* .innerSection {
-    height: 700px;
-  } */
-
-  .form {
-    min-width: 300px;
+  .innerSection {
+    margin-top: 5px;
   }
 
-  .form label {
-    font-size: 16px;
-    margin-bottom: 2px;
+  .nameTitle {
+    height: 37px;
+    font-size: 33px;
   }
 
-  .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-    margin-bottom: -3px;
+  .secTitle {
+    font-size: 25px;
+    line-height: 30px;
   }
 
-  .eachSelect {
-    min-width: 300px;
+  .sectionLogo {
+    height: 26px;
   }
 
-  select {
-    font-size: 16px;
+  .innerInfo {
+    /* border: 3px solid #1975af; */
+    font-size: 14px;
+    line-height: 18px;
+
+    margin-bottom: 8px;
+
+
   }
+
 
   .contactUs {
     width: 110px; /* changed */
@@ -547,13 +482,8 @@ button:hover {
 
 }
 
-@media only screen and (max-width: 850px) {
-  .innerSection {
-    width: 75%;
-  }
-}
 /* super small iPhone and other tablet resizing like iPhone 5*/
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 530px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -588,20 +518,67 @@ button:hover {
     text-align: center;
   }
 
+  .headerArea {
+    width: 90%;
+    height: 100px;
+    /* padding-right: 80px; */
+  }
+
+  .headerText {
+    width: calc(90vw - 120px);
+    min-width: 170px;
+    padding-right: 60px;
+  }
+
+  .backBtn {
+    width: 60px;
+    height: 30px;
+    font-size: 12px;
+
+  }
+
+  .profileLogo {
+    height: 50px;
+    margin-bottom:0px;
+  }
+
+  h3 {
+    font-size: 20px
+  }
+
   .innerSection {
-    width: 75%;
+    width: 90%;
+    padding-top: 10px;
   }
 
-  .eachSide {
-    min-width: 260px;
+  .nameTitle {
+    height: 28px;
+    font-size: 21px;
+    padding-bottom: 7px;
   }
 
-  .form {
-    min-width: 240px;
+  .secTitle {
+    font-size: 18px;
+    line-height: 22px;
   }
 
-  .eachSelect {
-    min-width: 240px;
+  .sectionLogo {
+    height: 19px;
+  }
+
+  .innerInfo {
+    font-size: 12px;
+    line-height: 14px;
+
+    margin-bottom: 6px;
+
+  }
+
+  .pathSection {
+    margin-top: 20px;
+  }
+  .passionSection {
+    margin-top: 20px;
   }
 
 }

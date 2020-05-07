@@ -149,7 +149,6 @@ h3 {
 }*/
 
 .innerSection {
-  /* height: 390px; */
   box-sizing: content-box;
   width: 760px;
   border: 3px solid #1975af;
@@ -253,8 +252,8 @@ h3 {
   display: none;
 }
 
-/*.custom-select {
-  width = 40%;
+/* .custom-select {
+  width: 40%;
   min-width: 300px;
   position: relative;
   height: 35px;
@@ -375,7 +374,7 @@ button {
 
   margin-bottom: 40px;
 
-  width: 165px;
+  width: 155px;
   height: 41px;
   border-radius: 10px;
 
@@ -552,6 +551,7 @@ button:hover {
     width: 75%;
   }
 }
+
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
   .container {

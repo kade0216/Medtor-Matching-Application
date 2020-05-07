@@ -1,0 +1,784 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: white;
+  color: #000000;
+  height: 100%
+}
+
+h2 {
+  color: #ebf5ff;
+}
+
+.topContainer {
+  max-width: 1700px;
+  width: 96%;
+  background: #ebf5ff;
+  margin: auto;
+  overflow: hidden;
+}
+
+/*----Header Navigation Bar----*/
+
+header {
+  background: #ebf5ff;
+  margin-bottom: 0px;
+}
+
+.upperLogo {
+  float: left;
+  margin-top: 15px;
+  width: 163px;
+}
+
+nav {
+  float: right;
+  line-height: 70px;
+}
+
+nav li {
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 10px;
+  line-height: normal;
+
+  background: rgba(255, 0, 0, 0.0);
+  border-color: rgba(255, 0, 0, 0.0);
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+}
+
+.logOut {
+  background: #1975af;
+  border-radius: 20px;
+  color: white;
+  border: 1.5px solid #1975af
+}
+
+.logOut:hover {
+  background: white;
+  border-radius: 20px;
+  color: #1975af;
+  border: 1.5px solid #1975af
+}
+
+a {
+  color: black;
+}
+
+a:active {
+  color: #1975af;
+}
+
+.logColor {
+  color: white;
+}
+
+.logColor:hover {
+  color: #1975af;
+}
+
+.logColor:active {
+  color: #1975af;
+}
+
+/*---header---*/
+.middleContainer {
+  max-width: 1700px;
+  width: 100%;
+  min-height: calc(100vh - 70px - 100px - 30px);
+
+  background: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+
+  font-style: normal;
+  font-size: 20px;
+
+}
+
+.headerText {
+  width: 400px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  border-bottom: 3px solid #1975af;
+  padding-left: 2%;
+  /* margin-bottom: 30px; */
+}
+
+.profileLogo {
+  background: #ffffff;
+  height: 85px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  /* display: inline-block; */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 43px;
+
+  margin: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.innerSection {
+  width: 75%;
+  height: 550px;
+  /* border: 3px solid #1975af; */
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 20px;
+
+  /* margin-top: 20px; */
+  margin-bottom: 60px;
+}
+
+.description {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-right: 2%; */
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: black;
+  left:0px;
+  text-align: center;
+}
+
+.upperCell {
+  width: 90%;
+  height: 30px;
+  border: 3px solid #1975af;
+  border-radius: 10px;
+
+  background: white;
+  margin-top: -3px;
+
+  display: flex;
+  flex-direction: row;
+
+  background: #1975af;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  text-align: center;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
+}
+
+.headerName {
+  width: 45%;
+  padding-left: 2%;
+  text-align: left;
+}
+.headerUnder {
+  width: 14%;
+  font-size: 14px;
+  line-height: 20px;
+}
+.headerYear {
+  width: 15%;
+  font-size: 14px;
+  line-height: 20px;
+}
+.headerBetween {
+  width: 12%;
+  font-size: 14px;
+  line-height: 20px;
+}
+.headerSelect {
+  width: 12%;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.cell {
+  width: 90%;
+  height: 70px;
+  border: 3px solid #1975af;
+  border-radius: 10px;
+
+  background: white;
+  margin-top: -3px;
+
+  display: flex;
+  flex-direction: row;
+
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+
+  font-family: "Montserrat";
+}
+
+.cell2 {
+  width: 90%;
+  height: 70px;
+  border: 3px solid #1975af;
+  border-radius: 10px;
+
+  background: #ebf5ff;
+  margin-top: -3px;
+
+  display: flex;
+  flex-direction: row;
+
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+
+  font-family: "Montserrat";
+}
+
+.mainTab {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  /* border: 3px solid #1975af; */
+  padding-left: 2%;
+  padding-top: 15px;
+}
+
+.mentorName {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 35px;
+  color:black;
+}
+
+.medSchool {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: black;
+}
+
+.college {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  overflow: hidden;
+  /* height: 100%; */
+  width: 14%;
+  /* height: 80%; */
+  /* border: 3px solid #1975af; */
+}
+
+.year {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 37px;
+  text-align: center;
+  width: 15%;
+  /* border: 3px solid #1975af; */
+}
+
+.gapYear {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+
+  width: 12%;
+  /* border: 3px solid #1975af; */
+}
+
+.checkerBox{
+  width: 11%;
+  height: 70%;
+  padding-left: 1%;
+  /* margin-left: 3%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 3px solid #1975af; */
+}
+
+.check {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /* float:right; */
+}
+
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+
+  margin-top: 35px;
+  margin-right: 5%;
+  margin-left: auto;
+  /* margin-right: auto; */
+  /* margin-bottom: 30px; */
+  /* margin-bottom: 60px; */
+
+  width: 155px;
+  height: 41px;
+  border-radius: 10px;
+
+  background: #27abff;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.confirmer {
+  float: right;
+  display: none;
+}
+
+button:hover {
+  background: white;
+  color: #27abff;
+  border: 1.5px solid #27abff
+}
+
+
+/* bottom section */
+.containerBottom {
+  max-width: 1700px;
+  width: 100%;
+  height: 80px;
+  background: #ebf5ff;
+  padding-top: 15px;
+  padding-bottom: 5px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+
+  font-style: normal;
+  font-size: 20px;
+
+}
+
+.contactUs {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-top: -5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+
+  width: 110px; /* changed */
+  height: 34px;
+  border-radius: 20px;
+
+  background: #1975af;
+  color: white;
+  outline: none;
+}
+
+.contactUs:hover {
+  color: #1975af;
+  background: white;
+  border: 1.5px solid #1975af
+}
+
+.infoText {
+  font-weight: 300;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@media only screen and (max-width: 1080px) {
+  .mainTab {
+    padding-top: 24px;
+  }
+
+  .mentorName {
+    font-size: 23px;
+    line-height: 28px;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  /* 885px; */
+  .description {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .headerName {
+    width: 40%;
+  }
+  .headerUnder {
+    width: 15%;
+  }
+  .headerYear {
+    width: 16%;
+  }
+  .headerBetween {
+    width: 13%;
+  }
+  .headerSelect {
+    width: 13%;
+  }
+
+  .mainTab {
+    width: 40%;
+    padding-top: 30px;
+  }
+
+  .mentorName {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .medSchool {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .college {
+    font-size: 14px;
+    line-height: 18px;
+    width:15%
+    /* border: 3px solid #1975af; */
+  }
+
+  .year {
+    font-size: 25px;
+    line-height: 32px;
+    width: 16%
+    /* border: 3px solid #1975af; */
+  }
+
+  .gapYear {
+    font-size: 14px;
+    line-height: 22px;
+    width: 13%
+    /* border: 3px solid #1975af; */
+  }
+
+  .checkerBox {
+    padding-left: 2%;
+  }
+}
+
+/* iPhone and other tablet resizing smaller than typical laptop */
+@media only screen and (max-width: 745px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    /* padding-top: 0%;
+    padding-bottom: 20%; */
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .middleContainer {
+    min-height: calc(100vh - 50px - 100px - 30px);
+  }
+
+  .headerText {
+    width: 260px;
+    height: 110px;
+  }
+
+  .profileLogo {
+    height: 65px;
+    margin-bottom:0px;
+  }
+
+  h3 {
+    font-size: 25px
+  }
+
+  .headerName {
+    width: 48%;
+  }
+  .headerUnder {
+    width: 17%;
+  }
+  .headerYear {
+    width: 18%;
+  }
+  .headerBetween {
+    display: none;
+  }
+  .headerSelect {
+    width: 14%;
+  }
+
+
+  .mainTab {
+    width: 48%;
+  }
+
+  .college {
+    width: 17%
+    /* border: 3px solid #1975af; */
+  }
+
+  .year {
+    width: 18%
+    /* border: 3px solid #1975af; */
+  }
+
+  .gapYear {
+    display:none;
+  }
+
+  .checkerBox {
+    width: 13%;
+    padding-left: 1%;
+  }
+
+  .contactUs {
+    width: 110px; /* changed */
+    height: 34px;
+    font-size: 14px;
+  }
+
+  .infoText {
+    font-weight: 300;
+    line-height: 24px;
+    line-height: 12px;
+    font-size: 10px;
+    text-align: center;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  button {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .confirmer {
+    float: none;
+  }
+
+}
+
+@media only screen and (max-width: 665px) {
+  .cell {
+    border-radius: 15px;
+  }
+
+  .cell2 {
+    border-radius: 15px;
+  }
+
+  .headerName {
+    width: 55%;
+    font-size: 14px;
+  }
+  .headerUnder {
+    width: 25%;
+  }
+  .headerYear {
+    display: none;
+  }
+  .headerSelect {
+    width: 17%;
+  }
+
+  .mainTab {
+    width: 55%;
+  }
+
+  .college {
+    width: 25%
+    /* border: 3px solid #1975af; */
+  }
+
+  .year {
+    display:none;
+    /* border: 3px solid #1975af; */
+  }
+
+  .checkerBox {
+    width: 15%;
+    padding-left: 2%;
+  }
+}
+
+/* super small iPhone and other tablet resizing like iPhone 5*/
+@media only screen and (max-width: 530px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    padding-top: 0%;
+    padding-bottom: 20%;
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 3px; /* changed */
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .headerText {
+    width: 250px;
+    height: 110px;
+  }
+
+  .innerSection {
+    width: 85%;
+  }
+
+  .mainTab {
+    padding-top: 35px;
+  }
+
+  .mentorName {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .medSchool {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .college {
+    font-size: 12px;
+    line-height: 15px;
+    /* border: 3px solid #1975af; */
+  }
+
+  .checkerBox {
+    width: 15%;
+    padding-left: 2%;
+  }
+
+}
+
+@media only screen and (max-width: 415px) {
+  .innerSection {
+    width: 90%;
+  }
+
+  .mainTab {
+    padding-top: 40px;
+    width: 54%;
+  }
+
+  .mentorName {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .medSchool {
+    font-size: 10px;
+    line-height: 13px;
+  }
+
+  .college {
+    font-size: 11px;
+    line-height: 14px;
+    width: 26%;
+    /* border: 3px solid #1975af; */
+  }
+
+  .checkerBox {
+    width: 16%;
+    padding-left: 0%;
+    padding-right: 1%;
+  }
+}

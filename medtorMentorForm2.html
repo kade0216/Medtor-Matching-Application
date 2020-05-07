@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorMentorForm22.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> -->
+
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <li><a style="text-decoration:none" href="#">About</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id="upperLogIn">Log Out</a></li>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="middleContainer">
+      <div class="headerText">
+        <img class = "profileLogo" src = "Icons/registerIcon2.png">
+        <h3>Mentor Profile</h3>
+      </div>
+
+      <div class="innerSection">
+        <div class="description">
+          <span id = upperText>Please fill out your academic history</span>
+        </div>
+
+        <section class = "firstPage">
+          <section class="eachSide">
+            <div class="eachSelect">
+              <label class="selectLabel" id = "uLabel">
+                <span>Undergrad Institution</span>
+              </label>
+              <div class="custom-select2">
+                <select id = "undergradInput">
+                  <option value="none">Undergraduate Institution</option>
+                </select>
+                <!---<select id="selectNumber">
+                  <option>Choose a number</option>
+                </select>--->
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "underLocLabel">
+                <span>Undergrad Location</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "univlocInput">
+                  <option value="none">University Location</option>
+                  <option>Alabama</option>
+                  <option>Alaska</option>
+                  <option>Arizona</option>
+                  <option>Arkansas</option>
+                  <option>California</option>
+                  <option>Colorado</option>
+                  <option>Connecticut</option>
+                  <option>Delaware</option>
+                  <option>District Of Columbia</option>
+                  <option>Florida</option>
+                  <option>Georgia</option>
+                  <option>Hawaii</option>
+                  <option>Idaho</option>
+                  <option>Illinois</option>
+                  <option>Indiana</option>
+                  <option>Iowa</option>
+                  <option>Kansas</option>
+                  <option>Kentucky</option>
+                  <option>Louisiana</option>
+                  <option>Maine</option>
+                  <option>Maryland</option>
+                  <option>Massachusetts</option>
+                  <option>Michigan</option>
+                  <option>Minnesota</option>
+                  <option>Mississippi</option>
+                  <option>Missouri</option>
+                  <option>Montana</option>
+                  <option>Nebraska</option>
+                  <option>Nevada</option>
+                  <option>New Hampshire</option>
+                  <option>New Jersey</option>
+                  <option>New Mexico</option>
+                  <option>New York</option>
+                  <option>North Carolina</option>
+                  <option>North Dakota</option>
+                  <option>Ohio</option>
+                  <option>Oklahoma</option>
+                  <option>Oregon</option>
+                  <option>Pennsylvania</option>
+                  <option>Rhode Island</option>
+                  <option>South Carolina</option>
+                  <option>South Dakota</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Utah</option>
+                  <option>Vermont</option>
+                  <option>Virginia</option>
+                  <option>Washington</option>
+                  <option>West Virginia</option>
+                  <option>Wisconsin</option>
+                  <option>Wyoming</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "uYearLabel">
+                <span>Undergrad Grad Year</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "gradyearInput">
+                  <option value="none">Undergrad Graduation Year</option>
+                  <option>2015</option>
+                  <option>2016</option>
+                  <option>2017</option>
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "majorLabel">
+                <span>Major</span>
+              </label>
+              <div class="custom-select2">
+                <select id = "majorInput">
+                  <option value="none">Major</option>
+                </select>
+                <!---<select id="selectNumber">
+                  <option>Choose a number</option>
+                </select>--->
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "minorLabel">
+                <span>Minor/Second Major</span>
+              </label>
+              <div class="custom-select2">
+                <select id = "minorInput">
+                  <option value="none">Minor/Second Major</option>
+                  <option value="n/a">None</option>
+                </select>
+                <!---<select id="selectNumber">
+                  <option>Choose a number</option>
+                </select>--->
+              </div>
+            </div>
+
+          </section>
+          <section class="eachSide">
+            <div class="eachSelect">
+              <label class="selectLabel" id = "medSLabel">
+                <span>Medical School</span>
+              </label>
+              <div class="custom-select2">
+                <select id = "medschoolInput">
+                  <option value="none">Medical School</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "medLocLabel">
+                <span>Medical School Location</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "medlocInput">
+                  <option value="none">Medical School Location</option>
+                  <option>Alabama</option>
+                  <option>Alaska</option>
+                  <option>Arizona</option>
+                  <option>Arkansas</option>
+                  <option>California</option>
+                  <option>Colorado</option>
+                  <option>Connecticut</option>
+                  <option>Delaware</option>
+                  <option>District Of Columbia</option>
+                  <option>Florida</option>
+                  <option>Georgia</option>
+                  <option>Hawaii</option>
+                  <option>Idaho</option>
+                  <option>Illinois</option>
+                  <option>Indiana</option>
+                  <option>Iowa</option>
+                  <option>Kansas</option>
+                  <option>Kentucky</option>
+                  <option>Louisiana</option>
+                  <option>Maine</option>
+                  <option>Maryland</option>
+                  <option>Massachusetts</option>
+                  <option>Michigan</option>
+                  <option>Minnesota</option>
+                  <option>Mississippi</option>
+                  <option>Missouri</option>
+                  <option>Montana</option>
+                  <option>Nebraska</option>
+                  <option>Nevada</option>
+                  <option>New Hampshire</option>
+                  <option>New Jersey</option>
+                  <option>New Mexico</option>
+                  <option>New York</option>
+                  <option>North Carolina</option>
+                  <option>North Dakota</option>
+                  <option>Ohio</option>
+                  <option>Oklahoma</option>
+                  <option>Oregon</option>
+                  <option>Pennsylvania</option>
+                  <option>Rhode Island</option>
+                  <option>South Carolina</option>
+                  <option>South Dakota</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Utah</option>
+                  <option>Vermont</option>
+                  <option>Virginia</option>
+                  <option>Washington</option>
+                  <option>West Virginia</option>
+                  <option>Wisconsin</option>
+                  <option>Wyoming</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "medYearLabel">
+                <span>Intended Grad Year</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "gradInput">
+                  <option value="none">Intended Graduation Year</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                  <option>2028</option>
+                  <option>2029</option>
+                  <option>2030</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+        </section>
+
+      </div>
+
+      <div class="buttonClass">
+        <button onclick = "goBack(event)" class="back">Back</button>
+        <button onclick = "goNext(event)" class="next">Next</button>
+      </div>
+
+      <!-- <div class = "buttons">
+        <a href="medtorFormMentor1.html"><button id="previousButton1">Previous</button></a>
+        <a href="medtorFormMentor3.html"><button id="nextButton1">Next</button></a>
+      </div> -->
+    </div>
+
+
+
+    <div class="containerBottom">
+      <button class="contactUs">Contact Us</button>
+      <article class="infoText">
+        Created by Vin Somasundaram, Karan Desai, and Anshu Jonnalagadda
+      </article>
+      <article class="infoText">
+        © 2020 Medtor. Trademarks and brands are the property of their respective owners.
+      </article>
+    </div>
+
+    <script src="medtorMentorForm2.js"></script>
+
+  </body>
+</html>

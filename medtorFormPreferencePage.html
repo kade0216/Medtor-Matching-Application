@@ -28,13 +28,13 @@
     <header>
       <div class="topContainer">
         <div class="containsLogo">
-          <a href="#"><img class = "upperLogo" src="Icons/logoText.png"></a>
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
         </div>
 
         <nav>
-          <li><a style="text-decoration:none" href="#">Home</a></li>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id="upperLogIn">Log Out</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id = "upperLogIn">Log Out</a></li>
         </nav>
       </div>
     </header>
@@ -43,72 +43,78 @@
     <div class="middleContainer">
       <div class="headerText">
         <img class = "profileLogo" src = "Icons/registerIcon2.png">
-        <h3>Mentor Profile</h3>
+        <h3>Student Profile</h3>
       </div>
 
       <div class="innerSection">
         <div class="description">
-          <span id = upperText>Please rank your top 3 preferences for the factors which are most important to you in a match</span>
+          <span id = upperText>Please rank the three most important factors in finding you a mentor match</span>
         </div>
         <section class = "firstPage">
 
-          <div class="firstpref">
-            <span>First Preference</span>
-          </div>
+          <section class = "eachSide">
+            <div class="eachSelect">
+              <label class="selectLabel" id="pref1L">
+                <span>Preference 1</span>
+              </label>
+              <div class="custom-select2" >
+                <select name = "slct" id = "preference1">
+                  <option value="none">Preference 1</option>
+                  <option>Hobbies/Passions</option>
+                	<option>Major(s)/Minor(s)</option>
+                	<option>Research Experiences</option>
+                	<option>Volunteer Experiences</option>
+                	<option>Gap Year Experiences</option>
+                	<option>Undergraduate Institution</option>
+                	<option>Potential Professions</option>
+                  <option>Location</option>
+                </select>
+              </div>
+            </div>
 
-          <div class="custom-select" >
-            <select name = "slct" id = "rank1Input">
-              <option value="none"></option>
-              <option>Hobbies/Passions</option>
-              <option>Major(s)/Minor(s)</option>
-              <option>Research Experiences</option>
-              <option>Volunteer Experiences</option>
-              <option>Gap Year Experiences</option>
-              <option>Undergraduate Institution</option>
-              <option>Potential Profession/Specialty</option>
-              <option>Current Location</option>
-            </select>
-          </div>
+            <div class="eachSelect">
+              <label class="selectLabel" id="pref2L">
+                <span>Preference 2</span>
+              </label>
+              <div class="custom-select2" >
+                <select name = "slct" id = "preference2">
+                  <option value="none">Preference 2</option>
+                  <option>Hobbies/Passions</option>
+                	<option>Major(s)/Minor(s)</option>
+                	<option>Research Experiences</option>
+                	<option>Volunteer Experiences</option>
+                	<option>Gap Year Experiences</option>
+                	<option>Undergraduate Institution</option>
+                	<option>Potential Professions</option>
+                  <option>Location</option>
+                </select>
+              </div>
+            </div>
 
-          <div class="firstpref">
-            <span>Second Preference</span>
-          </div>
+            <div class="eachSelect">
+              <label class="selectLabel" id="pref3L">
+                <span>Preference 3</span>
+              </label>
+              <div class="custom-select2" >
+                <select name = "slct" id = "preference3">
+                  <option value="none">Preference 3</option>
+                  <option>Hobbies/Passions</option>
+                	<option>Major(s)/Minor(s)</option>
+                	<option>Research Experiences</option>
+                	<option>Volunteer Experiences</option>
+                	<option>Gap Year Experiences</option>
+                	<option>Undergraduate Institution</option>
+                	<option>Potential Professions</option>
+                  <option>Location</option>
+                </select>
+              </div>
+            </div>
 
-          <div class="custom-select" >
-            <select name = "slct" id = "rank2Input">
-              <option value="none"></option>
-              <option>Hobbies/Passions</option>
-              <option>Major(s)/Minor(s)</option>
-              <option>Research Experiences</option>
-              <option>Volunteer Experiences</option>
-              <option>Gap Year Experiences</option>
-              <option>Undergraduate Institution</option>
-              <option>Potential Profession/Specialty</option>
-              <option>Current Location</option>
-            </select>
-          </div>
-
-          <div class="firstpref">
-            <span>Third Preference</span>
-          </div>
-
-          <div class="custom-select" >
-            <select name = "slct" id = "rank3Input">
-              <option></option>
-              <option>Hobbies/Passions</option>
-              <option>Major(s)/Minor(s)</option>
-              <option>Research Experiences</option>
-              <option>Volunteer Experiences</option>
-              <option>Gap Year Experiences</option>
-              <option>Undergraduate Institution</option>
-              <option>Potential Profession/Specialty</option>
-              <option>Current Location</option>
-            </select>
-          </div>
+          </section>
 
         </section>
       </div>
-      <a href=""><button class="nextButton1">Next</button></a>
+      <button class="nextButton1" onclick = "goNext(event)">Find Mentors</button>
     </div>
 
     <div class="containerBottom">

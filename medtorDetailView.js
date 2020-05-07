@@ -15,41 +15,36 @@ var functions = firebase.functions();
 
 var upperLogInBtn = document.getElementById('upperLogIn');
 
-console.log("working");
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    if (user.emailVerified == false) {
+      console.log("userNotVerified");
+      window.location.href = "medtorHome.html";
+    }
+    if (user.displayName == "Mentor") {
+      window.location.href = "medtorAuthPass.html";
+    }
+    // if (user.displayName == "Student") {
+    //   window.location.href = "medtorAuthPass.html";
+    // }
+    //MAKE SURE DISPLAY NAME IS CHANGED TO STUDENTDONE
     //user signed in
     console.log("here");
-    // upperLogInBtn.display = 'none';
-    // upperLogInBtn.disable = true;
-
-    //upperLogOutBtn.disable = false;
     upperLogInBtn.innerHTML = "Log Out";
-    //upperLogInBtn.href = "medtorHome.html";
     upperLogInBtn.onclick = function(){
       logOut(event);
     };
-    // upperLogItem.style.background = "#27abff"
-    // upperLogItem.style.borderColor = "#27abff"
-    //document.getElementById("itemLogIn").style.background = #27abff;
 
   } else {
     //user not signed in
-    console.log("didHere2");
-    upperLogInBtn.innerHTML = "Register";
-    upperLogInBtn.href = "medtorAuthPass.html";
-    upperLogInBtn.onclick = function(){
-      null;
-    };
-    // upperLogItem.style.background = "#1975af"
-    // upperLogItem.style.backgroundColor = "#1975af"
-    // upperLogInBtn.innerHTML = "Log In";
-    // upperLogInBtn.href = "medtorAuthPass.html";
-    // upperLogInBtn.onClick = null;
-    //document.getElementById("itemLogIn").style.background = #1975af;
+    console.log("here2");
+    window.location.href = "medtorHome.html";
   }
 });
+
+
+//ADD OTHER FUNCTIONS AND CODE HERE
+//NAME OVERFLOW
 
 function logOut(e) {
   e = e || window.event;

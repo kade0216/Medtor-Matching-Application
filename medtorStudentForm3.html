@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorMentorForm22.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <li><a style="text-decoration:none" href="#">About</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id="upperLogIn">Log Out</a></li>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="middleContainer">
+      <div class="headerText">
+        <img class = "profileLogo" src = "Icons/registerIcon2.png">
+        <h3>Student Profile</h3>
+      </div>
+
+      <div class="innerSection">
+
+        <div class="description">
+          <span id = upperText>Please fill out your academic and professional interests</span>
+        </div>
+
+        <section class = "firstPage">
+          <section class="eachSide">
+            <div class="eachSelect">
+              <label class="selectLabel" id = "res1Label">
+                <span>Research Interests</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "research1Input">
+                  <option value="none">Research Interests (1)</option>
+                  <option value="na">N/A</option>
+                  <option>Cancer</option>
+                  <option>Neuroscience</option>
+                  <option>Psychology</option>
+                  <option>Sociology</option>
+                  <option>Biology</option>
+                  <option>Chemistry</option>
+                  <option>Physics</option>
+                  <option>Biochemistry</option>
+                  <option>Nutrition & Dietetics</option>
+                  <option>Public/Healthcare Policy</option>
+                  <option>Clinical Research</option>
+                  <option>Surgery Research</option>
+                  <option>Cell Biology</option>
+                  <option>Energy</option>
+                  <option>Environmental Science</option>
+                  <option>Microbiology</option>
+                  <option>Virology</option>
+                  <option>Molecular Biology</option>
+                  <option>Genetics</option>
+                  <option>Pharmacology</option>
+                  <option>Media Studies</option>
+                  <option>Education</option>
+                  <option>Gender Studies</option>
+                  <option>History</option>
+                  <option>Linguistics</option>
+                  <option>Literature</option>
+                  <option>Music</option>
+                  <option>Philosophy</option>
+                  <option>Economics</option>
+                  <option>Political Science</option>
+                  <option>Engineering</option>
+                  <option>Computer Science</option>
+                  <option>Math</option>
+                  <option>Statistics</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "res2Label">
+                <span>Research Interests</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "research2Input">
+                  <option value="none">Research Interests (2)</option>
+                  <option value="na">N/A</option>
+                  <option>Cancer</option>
+                  <option>Neuroscience</option>
+                  <option>Psychology</option>
+                  <option>Sociology</option>
+                  <option>Biology</option>
+                  <option>Chemistry</option>
+                  <option>Physics</option>
+                  <option>Biochemistry</option>
+                  <option>Nutrition & Dietetics</option>
+                  <option>Public/Healthcare Policy</option>
+                  <option>Clinical Research</option>
+                  <option>Surgery Research</option>
+                  <option>Cell Biology</option>
+                  <option>Energy</option>
+                  <option>Environmental Science</option>
+                  <option>Microbiology</option>
+                  <option>Virology</option>
+                  <option>Molecular Biology</option>
+                  <option>Genetics</option>
+                  <option>Pharmacology</option>
+                  <option>Media Studies</option>
+                  <option>Education</option>
+                  <option>Gender Studies</option>
+                  <option>History</option>
+                  <option>Linguistics</option>
+                  <option>Literature</option>
+                  <option>Music</option>
+                  <option>Philosophy</option>
+                  <option>Economics</option>
+                  <option>Political Science</option>
+                  <option>Engineering</option>
+                  <option>Computer Science</option>
+                  <option>Math</option>
+                  <option>Statistics</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "vol1Label">
+                <span>Volunteering</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "volunteer1Input">
+                  <option value="none">Volunteering (1)</option>
+                  <option value="na">N/A</option>
+                  <option>Hospice Care</option>
+                  <option>Nursing Home</option>
+                  <option>American Red Cross</option>
+                  <option>Blood Drives</option>
+                  <option>EMT</option>
+                  <option>Pediatrics</option>
+                  <option>Patient Experience</option>
+                  <option>Crisis Hotline/Textline</option>
+                  <option>Helping Underprivileged Youth</option>
+                  <option>Abroad Experience</option>
+                  <option>Helping Immigrant Families</option>
+                  <option>Helping Individuals with Special Needs</option>
+                  <option>Emergency Room (Hospital)</option>
+                  <option>Camp Counselor</option>
+                  <option>Information Desk (Hospital)</option>
+                  <option>Clerical Assistant (Hospital)</option>
+                  <option>Patient Care Assistant (Hospital)</option>
+                  <option>Waiting Area Support (Hospital)</option>
+                  <option>Discharging Patients (Hospital)</option>
+                  <option>Child-life Specialist (Hospital)</option>
+                  <option>Teaching a Language</option>
+                  <option>Tutoring</option>
+                  <option>Supporting Individuals w/ Mental Illness</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "vol2Label">
+                <span>Volunteering</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "volunteer2Input">
+                  <option value="none">Volunteering (2)</option>
+                  <option value="na">N/A</option>
+                  <option>Hospice Care</option>
+                  <option>Nursing Home</option>
+                  <option>American Red Cross</option>
+                  <option>Blood Drives</option>
+                  <option>EMT</option>
+                  <option>Pediatrics</option>
+                  <option>Patient Experience</option>
+                  <option>Crisis Hotline/Textline</option>
+                  <option>Helping Underprivileged Youth</option>
+                  <option>Abroad Experience</option>
+                  <option>Helping Immigrant Families</option>
+                  <option>Helping Individuals with Special Needs</option>
+                  <option>Emergency Room (Hospital)</option>
+                  <option>Camp Counselor</option>
+                  <option>Information Desk (Hospital)</option>
+                  <option>Clerical Assistant (Hospital)</option>
+                  <option>Patient Care Assistant (Hospital)</option>
+                  <option>Waiting Area Support (Hospital)</option>
+                  <option>Discharging Patients (Hospital)</option>
+                  <option>Child-life Specialist (Hospital)</option>
+                  <option>Teaching a Language</option>
+                  <option>Tutoring</option>
+                  <option>Supporting Individuals w/ Mental Illness</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+          </section>
+          <section class="eachSide">
+            <div class="eachSelect">
+              <label class="selectLabel" id = "gap1Label">
+                <span>Gap Year</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "gapyear1Input">
+                  <option value="none">Gap Year Commitments (1)</option>
+                  <optgroup label="No">
+                    <option>No Gap Year</option>
+                  </optgroup>
+                  <optgroup label="Yes" id = "yesgroup">
+                    <option>Abroad/Fulbright Program</option>
+                    <option>Volunteer/Shadow (U.S.)</option>
+                    <option>Volunteer/Shadow Abroad</option>
+                    <option>Clinical Research</option>
+                    <option>Basic Science Research</option>
+                    <option>Teaching</option>
+                    <option>Emergency Medical Technician</option>
+                    <option>Medical Scribe</option>
+                    <option>Travel</option>
+                    <option>Journalism</option>
+                    <option>Language Immersion</option>
+                    <option>Journalism</option>
+                    <option>Consulting</option>
+                    <option>Computer Science/Tech</option>
+                    <option>Engineering</option>
+                    <option>Post-Bacc Program</option>
+                    <option>Graduate/Advanced Degree</option>
+                    <option>Hospital-Related Job</option>
+                    <option>Other Medical Profession</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "gap2Label">
+                <span>Gap Year</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "gapyear2Input">
+                  <option value="none">Gap Year Commitments (2)</option>
+                  <optgroup label="No">
+                    <option>No Gap Year</option>
+                  </optgroup>
+                  <optgroup label="Yes" id = "yesgroup">
+                    <option>Abroad/Fulbright Program</option>
+                    <option>Volunteer/Shadow (U.S.)</option>
+                    <option>Volunteer/Shadow Abroad</option>
+                    <option>Clinical Research</option>
+                    <option>Basic Science Research</option>
+                    <option>Teaching</option>
+                    <option>Emergency Medical Technician</option>
+                    <option>Medical Scribe</option>
+                    <option>Travel</option>
+                    <option>Journalism</option>
+                    <option>Language Immersion</option>
+                    <option>Journalism</option>
+                    <option>Consulting</option>
+                    <option>Computer Science/Tech</option>
+                    <option>Engineering</option>
+                    <option>Post-Bacc Program</option>
+                    <option>Graduate/Advanced Degree</option>
+                    <option>Hospital-Related Job</option>
+                    <option>Other Medical Profession</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "prof1Label">
+                <span>Future Profession</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "futureprof1Input">
+                  <option value="none">Potential Profession (1)</option>
+                  <option>Family Physician</option>
+                  <option>Internal Medicine</option>
+                  <option>Pediatrician</option>
+                  <option>Surgeon</option>
+                  <option>Psychiatrist</option>
+                  <option>Cardiologist</option>
+                  <option>Dermatologist</option>
+                  <option>Radiologist</option>
+                  <option>Anesthesiologist</option>
+                  <option>Oncologist</option>
+                  <option>Endocrinologist</option>
+                  <option>Neurologist</option>
+                  <option>Rheumatologist</option>
+                  <option>Immunologist</option>
+                  <option>Nephrologist</option>
+                  <option>Obstetrician/Gynecologist</option>
+                  <option>Pulmonologist</option>
+                  <option>Ophthalmologist</option>
+                  <option>Urologist</option>
+                  <option>Gastroenterologist</option>
+                  <option>Otolaryngologist</option>
+                  <option>Technical/Scientific Writing</option>
+                  <option>Consulting</option>
+                  <option>Medical Editing</option>
+                  <option>Pharmaceutical Industry</option>
+                  <option>Business</option>
+                  <option>Health/ Medical Instruction</option>
+                  <option>Hospital Management</option>
+                  <option>Research</option>
+                  <option>Payer Sector</option>
+                  <option>Government, Policy, and Politics</option>
+                  <option>Engineering</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="eachSelect">
+              <label class="selectLabel" id = "prof2Label">
+                <span>Future Profession</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "futureprof2Input">
+                  <option value="none">Potential Profession (2)</option>
+                  <option>Family Physician</option>
+                  <option>Internal Medicine</option>
+                  <option>Pediatrician</option>
+                  <option>Surgeon</option>
+                  <option>Psychiatrist</option>
+                  <option>Cardiologist</option>
+                  <option>Dermatologist</option>
+                  <option>Radiologist</option>
+                  <option>Anesthesiologist</option>
+                  <option>Oncologist</option>
+                  <option>Endocrinologist</option>
+                  <option>Neurologist</option>
+                  <option>Rheumatologist</option>
+                  <option>Immunologist</option>
+                  <option>Nephrologist</option>
+                  <option>Obstetrician/Gynecologist</option>
+                  <option>Pulmonologist</option>
+                  <option>Ophthalmologist</option>
+                  <option>Urologist</option>
+                  <option>Gastroenterologist</option>
+                  <option>Otolaryngologist</option>
+                  <option>Technical/Scientific Writing</option>
+                  <option>Consulting</option>
+                  <option>Medical Editing</option>
+                  <option>Pharmaceutical Industry</option>
+                  <option>Business</option>
+                  <option>Health/ Medical Instruction</option>
+                  <option>Hospital Management</option>
+                  <option>Research</option>
+                  <option>Payer Sector</option>
+                  <option>Government, Policy, and Politics</option>
+                  <option>Engineering</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+        </section>
+
+      </div>
+      <div class="buttonClass">
+        <button onclick = "goBack(event)" class="back">Back</button>
+        <button onclick = "goNext(event)" class="next">Next</button>
+      </div>
+    </div>
+
+
+    <div class="containerBottom">
+      <button class="contactUs">Contact Us</button>
+      <article class="infoText">
+        Created by Vin Somasundaram, Karan Desai, and Anshu Jonnalagadda
+      </article>
+      <article class="infoText">
+        © 2020 Medtor. Trademarks and brands are the property of their respective owners.
+      </article>
+    </div>
+
+    <script src="medtorStudentForm3.js"></script>
+
+  </body>
+</html>

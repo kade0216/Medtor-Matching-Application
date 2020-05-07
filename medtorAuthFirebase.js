@@ -114,7 +114,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     //displaying objects
     console.log("didHere2")
     //changes upper button
-    upperLogInBtn.innerHTML = "Log In";
+    upperLogInBtn.innerHTML = "Register";
     upperLogInBtn.href = "medtorAuthPass.html";
     upperLogInBtn.onclick = function(){
       null;

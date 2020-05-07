@@ -15,14 +15,18 @@ var functions = firebase.functions();
 
 var upperLogInBtn = document.getElementById('upperLogIn');
 
-var pre1L = document.getElementById("pref1L");
-var pre2L = document.getElementById("pref2L");
-var pre3L = document.getElementById("pref3L");
+var genderLabel = document.getElementById("gendLabel");
+var homeLabel = document.getElementById("homeL");
+var hob1Label = document.getElementById("hob1L");
+var hob2Label = document.getElementById("hob2L");
+var hob3Label = document.getElementById("hob3L");
 
-var pref1 = document.getElementById('preference1');
-var pref2 = document.getElementById("preference2");
-var pref3 = document.getElementById("preference3");
-var originalFontSize = pref1.style.fontSize;
+var homeStateIn = document.getElementById('homeStateInput');
+var genderIn = document.getElementById("gend");
+var hobbyIn1 = document.getElementById("hobby1");
+var hobbyIn2 = document.getElementById("hobby2");
+var hobbyIn3 = document.getElementById("hobby3");
+var originalFontSize = homeStateIn.style.fontSize;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -42,9 +46,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     // helloWorld();
 
     //sorts hobby lists alphabetically
-    sortList("preference1");
-    sortList("preference2");
-    sortList("preference3");
+    sortList("hobby1");
+    sortList("hobby2");
+    sortList("hobby3");
 
   } else {
     //user not signed in
@@ -61,23 +65,33 @@ function goNext(e) {
 
   var user = firebase.auth().currentUser;
 
-  var p1 = pref1.value;
-  var p2 = pref2.value;
-  var p3 = pref3.value;
+  var firstNameIn = document.getElementById('fNameInput').value;
+  var lastNameIn = document.getElementById('lNameInput').value;
+  var phoneIn = document.getElementById('phoneNumInput').value;
+  var stateIn = homeStateIn.value;
+  var gendIn = genderIn.value;
+  var hobIn1 = hobbyIn1.value;
+  var hobIn2 = hobbyIn2.value;
+  var hobIn3 = hobbyIn3.value;
 
-  if (checkFields()) {
+  if (checkFields(firstNameIn, lastNameIn, phoneIn, stateIn, gendIn, hobIn1, hobIn2, hobIn3)) {
     console.log("data passes");
     if (user.emailVerified == true) {
       extraData = {
-        pref1: p1,
-        pref2: p2,
-        pref3: p3,
+        firstName: firstNameIn,
+        lastName: lastNameIn,
+        phone: phoneIn,
+        homeState: stateIn,
+        gender: gendIn,
+        hobby1: hobIn1,
+        hobby2: hobIn2,
+        hobby3: hobIn3,
       }
       theCurrUser = databaseRef.child("studentUsers").child(user.uid);
       theCurrUser.update(extraData).then(function() {
         //new code
         console.log("entered new data");
-        window.location.href = "medtorResults.html";
+        window.location.href = "medtorStudentForm2.html";
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
         // returnedPerson( {text: " "}).then(function(result){
         //   theObject = result;
@@ -96,10 +110,12 @@ function goNext(e) {
 
 
 //checks all input fields to make sure they are of proper format and are filled in
-function checkFields() {
-  if (pref1.value != "none" && pref2.value != "none" && pref3.value != "none"){
-    console.log("data passes standards")
-    return true
+function checkFields(first, last, phone, hState, gen, hob1, hob2, hob3) {
+  var firstFormat = new RegExp(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i);
+  var lastFormat = new RegExp(/^[a-z ,.'-]+$/i);
+  var phoneFormat = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
+  if (first.match(lastFormat) && last.match(lastFormat) && phone.match(phoneFormat) && hState != "none" && gen != "none" && hob1 != "none" && hob2 != "none" && hob3 != "none") {
+    return true;
   }
   else {
     window.alert("Incomplete: Fill in all fields with proper inputs");
@@ -113,7 +129,7 @@ function changeColor(e, obj, labeler) {
   console.log("here");
   if (obj.value != "none") {
     obj.style.color = "black";
-    obj.style.fontSize = "14px";
+    obj.style.fontSize = "16px";
     labeler.style.display = "block";
   }
   else {
@@ -123,14 +139,20 @@ function changeColor(e, obj, labeler) {
   }
 }
 
-pref1.addEventListener('change', e => {
-  changeColor(e, pref1, pref1L);
+homeStateIn.addEventListener('change', e => {
+  changeColor(e, homeStateIn, homeLabel);
 })
-pref2.addEventListener('change', e => {
-  changeColor(e, pref2, pref2L);
+genderIn.addEventListener('change', e => {
+  changeColor(e, genderIn, genderLabel);
 })
-pref3.addEventListener('change', e => {
-  changeColor(e, pref3, pref3L);
+hobbyIn1.addEventListener('change', e => {
+  changeColor(e, hobbyIn1, hob1Label);
+})
+hobbyIn2.addEventListener('change', e => {
+  changeColor(e, hobbyIn2, hob2Label);
+})
+hobbyIn3.addEventListener('change', e => {
+  changeColor(e, hobbyIn3, hob3Label);
 })
 
 
