@@ -33,7 +33,7 @@
         <nav>
           <li><a style="text-decoration:none" href="#">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor">Log Out</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id="upperLogIn">Log Out</a></li>
         </nav>
       </div>
     </header>
@@ -48,7 +48,7 @@
       <div class="innerSection">
 
         <div class="description">
-          <span id = upperText>Please fill out your general information</span>
+          <span id = upperText>Please fill out your academic and professional interests</span>
         </div>
 
         <section class = "secondPage">
@@ -56,154 +56,268 @@
           <div class="custom-select">
             <select name = "slct" id = "research1Input">
               <option value="none">Research Topics (1)</option>
-              <option value="1">Cancer</option>
-              <option value="2">Neuroscience</option>
-              <option value="3">Psychology</option>
-              <option value="4">Sociology</option>
-              <option value="5">Biology</option>
-              <option value="6">Chemistry</option>
-              <option value="7">Physics</option>
-              <option value="8">Biochemistry</option>
-              <option value="9">Biophysics</option>
-              <option value="10">Public/Healthcare Policy</option>
+              <option>Cancer</option>
+              <option>Neuroscience</option>
+              <option>Psychology</option>
+              <option>Sociology</option>
+              <option>Biology</option>
+              <option>Chemistry</option>
+              <option>Physics</option>
+              <option>Biochemistry</option>
+              <option>Nutrition & Dietetics</option>
+              <option>Public/Healthcare Policy</option>
+              <option>Clinical Research</option>
+              <option>Surgery Research</option>
+              <option>Cell Biology</option>
+              <option>Energy</option>
+              <option>Environmental Science</option>
+              <option>Microbiology</option>
+              <option>Virology</option>
+              <option>Molecular Biology</option>
+              <option>Genetics</option>
+              <option>Pharmacology</option>
+              <option>Media Studies</option>
+              <option>Education</option>
+              <option>Gender Studies</option>
+              <option>History</option>
+              <option>Linguistics</option>
+              <option>Literature</option>
+              <option>Music</option>
+              <option>Philosophy</option>
+              <option>Economics</option>
+              <option>Political Science</option>
+              <option>Engineering</option>
+              <option>Computer Science</option>
+              <option>Math</option>
+              <option>Statistics</option>
             </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "research2Input">
               <option value="none">Research Topics (2)</option>
-              <option value="1">Cancer</option>
-              <option value="2">Neuroscience</option>
-              <option value="3">Psychology</option>
-              <option value="4">Sociology</option>
-              <option value="5">Biology</option>
-              <option value="6">Chemistry</option>
-              <option value="7">Physics</option>
-              <option value="8">Biochemistry</option>
-              <option value="9">Biophysics</option>
-              <option value="10">Public/Healthcare Policy</option>
+              <option>Cancer</option>
+              <option>Neuroscience</option>
+              <option>Psychology</option>
+              <option>Sociology</option>
+              <option>Biology</option>
+              <option>Chemistry</option>
+              <option>Physics</option>
+              <option>Biochemistry</option>
+              <option>Nutrition & Dietetics</option>
+              <option>Public/Healthcare Policy</option>
+              <option>Clinical Research</option>
+              <option>Surgery Research</option>
+              <option>Cell Biology</option>
+              <option>Energy</option>
+              <option>Environmental Science</option>
+              <option>Microbiology</option>
+              <option>Virology</option>
+              <option>Molecular Biology</option>
+              <option>Genetics</option>
+              <option>Pharmacology</option>
+              <option>Media Studies</option>
+              <option>Education</option>
+              <option>Gender Studies</option>
+              <option>History</option>
+              <option>Linguistics</option>
+              <option>Literature</option>
+              <option>Music</option>
+              <option>Philosophy</option>
+              <option>Economics</option>
+              <option>Political Science</option>
+              <option>Engineering</option>
+              <option>Computer Science</option>
+              <option>Math</option>
+              <option>Statistics</option>
             </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "volunteer1Input">
               <option value="none">Volunteering (1)</option>
-              <option value="1">Hospice Care</option>
-              <option value="2">Nursing Home</option>
-              <option value="3">American Red Cross</option>
-              <option value="4">Blood Drives</option>
-              <option value="5">EMT</option>
-              <option value="6">Pediatrics</option>
-              <option value="7">Patient Experience</option>
-              <option value="8">Crisis Hotline/Textline</option>
+              <option>Hospice Care</option>
+              <option>Nursing Home</option>
+              <option>American Red Cross</option>
+              <option>Blood Drives</option>
+              <option>EMT</option>
+              <option>Pediatrics</option>
+              <option>Patient Experience</option>
+              <option>Crisis Hotline/Textline</option>
+              <option>Helping Underprivileged Youth</option>
+              <option>Abroad Experience</option>
+              <option>Helping Immigrant Families</option>
+              <option>Helping Individuals with Special Needs</option>
+              <option>Emergency Room (Hospital)</option>
+              <option>Camp Counselor</option>
+              <option>Information Desk (Hospital)</option>
+              <option>Clerical Assistant (Hospital)</option>
+              <option>Patient Care Assistant (Hospital)</option>
+              <option>Waiting Area Support (Hospital)</option>
+              <option>Discharging Patients (Hospital)</option>
+              <option>Child-life Specialist (Hospital)</option>
+              <option>Teaching a Language</option>
+              <option>Tutoring</option>
+              <option>Supporting Individuals w/ Mental Illness</option>
+              <option>Other</option>
             </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "volunteer2Input">
               <option value="none">Volunteering (2)</option>
-              <option value="1">Hospice Care</option>
-              <option value="2">Nursing Home</option>
-              <option value="3">American Red Cross</option>
-              <option value="4">Blood Drives</option>
-              <option value="5">EMT</option>
-              <option value="6">Pediatrics</option>
-              <option value="7">Patient Experience</option>
-              <option value="8">Crisis Hotline/Textline</option>
+              <option>Hospice Care</option>
+              <option>Nursing Home</option>
+              <option>American Red Cross</option>
+              <option>Blood Drives</option>
+              <option>EMT</option>
+              <option>Pediatrics</option>
+              <option>Patient Experience</option>
+              <option>Crisis Hotline/Textline</option>
+              <option>Helping Underprivileged Youth</option>
+              <option>Abroad Experience</option>
+              <option>Helping Immigrant Families</option>
+              <option>Helping Individuals with Special Needs</option>
+              <option>Emergency Room (Hospital)</option>
+              <option>Camp Counselor</option>
+              <option>Information Desk (Hospital)</option>
+              <option>Clerical Assistant (Hospital)</option>
+              <option>Patient Care Assistant (Hospital)</option>
+              <option>Waiting Area Support (Hospital)</option>
+              <option>Discharging Patients (Hospital)</option>
+              <option>Child-life Specialist (Hospital)</option>
+              <option>Teaching a Language</option>
+              <option>Tutoring</option>
+              <option>Supporting Individuals w/ Mental Illness</option>
+              <option>Other</option>
             </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "gapyear1Input">
               <option value="none">Gap Year Commitments (1)</option>
-              <option value="1">Fulbright Program</option>
-              <option value="2">Volunteering at Hospital</option>
-              <option value="3">Volunteering Abroad</option>
-              <option value="4">Clinical Shadowing</option>
-              <option value="5">Travel</option>
-              <option value="6">Journalism</option>
-              <option value="7">Language Immersion</option>
-              <option value="8">Music</option>
-              <option value="9">Journalism</option>
-              <option value="10">Language Immersion</option>
-              <option value="11">Consulting</option>
-              <option value="12">Computer Science/Tech</option>
-              <option value="13">Other Medical Profession</option>
-              <option value="14">Graduate Degree</option>
+              <option>Abroad/Fulbright Program</option>
+              <option>Volunteer/Shadow (U.S.)</option>
+              <option>Volunteer/Shadow Abroad</option>
+              <option>Clinical Research</option>
+              <option>Basic Science Research</option>
+              <option>Teaching</option>
+              <option>Emergency Medical Technician</option>
+              <option>Medical Scribe</option>
+              <option>Travel</option>
+              <option>Journalism</option>
+              <option>Language Immersion</option>
+              <option>Journalism</option>
+              <option>Consulting</option>
+              <option>Computer Science/Tech</option>
+              <option>Engineering</option>
+              <option>Post-Bacc Program</option>
+              <option>Graduate/Advanced Degree</option>
+              <option>Hospital-Related Job</option>
+              <option>Other Medical Profession</option>
             </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "gapyear2Input">
               <option value="none">Gap Year Commitments (2)</option>
-              <option value="1">Fulbright Program</option>
-              <option value="2">Volunteering at Hospital</option>
-              <option value="3">Volunteering Abroad</option>
-              <option value="4">Clinical Shadowing</option>
-              <option value="5">Travel</option>
-              <option value="6">Journalism</option>
-              <option value="7">Language Immersion</option>
-              <option value="8">Music</option>
-              <option value="9">Journalism</option>
-              <option value="10">Language Immersion</option>
-              <option value="11">Consulting</option>
-              <option value="12">Computer Science/Tech</option>
-              <option value="13">Other Medical Profession</option>
-              <option value="14">Graduate Degree</option>
+              <option>Abroad/Fulbright Program</option>
+              <option>Volunteer/Shadow (U.S.)</option>
+              <option>Volunteer/Shadow Abroad</option>
+              <option>Clinical Research</option>
+              <option>Basic Science Research</option>
+              <option>Teaching</option>
+              <option>Emergency Medical Technician</option>
+              <option>Medical Scribe</option>
+              <option>Travel</option>
+              <option>Journalism</option>
+              <option>Language Immersion</option>
+              <option>Journalism</option>
+              <option>Consulting</option>
+              <option>Computer Science/Tech</option>
+              <option>Engineering</option>
+              <option>Post-Bacc Program</option>
+              <option>Graduate/Advanced Degree</option>
+              <option>Hospital-Related Job</option>
+              <option>Other Medical Profession</option>
             </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "futureprof1Input">
-              <option value="none">Future Profession (1)</option>
-              <option value="1">Family Physician</option>
-              <option value="2">Internal Medicine</option>
-              <option value="3">Pediatrician</option>
-              <option value="4">Surgeon</option>
-              <option value="5">Psychiatrist</option>
-              <option value="6">Cardiologist</option>
-              <option value="7">Dermatologist</option>
-              <option value="8">Radiologist</option>
-              <option value="9">Anesthesiologist</option>
-              <option value="10">Oncologist</option>
-              <option value="11">Endocrinologist</option>
-              <option value="12">Neurologist</option>
-              <option value="13">Rheumatologist</option>
-              <option value="14">Immunologist</option>
-              <option value="15">Nephrologist</option>
-              <option value="16">Obstetrician/Gynecologist</option>
-              <option value="17">Pulmonologist</option>
-              <option value="18">Ophthalmologist</option>
-              <option value="19">Urologist</option>
-              <option value="20">Gastroenterologist</option>
-              <option value="21">Otolaryngologist</option>
+              <option value="none">Potential Profession (1)</option>
+              <option>Family Physician</option>
+              <option>Internal Medicine</option>
+              <option>Pediatrician</option>
+              <option>Surgeon</option>
+              <option>Psychiatrist</option>
+              <option>Cardiologist</option>
+              <option>Dermatologist</option>
+              <option>Radiologist</option>
+              <option>Anesthesiologist</option>
+              <option>Oncologist</option>
+              <option>Endocrinologist</option>
+              <option>Neurologist</option>
+              <option>Rheumatologist</option>
+              <option>Immunologist</option>
+              <option>Nephrologist</option>
+              <option>Obstetrician/Gynecologist</option>
+              <option>Pulmonologist</option>
+              <option>Ophthalmologist</option>
+              <option>Urologist</option>
+              <option>Gastroenterologist</option>
+              <option>Otolaryngologist</option>
+              <option>Technical/Scientific Writing</option>
+              <option>Consulting</option>
+              <option>Medical Editing</option>
+              <option>Pharmaceutical Industry</option>
+              <option>Business</option>
+              <option>Health/ Medical Instruction</option>
+              <option>Hospital Management</option>
+              <option>Research</option>
+              <option>Payer Sector</option>
+              <option>Government, Policy, and Politics</option>
+              <option>Gastroenterologist</option>
+              <option>Engineering</option>
             </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "futureprof2Input">
-              <option value="none">Future Profession (2)</option>
-              <option value="1">Family Physician</option>
-              <option value="2">Internal Medicine</option>
-              <option value="3">Pediatrician</option>
-              <option value="4">Surgeon</option>
-              <option value="5">Psychiatrist</option>
-              <option value="6">Cardiologist</option>
-              <option value="7">Dermatologist</option>
-              <option value="8">Radiologist</option>
-              <option value="9">Anesthesiologist</option>
-              <option value="10">Oncologist</option>
-              <option value="11">Endocrinologist</option>
-              <option value="12">Neurologist</option>
-              <option value="13">Rheumatologist</option>
-              <option value="14">Immunologist</option>
-              <option value="15">Nephrologist</option>
-              <option value="16">Obstetrician/Gynecologist</option>
-              <option value="17">Pulmonologist</option>
-              <option value="18">Ophthalmologist</option>
-              <option value="19">Urologist</option>
-              <option value="20">Gastroenterologist</option>
-              <option value="21">Otolaryngologist</option>
+              <option value="none">Potential Profession (2)</option>
+              <option>Family Physician</option>
+              <option>Internal Medicine</option>
+              <option>Pediatrician</option>
+              <option>Surgeon</option>
+              <option>Psychiatrist</option>
+              <option>Cardiologist</option>
+              <option>Dermatologist</option>
+              <option>Radiologist</option>
+              <option>Anesthesiologist</option>
+              <option>Oncologist</option>
+              <option>Endocrinologist</option>
+              <option>Neurologist</option>
+              <option>Rheumatologist</option>
+              <option>Immunologist</option>
+              <option>Nephrologist</option>
+              <option>Obstetrician/Gynecologist</option>
+              <option>Pulmonologist</option>
+              <option>Ophthalmologist</option>
+              <option>Urologist</option>
+              <option>Gastroenterologist</option>
+              <option>Otolaryngologist</option>
+              <option>Technical/Scientific Writing</option>
+              <option>Consulting</option>
+              <option>Medical Editing</option>
+              <option>Pharmaceutical Industry</option>
+              <option>Business</option>
+              <option>Health/ Medical Instruction</option>
+              <option>Hospital Management</option>
+              <option>Research</option>
+              <option>Payer Sector</option>
+              <option>Government, Policy, and Politics</option>
+              <option>Gastroenterologist</option>
+              <option>Engineering</option>
             </select>
           </div>
         </section>
@@ -214,7 +328,6 @@
         <a href="medtorMentorCompletion.html"><button id="nextButton1">Next</button></a>
       </div>
     </div>
-
 
 
     <div class="containerBottom">

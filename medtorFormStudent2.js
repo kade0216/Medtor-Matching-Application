@@ -16,14 +16,11 @@ var functions = firebase.functions();
 var upperLogInBtn = document.getElementById('upperLogIn');
 
 var gradyearIn = document.getElementById('gradyearInput');
-var gradIn = document.getElementById("gradInput");
 
 var univlocationIn = document.getElementById('univlocInput');
 var undergradIn = document.getElementById('undergradInput');
 var majIn = document.getElementById('majorInput');
 var minIn = document.getElementById('minorInput');
-var medlocIn = document.getElementById('medlocInput');
-var medschoolIn = document.getElementById('medschoolInput')
 
 var originalFontSize = gradyearIn.style.fontSize;
 
@@ -50,10 +47,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-// In your Javascript (external .js resource or <script> tag)
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
 
 
 function changeColor(e, obj) {
@@ -73,9 +66,6 @@ function changeColor(e, obj) {
 gradyearIn.addEventListener('change', e => {
   changeColor(e, gradyearIn);
 })
-gradIn.addEventListener('change', e => {
-  changeColor(e, gradIn);
-})
 univlocationIn.addEventListener('change', e => {
   changeColor(e, univlocationIn);
 })
@@ -87,12 +77,6 @@ majIn.addEventListener('change', e => {
 })
 minIn.addEventListener('change', e => {
   changeColor(e, minIn);
-})
-medlocIn.addEventListener('change', e => {
-  changeColor(e, medlocIn);
-})
-medschoolIn.addEventListener('change', e => {
-  changeColor(e, medschoolIn);
 })
 
 
@@ -138,16 +122,6 @@ for(var i = 0; i < options2.length; i++) {
     select2.appendChild(el);
 }
 
-var select4 = document.getElementById("medschoolInput");
-var options3 = ["University of Alabama School of Medicine", "University of South Alabama College of Medicine", "Mayo Clinic Alix School - Arizona Campus", "University of Arizona College of Medicine - Phoenix", "University of Arizona School of Medicine - Tuscon", "University of Arkansas College of Medicine", "California Northstate University College of Medicine", "California University of Science and Medicine School of Medicine", "Kaiser Permanente School of Medicine", "Keck School of Medicine of the University of Southern California", "Loma Linda University School of Medicine", "Stanford University School of Medicine", "UCLA/Drew Medical Education Program", "University of California, Davis School of Medicine", "University of California, Irvine, School of Medicine", "University of California, Los Angeles David Geffen School of Medicine", "University of California, Riverside, School of Medicine", "University of California, San Diego School of Medicine", "University of California, San Francisco School of Medicine", "University of Colorado School of Medicine", "Frank H. Netter MD School of Medicine at Quinnipiac University", "University of Connecticut School of Medicine", "Yale University School of Medicine", "George Washington University School of Medicine and Health Sciences", "Georgetown University School of Medicine", "Howard University College of Medicine", "Charles E. Schmidt College of Medicine at Florida Atlantic University", "Florida International University Wertheim College of Medicine", "Florida State University College of Medicine", "Nova Southeastern University Dr. Kiran C. Patel College of Allopathic Medicine", "University of Central Florida College of Medicine", "University of Florida College of Medicine", "University of Miami Leonard M. Miller School of Medicine", "University of South Florida College of Medicine Morsani College of Medicine", "Emory University School of Medicine", "Medical College of Georgia at Augusta University", "Mercer University School of Medicine", "Morehouse School of Medicine", "University of Hawaii, John A. Burns School of Medicine", "Carle Illinois College of Medicine", "Chicago Medical School at Rosalind Franklin University of Medicine & Science", "Loyola University Chicago Stritch School of Medicine", "Northwestern University The Feinberg School of Medicine", "Rush Medical College of Rush University Medical Center", "Southern Illinois University School of Medicine", "University of Chicago Division of the Biological Sciences The Pritzker School of Medicine", "University of Illinois College of Medicine", "Indiana University School of Medicine", "University of Iowa Roy J. and Lucille A. Carver College of Medicine", "University of Kansas School of Medicine", "University of Kentucky College of Medicine", "University of Louisville School of Medicine", "Louisiana State University School of Medicine in New Orleans", "Louisiana State University School of Medicine in Shreveport", "Tulane University School of Medicine", "Johns Hopkins University School of Medicine", "Uniformed Services Univ. of the Health Sciences F. Edward Herbert School of Medicine", "University of Maryland School of Medicine", "Boston University School of Medicine", "Harvard Medical School", "Tufts University School of Medicine", "University of Massachusetts Medical School", "Central Michigan University College of Medicine", "Michigan State University College of Human Medicine", "Oakland University William Beaumont School of Medicine", "University of Michigan Medical School", "Wayne State University School of Medicine", "Western Michigan University Homer Stryker M.D. School of Medicine", "Mayo Clinic Alix School of Medicine", "University of Minnesota Medical School", "University of Mississippi School of Medicine", "Saint Louis University School of Medicine", "University of Missouri - Columbia School of Medicine", "University of Missouri - Kansas City ", "Washington University in St. Louis School of Medicine", "Creighton University School of Medicine", "University of Nebraska College of Medicine", "University of Nevada, Las Vegas School of Medicine", "University of Nevada, Reno School of Medicine", "Geisel School of Medicine at Dartmouth", "Cooper Medical School of Rowan University", "Rutgers New Jersey Medical School", "Rutgers, Robert Wood Johnson Medical School", "Seton Hall - Hackensack Meridian", "University of New Mexico School of Medicine", "Albany Medical College", "Albert Einstein College of Medicine of Yeshiva University", "Columbia University Vagelos College of Physicians and Surgeons", "CUNY School of Medicine - The Sophie Davis Biomedical Education Program*", "Donald and Barbara Zucker School of Medicine at Hofstra/Northwell", "Icahn School of Medicine at Mount Sinai", "Jacobs School of Medicine and Biomedical Sciences at the University at Buffalo", "New York Medical College", "New York University School of Medicine", "New York University Long Island School of Medicine", "Renaissance School of Medicine at Stony Brook University ", "State University of New York Downstate Medical Center College of Medicine", "State University of New York Upstate Medical Univ. College of Medicine", "University of Rochester School of Medicine and Dentistry", "Weill Cornell Medical College", "Brody School of Medicine at East Carolina University", "Duke University School of Medicine", "Univ. of North Carolina at Chapel Hill School of Medicine", "Wake Forest University School of Medicine", "Univ. of North Dakota School of Medicine and Health Sciences", "Case Western Reserve University School of Medicine", "Cleveland Clinic Lerner College of Medicine", "Northeast Ohio Medical University ", "Ohio State University College of Medicine", "The University of Toledo College of Medicine and Life Sciences", "University of Cincinnati College of Medicine", "Wright State University Boonshoft School of Medicine", "University of Oklahoma College of Medicine", "Oregon Health & Science University School of Medicine", "Geisinger Commonwealth School of Medicine", "Drexel University College of Medicine", "Lewis Katz School of Medicine at Temple University", "Pennsylvania State University College of Medicine", "Perelman School of Medicine at the University of Pennsylvania", "Sidney Kimmel Medical College at Thomas Jefferson University", "University of Pittsburgh School of Medicine", "Universidad Central del Caribe School of Medicine", "Ponce School of Medicine", "San Juan Bautista School of Medicine", "University of Puerto Rico School of Medicine", "The Warren Alpert Medical School of Brown Univ.", "Medical University of South Carolina College of Medicine", "University of South Carolina School of Medicine", "University of South Carolina School of Medicine Greenville", "Sanford School of Medicine The University of South Dakota ", "East Tennessee State University James H. Quillen College of Medicine", "Meharry Medical College School of Medicine", "University of Tennessee Health Science Center College of Medicine", "Vanderbilt University School of Medicine", "Baylor College of Medicine", "TCU and University of North Texas Health Science Center", "Texas A & M Health Science Center College of Medicine", "Texas Tech University Health Sciences Center Paul L. Foster School of Medicine", "Texas Tech University Health Sciences Center School of Medicine", "University of Texas Medical Branch School of Medicine at Galveston", "University of Texas Medical School at Houston", "University of Texas School of Medicine at San Antonio", "University of Texas Rio Grande Valley School of Medicine", "University of Texas Southwestern Medical School at Dallas", "Dell Medical School at The University of Texas at Austin", "University of Utah School of Medicine", "Robert Larner, M.D., College of Medicine at the University of Vermont", "Eastern Virginia Medical School", "University of Virginia School of Medicine", "VCU School of Medicine, Medical College of Virginia Health Sciences Division ", "Virginia Tech Carilion School of Medicine", "University of Washington School of Medicine", "Washington State University Elson S. Floyd College of Medicine", "Joan C. Edwards School of Medicine at Marshall University", "West Virginia University School of Medicine", "Medical College of Wisconsin", "University of Wisconsin School of Medicine and Public Health"];
-
-for(var i = 0; i < options3.length; i++) {
-    var opt = options3[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select4.appendChild(el);
-}
 
 
 function logOut(e) {

@@ -150,7 +150,7 @@ h3 {
 
 .innerSection {
   width: 65%;
-  height: 390px;
+  height: 450px;
   border: 3px solid #1975af;
   background-color: white;
   border-radius: 10px;
@@ -173,8 +173,8 @@ h3 {
   text-align: center;
 }
 
-.secondPage {
-  width: 95%;
+.firstPage {
+  width: 50%;
   padding-left: 0%;
   padding-right: 0%;
   margin-top: -10px;
@@ -185,30 +185,31 @@ h3 {
   margin-right: auto;
   align-items: center;
 }
-.form {
-  width = 40%;
-  min-width: 300px;
-  position: relative;
-  height: 60px;
-  overflow: hidden;
+
+.firstpref{
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 2%;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #27abff;
+  left:0px;
+  text-align: center;
 }
 
 .custom-select {
-  width = 40%;
+  width = 100%;
   min-width: 300px;
-  max-width: 300px;
   position: relative;
   height: 35px;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -233,15 +234,14 @@ select {
   height: 100%;
   margin: 0;
   padding: 0 0 0 4px;
-  font-size: 18px;
-  overflow: hidden;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   color: rgb(169, 169, 169, 80.0); black;
 }
 
 select::after {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 select::-ms-expand {
@@ -266,116 +266,7 @@ select::after {
 }
 
 
-.form input {
-  width: 95%;
-  position: absolute;
-  bottom: 0px;
-  height: 50%;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-  padding-left: 5px;
-}
-
-.form label {
-  position: absolute;
-  margin-left: 8px;
-  bottom: 0px;
-  left: 0%;
-  width: 95%;
-  height: 100%;
-  pointer-events: none;
-  color: rgb(169, 169, 169, 80.0); black;
-}
-
-.codeText {
-  position: absolute;
-  bottom: 5px;
-  left: 0px;
-  transition: all 0.3s ease;
-}
-
-
-.form input:focus + .label-fname .codeText, .form input:valid + .label-fname .codeText{
-  transform: translateY(-150%);
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: -1px;
-
-}
-
-.form input:focus {
-    border:1px solid #1975af;
-}
-
-
-.form input:focus + .label-lname .codeText, .form input:valid + .label-lname .codeText{
-  transform: translateY(-150%);
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: -1px;
-
-}
-
-
-.form input:focus + .label-home_state .codeText, .form input:valid + .label-home_state .codeText{
-  transform: translateY(-150%);
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: -1px;
-}
-
-.form input:focus + .label-gend .codeText, .form input:valid + .label-gend .codeText{
-  transform: translateY(-150%);
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: -1px;
-}
-
-
-.form input:focus + .label-hob .codeText, .form input:valid + .label-hob .codeText{
-  transform: translateY(-150%);
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: -1px;
-}
-
-.form input:focus + .label-medloc .codeText, .form input:valid + .label-medloc .codeText{
-  transform: translateY(-150%);
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: -1px;
-}
-
-
-.buttons {
-  text-align: center;
-  float:left;
-}
-
-.buttons button{
-  display: inline-block;
-}
-#previousButton1{
+button {
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
   font-weight: 600;
@@ -391,40 +282,14 @@ select::after {
   background: #27abff;
   color: white;
   outline: none;
-
-  float:left;
-}
-#nextButton1{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-
-  margin-top: -10px;
-
-  margin-bottom: 40px;
-
-  width: 155px;
-  height: 41px;
-  border-radius: 10px;
-
-  background: #27abff;
-  color: white;
-  outline: none;
-
-  float:right;
 }
 
-#previousButton1:hover {
+button:hover {
   background: white;
   color: #27abff;
   border: 1.5px solid #27abff
 }
 
-#nextButton1:hover {
-  background: white;
-  color: #27abff;
-  border: 1.5px solid #27abff
-}
 
 /* bottom section */
 .containerBottom {
@@ -486,6 +351,7 @@ select::after {
 
 
 
+
 /* iPhone and other tablet resizing smaller than typical laptop */
 @media only screen and (max-width: 1000px) {
   .container {
@@ -537,24 +403,18 @@ select::after {
   }
 
   .innerSection {
-    height: 700px;
-  }
-
-  .form {
-    min-width: 300px;
-  }
-
-  .form label {
-    font-size: 16px;
-    margin-bottom: 2px;
-  }
-
-  .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-    margin-bottom: -3px;
+    height: 500px;
+    width:75%;
   }
 
   .custom-select {
-    min-width: 300px;
+    min-width: 200px;
+  }
+
+  .firstpref {
+    font-size: 14px;
+    width: 100%;
+    margin-top: 50px;
   }
 
   select {
@@ -581,7 +441,7 @@ select::after {
 }
 
 /* super small iPhone and other tablet resizing like iPhone 5*/
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 500px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -620,13 +480,12 @@ select::after {
     width: 75%;
   }
 
-  .form {
-    min-width: 240px;
-  }
-
   .custom-select {
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 100px;
+    height:30px;
   }
 
+  .custom-select::after {
+    top: -12px;
+    padding: 0 10px;
 }

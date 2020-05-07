@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="medtorFormMentor2.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 
@@ -21,6 +22,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
   </head>
 
 
@@ -34,7 +38,7 @@
         <nav>
           <li><a style="text-decoration:none" href="#">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor">Log Out</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id="upperLogIn">Log Out</a></li>
         </nav>
       </div>
     </header>
@@ -48,77 +52,196 @@
 
       <div class="innerSection">
         <div class="description">
-          <span id = upperText>Please fill out your general information</span>
+          <span id = upperText>Please fill out your school history</span>
         </div>
 
         <section class = "secondPage">
-          <div class="form">
-            <input type="text" id = "undergradinstInput" name="fname" autocomplete="off" required />
-            <label for="fname" class = "label-fname">
-              <span class="codeText">Undergraduate Institution</span>
-            </label>
+          <div class="custom-select">
+            <select id = "undergradInput">
+              <option value="none">Undergraduate Institution</option>
+            </select>
+            <!---<select id="selectNumber">
+              <option>Choose a number</option>
+            </select>--->
           </div>
 
-          <div class="form">
-            <input type="text" id = "univlocationInput" name="lname" autocomplete="off" required />
-            <label for="lname" class = "label-lname">
-              <span class="codeText">University Location</span>
-            </label>
+          <div class="custom-select">
+            <select name = "slct" id = "univlocInput">
+              <option value="none">University Location</option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option>Arizona</option>
+              <option>Arkansas</option>
+              <option>California</option>
+              <option>Colorado</option>
+              <option>Connecticut</option>
+              <option>Delaware</option>
+              <option>District Of Columbia</option>
+              <option>Florida</option>
+              <option>Georgia</option>
+              <option>Hawaii</option>
+              <option>Idaho</option>
+              <option>Illinois</option>
+              <option>Indiana</option>
+              <option>Iowa</option>
+              <option>Kansas</option>
+              <option>Kentucky</option>
+              <option>Louisiana</option>
+              <option>Maine</option>
+              <option>Maryland</option>
+              <option>Massachusetts</option>
+              <option>Michigan</option>
+              <option>Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Rhode Island</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Utah</option>
+              <option>Vermont</option>
+              <option>Virginia</option>
+              <option>Washington</option>
+              <option>West Virginia</option>
+              <option>Wisconsin</option>
+              <option>Wyoming</option>
+            </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "gradyearInput">
               <option value="none">Undergrad Graduation Year</option>
-              <option value="1">2015</option>
-              <option value="2">2016</option>
-              <option value="3">2017</option>
-              <option value="4">2018</option>
-              <option value="5">2019</option>
-              <option value="6">2020</option>
-              <option value="7">2021</option>
-              <option value="8">2022</option>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
             </select>
           </div>
 
-          <div class="form">
+          <div class="custom-select">
+            <select id = "majorInput">
+              <option value="none">Major</option>
+            </select>
+            <!---<select id="selectNumber">
+              <option>Choose a number</option>
+            </select>--->
+          </div>
+
+          <!---<div class="form">
             <input type="text" id = "majorInput" name="home_state" autocomplete="off" required />
             <label for="home_state" class = "label-home_state">
               <span class="codeText">Major</span>
             </label>
+          </div>--->
+
+          <div class="custom-select">
+            <select id = "minorInput">
+              <option value="none">Minor/Second Major</option>
+            </select>
+            <!---<select id="selectNumber">
+              <option>Choose a number</option>
+            </select>--->
           </div>
 
-          <div class="form">
-            <input type="text" id = "secmajororminorInput" name="gend" autocomplete="off" required />
-            <label for="gend" class = "label-gend">
-              <span class="codeText">Minor/Second Major</span>
-            </label>
+          <div class="custom-select">
+            <select id = "medschoolInput">
+              <option value="none">Medical School</option>
+            </select>
           </div>
 
-          <div class="form">
-            <input type="text" id = "medschoolInput" name="hob" autocomplete="off" required />
-            <label for="hob" class = "label-hob">
-              <span class="codeText">Medical School</span>
-            </label>
-          </div>
-
-          <div class="form">
-            <input type="text" id = "medschoollocInput" name="medloc" autocomplete="off" required />
-            <label for="medloc" class = "label-medloc">
-              <span class="codeText">Med School Location</span>
-            </label>
+          <div class="custom-select">
+            <select class="js-example-basic-single" name = "slct" id = "medlocInput">
+              <option value="none">Medical School Location</option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option>Arizona</option>
+              <option>Arkansas</option>
+              <option>California</option>
+              <option>Colorado</option>
+              <option>Connecticut</option>
+              <option>Delaware</option>
+              <option>District Of Columbia</option>
+              <option>Florida</option>
+              <option>Georgia</option>
+              <option>Hawaii</option>
+              <option>Idaho</option>
+              <option>Illinois</option>
+              <option>Indiana</option>
+              <option>Iowa</option>
+              <option>Kansas</option>
+              <option>Kentucky</option>
+              <option>Louisiana</option>
+              <option>Maine</option>
+              <option>Maryland</option>
+              <option>Massachusetts</option>
+              <option>Michigan</option>
+              <option>Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Rhode Island</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Utah</option>
+              <option>Vermont</option>
+              <option>Virginia</option>
+              <option>Washington</option>
+              <option>West Virginia</option>
+              <option>Wisconsin</option>
+              <option>Wyoming</option>
+            </select>
           </div>
 
           <div class="custom-select">
             <select name = "slct" id = "gradInput">
               <option value="none">Intended Graduation Year</option>
-              <option value="1">2019</option>
-              <option value="2">2020</option>
-              <option value="3">2021</option>
-              <option value="4">2022</option>
-              <option value="5">2023</option>
-              <option value="6">2024</option>
-              <option value="7">2025</option>
-              <option value="8">2026</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+              <option>2026</option>
+              <option>2027</option>
+              <option>2028</option>
+              <option>2029</option>
+              <option>2030</option>
             </select>
           </div>
         </section>
