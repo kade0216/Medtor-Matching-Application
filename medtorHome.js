@@ -42,18 +42,14 @@ firebase.auth().onAuthStateChanged(function(user) {
     upperLogInBtn.onclick = function(){
       null;
     };
-    // upperLogItem.style.background = "#1975af"
-    // upperLogItem.style.backgroundColor = "#1975af"
-    // upperLogInBtn.innerHTML = "Log In";
-    // upperLogInBtn.href = "medtorAuthPass.html";
-    // upperLogInBtn.onClick = null;
-    //document.getElementById("itemLogIn").style.background = #1975af;
   }
 });
 
+//log out feature
 function logOut(e) {
   e = e || window.event;
   e.preventDefault();
+  localStorage.clear();
   firebase.auth().signOut().then(function() {
     window.location.href = "medtorHome.html";
   }).catch(function(error) {

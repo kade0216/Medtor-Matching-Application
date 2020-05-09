@@ -24,6 +24,9 @@ var pref2 = document.getElementById("preference2");
 var pref3 = document.getElementById("preference3");
 var originalFontSize = pref1.style.fontSize;
 
+var theUserRN = null;
+var formState = null;
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
@@ -32,6 +35,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     if (user.displayName == "Mentor") {
       window.location.href = "medtorAuthPass.html";
+    }
+
+    if (localStorage.getItem("currUser") === null){
+      logOut(event);
+    }
+    else {
+      theUserRN = JSON.parse(localStorage["currUser"]);
+      formState = theUserRN["formState"];
+      if (formState >= 4){
+        //window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
+        fillFields(); //take out
+      }
+      else if (formState < 3) {
+        window.location.href = "medtorStudentForm3.html";
+      }
     }
     //user signed in
     console.log("here");
@@ -45,6 +63,13 @@ firebase.auth().onAuthStateChanged(function(user) {
     sortList("preference1");
     sortList("preference2");
     sortList("preference3");
+
+    // theUserRN = JSON.parse(localStorage["currUser"]);
+    // formState = theUserRN["formState"];
+    // if (formState >= 4){
+    //   //console.log("state here");
+    //   fillFields();
+    // }
 
   } else {
     //user not signed in
@@ -68,15 +93,20 @@ function goNext(e) {
   if (checkFields()) {
     console.log("data passes");
     if (user.emailVerified == true) {
-      extraData = {
-        pref1: p1,
-        pref2: p2,
-        pref3: p3,
+      theUserRN.pref1 = p1;
+      theUserRN.pref2 = p2;
+      theUserRN.pref3 = p3;
+      if (formState < 4){
+        theUserRN.formState = 4;
       }
+      localStorage.setItem("currUser", JSON.stringify(theUserRN));
+
       theCurrUser = databaseRef.child("studentUsers").child(user.uid);
-      theCurrUser.update(extraData).then(function() {
+      theCurrUser.update(theUserRN).then(function() {
         //new code
         console.log("entered new data");
+        localStorage.removeItem("allPeople");
+        localStorage.removeItem("accessedPerson");
         window.location.href = "medtorResults.html";
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
         // returnedPerson( {text: " "}).then(function(result){
@@ -133,6 +163,12 @@ pref3.addEventListener('change', e => {
   changeColor(e, pref3, pref3L);
 })
 
+function goBack(e) {
+  e = e || window.event;
+  e.preventDefault();
+  window.location.href = "medtorStudentForm3.html";
+}
+
 
 function sortList(id) {
   var list, i, switching, b, shouldSwitch;
@@ -155,11 +191,24 @@ function sortList(id) {
   }
 }
 
+function fillFields() {
+  var eventer = new Event('change');
+
+  pref1.value = theUserRN["pref1"];
+  pref2.value = theUserRN["pref2"];
+  pref3.value = theUserRN["pref3"];
+
+  changeColor(eventer, pref1, pref1L);
+  changeColor(eventer, pref2, pref2L);
+  changeColor(eventer, pref3, pref3L);
+}
+
 
 
 function logOut(e) {
   e = e || window.event;
   e.preventDefault();
+  localStorage.clear();
   firebase.auth().signOut().then(function() {
     window.location.href = "medtorHome.html";
   }).catch(function(error) {

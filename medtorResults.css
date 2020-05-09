@@ -124,7 +124,7 @@ a:active {
   margin-left: auto;
   align-items: center;
   border-bottom: 3px solid #1975af;
-  padding-left: 2%;
+  /* padding-left: 2.5%; */
   /* margin-bottom: 30px; */
 }
 
@@ -153,6 +153,7 @@ h3 {
   background-color: white;
   border-radius: 10px;
   padding-top: 20px;
+  display:none;
 
   /* margin-top: 20px; */
   margin-bottom: 60px;
@@ -171,6 +172,22 @@ h3 {
   line-height: 24px;
   color: black;
   left:0px;
+  text-align: center;
+}
+
+.load {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-right: 2%; */
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  /* line-height: 24px; */
+  color: black;
+  /* left:0px; */
   text-align: center;
 }
 
@@ -235,7 +252,7 @@ h3 {
   background: white;
   margin-top: -3px;
 
-  display: flex;
+  display: none;
   flex-direction: row;
 
   margin-right: auto;
@@ -254,7 +271,7 @@ h3 {
   background: #ebf5ff;
   margin-top: -3px;
 
-  display: flex;
+  display: none;
   flex-direction: row;
 
   margin-right: auto;
@@ -272,7 +289,7 @@ h3 {
   align-items: left;
   /* border: 3px solid #1975af; */
   padding-left: 2%;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 .mentorName {
@@ -286,16 +303,18 @@ h3 {
 .medSchool {
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 13px;
+  line-height: 16px;
+  height: 16px;
   color: black;
+  overflow:hidden;
 }
 
 .college {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   text-align: center;
   overflow: hidden;
   /* height: 100%; */
@@ -438,7 +457,7 @@ button:hover {
 
 @media only screen and (max-width: 1080px) {
   .mainTab {
-    padding-top: 24px;
+    padding-top: 28px;
   }
 
   .mentorName {
@@ -473,7 +492,7 @@ button:hover {
 
   .mainTab {
     width: 40%;
-    padding-top: 30px;
+    padding-top: 33px;
   }
 
   .mentorName {
@@ -482,8 +501,8 @@ button:hover {
   }
 
   .medSchool {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 13px;
+    line-height: 16px;
   }
 
   .college {
@@ -734,6 +753,7 @@ button:hover {
   .medSchool {
     font-size: 12px;
     line-height: 15px;
+    height: 15px;
   }
 
   .college {
@@ -767,6 +787,7 @@ button:hover {
   .medSchool {
     font-size: 10px;
     line-height: 13px;
+    height: 13px;
   }
 
   .college {

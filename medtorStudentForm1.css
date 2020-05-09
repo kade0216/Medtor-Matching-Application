@@ -375,7 +375,7 @@ button {
 
   margin-bottom: 40px;
 
-  width: 155px;
+  width: 100px;
   height: 41px;
   border-radius: 10px;
 
@@ -389,6 +389,18 @@ button:hover {
   background: white;
   color: #27abff;
   border: 1.5px solid #27abff
+}
+
+.buttonClass {
+  box-sizing: content-box;
+  width: 760px;
+  display: flex;
+  flex-direction: row;
+  /* align-items: left; */
+}
+
+.next {
+  margin-left: calc(760px - 10px - 100px);
 }
 
 
@@ -550,6 +562,14 @@ button:hover {
 @media only screen and (max-width: 850px) {
   .innerSection {
     width: 75%;
+  }
+
+  .buttonClass {
+    width: 75%;
+  }
+
+  .next {
+    margin-left: calc(75vw - 20px - 100px);
   }
 }
 /* super small iPhone and other tablet resizing like iPhone 5*/

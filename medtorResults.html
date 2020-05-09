@@ -46,9 +46,12 @@
         <h3>Mentor Matches</h3>
       </div>
 
-      <div class="innerSection">
+      <div class="innerSection" id = "innerSec">
         <div class="description">
-          <span id = upperText>Choose your mentor!<br>Click on a mentor to learn more about them.</span>
+          <span id = upperText>
+            Choose your mentor!<br>Click on a mentor to learn more about them.
+            <a onclick="reloadData(event)" href = "#"><br>Reload Data</a>
+          </span>
         </div>
         <div class="upperCell">
           <div class="headerName">
@@ -69,24 +72,24 @@
         </div>
 
         <div class="cell" id = "person1">
-          <div class="mainTab" onclick = goDetail(event)>
+          <div class="mainTab" onclick = "goDetail(event, 1)">
             <div class="mentorName">
               <span id = "mentorName">Vineethsubbu S</span>
             </div>
             <div class="medSchool">
-              <span id = "mentorName">Stanford Med School</span>
+              <span id = "mentorMed">Stanford Med School</span>
             </div>
           </div>
 
-          <div class="college" onclick = goDetail(event)>
+          <div class="college" onclick = "goDetail(event, 1)">
             <span id = "collegeName">Princeton University</span>
           </div>
 
-          <div class="year" onclick = goDetail(event)>
+          <div class="year" onclick = "goDetail(event, 1)">
             <span id = "gradYear">2017</span>
           </div>
 
-          <div class="gapYear" onclick = goDetail(event)>
+          <div class="gapYear" onclick = "goDetail(event, 1)">
             <span id = "gapYear">Gap Year</span>
           </div>
 
@@ -96,24 +99,24 @@
         </div>
 
         <div class="cell2" id = "person2">
-          <div class="mainTab" onclick = goDetail(event)>
+          <div class="mainTab" onclick = "goDetail(event, 2)">
             <div class="mentorName">
               <span id = "mentorName">Vineethsubbu S</span>
             </div>
             <div class="medSchool">
-              <span id = "mentorName">Stanford Med School</span>
+              <span id = "mentorMed">Stanford Med School</span>
             </div>
           </div>
 
-          <div class="college" onclick = goDetail(event)>
+          <div class="college" onclick = "goDetail(event, 2)">
             <span id = "collegeName">Princeton University</span>
           </div>
 
-          <div class="year" onclick = goDetail(event)>
+          <div class="year" onclick = "goDetail(event, 2)">
             <span id = "gradYear">2017</span>
           </div>
 
-          <div class="gapYear" onclick = goDetail(event)>
+          <div class="gapYear" onclick = "goDetail(event, 2)">
             <span id = "gapYear">Gap Year</span>
           </div>
 
@@ -123,24 +126,24 @@
         </div>
 
         <div class="cell" id = "person3">
-          <div class="mainTab" onclick = goDetail(event)>
+          <div class="mainTab" onclick = "goDetail(event, 3)">
             <div class="mentorName">
               <span id = "mentorName">Vineethsubbu S</span>
             </div>
             <div class="medSchool">
-              <span id = "mentorName">Stanford Med School</span>
+              <span id = "mentorMed">Stanford Med School</span>
             </div>
           </div>
 
-          <div class="college" onclick = goDetail(event)>
+          <div class="college" onclick = "goDetail(event, 3)">
             <span id = "collegeName">Princeton University</span>
           </div>
 
-          <div class="year" onclick = goDetail(event)>
+          <div class="year" onclick = "goDetail(event, 3)">
             <span id = "gradYear">2017</span>
           </div>
 
-          <div class="gapYear" onclick = goDetail(event)>
+          <div class="gapYear" onclick = "goDetail(event, 3)">
             <span id = "gapYear">Gap Year</span>
           </div>
 
@@ -150,24 +153,24 @@
         </div>
 
         <div class="cell2" id = "person4">
-          <div class="mainTab" onclick = goDetail(event)>
+          <div class="mainTab" onclick = "goDetail(event, 4)">
             <div class="mentorName">
               <span id = "mentorName">Vineethsubbu S</span>
             </div>
             <div class="medSchool">
-              <span id = "mentorName">Stanford Med School</span>
+              <span id = "mentorMed">Stanford Med School</span>
             </div>
           </div>
 
-          <div class="college" onclick = goDetail(event)>
+          <div class="college" onclick = "goDetail(event, 4)">
             <span id = "collegeName">Princeton University</span>
           </div>
 
-          <div class="year" onclick = goDetail(event)>
+          <div class="year" onclick = "goDetail(event, 4)">
             <span id = "gradYear">2017</span>
           </div>
 
-          <div class="gapYear" onclick = goDetail(event)>
+          <div class="gapYear" onclick = "goDetail(event, 4)">
             <span id = "gapYear">Gap Year</span>
           </div>
 
@@ -177,24 +180,24 @@
         </div>
 
         <div class="cell" id = "person5">
-          <div class="mainTab" onclick = goDetail(event)>
+          <div class="mainTab" onclick = "goDetail(event, 5)">
             <div class="mentorName">
               <span id = "mentorName">Vineethsubbu S</span>
             </div>
             <div class="medSchool">
-              <span id = "mentorName">Stanford Med School</span>
+              <span id = "mentorMed">Stanford Med School</span>
             </div>
           </div>
 
-          <div class="college" onclick = goDetail(event)>
+          <div class="college" onclick = "goDetail(event, 5)">
             <span id = "collegeName">Princeton University</span>
           </div>
 
-          <div class="year" onclick = goDetail(event)>
+          <div class="year" onclick = "goDetail(event, 5)">
             <span id = "gradYear">2017</span>
           </div>
 
-          <div class="gapYear" onclick = goDetail(event)>
+          <div class="gapYear" onclick = "goDetail(event, 5)">
             <span id = "gapYear">Gap Year</span>
           </div>
 
@@ -205,6 +208,10 @@
 
         <button onclick = "submitSelection(event)" class="confirmer" id="confirmButton">Confirm</button>
 
+      </div>
+
+      <div class="load" id = "loading">
+        <span>Loading...</span>
       </div>
 
 

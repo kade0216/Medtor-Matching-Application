@@ -42,31 +42,36 @@
 
     <div class="middleContainer">
       <div class="headerArea">
-        <button class = "backBtn" onclick = "window.location.href = 'medtorResults.html'" >back</button>
+        <button class = "backBtn" onclick = "goBack(event)" >back</button>
         <div class="headerText">
           <img class = "profileLogo" src = "Icons/MedTorLogo2.png">
           <h3>Mentor Matches</h3>
         </div>
       </div>
 
-      <div class="innerSection">
-        <div class="nameTitle">
+      <div class="innerSection" id = "innerSec">
+        <div class="nameTitle" id="theName">
           <span>Anshu Jonnalagadda</span>
         </div>
-        <div class="edSection">
+        <div class="edSection" id = "educationSec">
           <div class = "secTitle">
             <img class = "sectionLogo" src = "Icons/SchoolIcon/schoolIcon.png">
             <span>Education</span>
           </div>
 
           <div class="innerInfo">
+              <b>Name:</b>
+              <span>Anshu Jonnalagadda</span>
+          </div>
+
+          <div class="innerInfo">
               <b>Undergrad:</b>
               <span>University of Washington</span>
           </div>
-          <div class="innerInfo">
+          <!-- <div class="innerInfo">
               <b>Location:</b>
               <span>WA</span>
-          </div>
+          </div> -->
           <div class="innerInfo">
               <b>Graduating Year:</b>
               <span>2017</span>
@@ -79,17 +84,17 @@
               <b>Medical School:</b>
               <span>Duke University</span>
           </div>
-          <div class="innerInfo">
+          <!-- <div class="innerInfo">
               <b>Location:</b>
               <span>NC</span>
-          </div>
+          </div> -->
           <div class="innerInfo">
               <b>Intended Completion:</b>
               <span>2023</span>
           </div>
 
         </div>
-        <div class="pathSection">
+        <div class="pathSection" id = "pSec">
           <div class = "secTitle">
             <img class = "sectionLogo" src = "Icons/FutureIcon/futureIcon.png">
             <span>Path</span>
@@ -112,19 +117,28 @@
               <span>Cardiologist, Pediatrician</span>
           </div>
         </div>
-        <div class="passionSection">
+        <div class="passionSection" id = "passionSec">
           <div class = "secTitle">
             <img class = "sectionLogo" src = "Icons/PassionIcon/passionIcon.png">
-            <span>Hobbies/Passions</span>
+            <span>Passions</span>
           </div>
 
           <div class="innerInfo">
-              <b>Hobbies/Passions:</b>
+              <b>Hobbies:</b>
               <span>Cooking, Art, Sports</span>
+          </div>
+
+          <div class="innerInfo">
+              <b>Home State:</b>
+              <span>WA</span>
           </div>
         </div>
 
 
+      </div>
+
+      <div class="load" id = "loading">
+        <span>Loading...</span>
       </div>
 
 

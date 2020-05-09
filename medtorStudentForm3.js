@@ -35,6 +35,9 @@ var future2 = document.getElementById("futureprof2Input");
 
 var originalFontSize = research1.style.fontSize;
 
+var theUserRN = null;
+var formState = null;
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
@@ -43,6 +46,24 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     if (user.displayName == "Mentor") {
       window.location.href = "medtorAuthPass.html";
+    }
+
+    if (localStorage.getItem("currUser") === null){
+      logOut(event);
+    }
+    else {
+      theUserRN = JSON.parse(localStorage["currUser"]);
+      formState = theUserRN["formState"];
+      if (formState >= 4){
+        //window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
+        fillFields(); //take out
+      }
+      else if (formState >= 3){
+        fillFields();
+      }
+      else if (formState < 2) {
+        window.location.href = "medtorStudentForm2.html";
+      }
     }
     //user signed in
     console.log("here");
@@ -84,19 +105,32 @@ function goNext(e) {
 
   if (checkFields()) {
     if (user.emailVerified == true) {
-      console.log("data passes");
-      extraData = {
-        research1: res1,
-        research2: res2,
-        volunteer1: vol1,
-        volunteer2: vol2,
-        gap1: g1,
-        gap2: g2,
-        profession1: prof1,
-        profession2: prof2,
+      //console.log("data passes");
+      theUserRN.research1 = res1;
+      theUserRN.research2 = res2;
+      theUserRN.volunteer1 = vol1;
+      theUserRN.volunteer2 = vol2;
+      theUserRN.gap1 = g1;
+      theUserRN.gap2 = g2;
+      theUserRN.profession1 = prof1;
+      theUserRN.profession2 = prof2;
+      if (formState < 3){
+        theUserRN.formState = 3;
       }
+      localStorage.setItem("currUser", JSON.stringify(theUserRN));
+
+      // extraData = {
+      //   research1: res1,
+      //   research2: res2,
+      //   volunteer1: vol1,
+      //   volunteer2: vol2,
+      //   gap1: g1,
+      //   gap2: g2,
+      //   profession1: prof1,
+      //   profession2: prof2,
+      // }
       theCurrUser = databaseRef.child("studentUsers").child(user.uid);
-      theCurrUser.update(extraData).then(function() {
+      theCurrUser.update(theUserRN).then(function() {
         //new code
         console.log("entered new data")
         window.location.href = "medtorFormPreferencePage.html";
@@ -153,7 +187,6 @@ research1.addEventListener('change', e => {
 research2.addEventListener('change', e => {
   changeColor(e, research2, res2L);
 })
-
 volunteer1.addEventListener('change', e => {
   changeColor(e, volunteer1, vol1L);
 })
@@ -194,10 +227,33 @@ function sortList(id) {
   }
 }
 
+function fillFields() {
+  var eventer = new Event('change');
+
+  research1.value = theUserRN["research1"];
+  research2.value = theUserRN["research2"];
+  volunteer1.value = theUserRN["volunteer1"];
+  volunteer2.value = theUserRN["volunteer2"];
+  gap1.value = theUserRN["gap1"];
+  gap2.value = theUserRN["gap2"];
+  future1.value = theUserRN["profession1"];
+  future2.value = theUserRN["profession2"];
+
+  changeColor(eventer, research1, res1L);
+  changeColor(eventer, research2, res2L);
+  changeColor(eventer, volunteer1, vol1L);
+  changeColor(eventer, volunteer2, vol2L);
+  changeColor(eventer, gap1, gap1L);
+  changeColor(eventer, gap2, gap2L);
+  changeColor(eventer, future1, prof1L);
+  changeColor(eventer, future2, prof2L);
+}
+
 
 function logOut(e) {
   e = e || window.event;
   e.preventDefault();
+  localStorage.clear();
   firebase.auth().signOut().then(function() {
     window.location.href = "medtorHome.html";
   }).catch(function(error) {

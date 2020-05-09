@@ -35,6 +35,9 @@ var future2 = document.getElementById("futureprof2Input");
 
 var originalFontSize = research1.style.fontSize;
 
+var theUserRN = null;
+var formState = null;
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
@@ -43,6 +46,20 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     if (user.displayName == "Student") {
       window.location.href = "medtorAuthPass.html";
+    }
+
+    if (localStorage.getItem("currUser") === null){
+      logOut(event);
+    }
+    else {
+      theUserRN = JSON.parse(localStorage["currUser"]);
+      formState = theUserRN["formState"];
+      if (formState >= 3){
+        fillFields();
+      }
+      else if (formState < 2) {
+        window.location.href = "medtorMentorForm2.html";
+      }
     }
     //user signed in
     console.log("here");
@@ -58,6 +75,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     sortList("research2Input");
     sortList("volunteer1Input");
     sortList("volunteer2Input");
+
+    // theUserRN = JSON.parse(localStorage["currUser"]);
+    // formState = theUserRN["formState"];
+    // if (formState >= 3){
+    //   fillFields();
+    // }
 
 
   } else {
@@ -84,19 +107,31 @@ function goNext(e) {
 
   if (checkFields()) {
     if (user.emailVerified == true) {
-      console.log("data passes");
-      extraData = {
-        research1: res1,
-        research2: res2,
-        volunteer1: vol1,
-        volunteer2: vol2,
-        gap1: g1,
-        gap2: g2,
-        profession1: prof1,
-        profession2: prof2,
+      theUserRN.research1 = res1;
+      theUserRN.research2 = res2;
+      theUserRN.volunteer1 = vol1;
+      theUserRN.volunteer2 = vol2;
+      theUserRN.gap1 = g1;
+      theUserRN.gap2 = g2;
+      theUserRN.profession1 = prof1;
+      theUserRN.profession2 = prof2;
+      if (formState < 3){
+        theUserRN.formState = 3;
       }
+      localStorage.setItem("currUser", JSON.stringify(theUserRN));
+      //console.log("data passes");
+      // extraData = {
+      //   research1: res1,
+      //   research2: res2,
+      //   volunteer1: vol1,
+      //   volunteer2: vol2,
+      //   gap1: g1,
+      //   gap2: g2,
+      //   profession1: prof1,
+      //   profession2: prof2,
+      // }
       theCurrUser = databaseRef.child("mentorUsers").child(user.uid);
-      theCurrUser.update(extraData).then(function() {
+      theCurrUser.update(theUserRN).then(function() {
         //new code
         console.log("entered new data")
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
@@ -133,7 +168,7 @@ function goBack(e) {
 function changeColor(e, obj, labeler) {
   e = e || window.event;
   e.preventDefault();
-  console.log("here");
+  // console.log("here");
   if (obj.value != "none") {
     obj.style.color = "black";
     obj.style.fontSize = "14px";
@@ -193,10 +228,33 @@ function sortList(id) {
   }
 }
 
+function fillFields() {
+  var eventer = new Event('change');
+
+  research1.value = theUserRN["research1"];
+  research2.value = theUserRN["research2"];
+  volunteer1.value = theUserRN["volunteer1"];
+  volunteer2.value = theUserRN["volunteer2"];
+  gap1.value = theUserRN["gap1"];
+  gap2.value = theUserRN["gap2"];
+  future1.value = theUserRN["profession1"];
+  future2.value = theUserRN["profession2"];
+
+  changeColor(eventer, research1, res1L);
+  changeColor(eventer, research2, res2L);
+  changeColor(eventer, volunteer1, vol1L);
+  changeColor(eventer, volunteer2, vol2L);
+  changeColor(eventer, gap1, gap1L);
+  changeColor(eventer, gap2, gap2L);
+  changeColor(eventer, future1, prof1L);
+  changeColor(eventer, future2, prof2L);
+}
+
 
 function logOut(e) {
   e = e || window.event;
   e.preventDefault();
+  localStorage.clear();
   firebase.auth().signOut().then(function() {
     window.location.href = "medtorHome.html";
   }).catch(function(error) {

@@ -81,24 +81,30 @@ firebase.auth().onAuthStateChanged(function(user) {
       //If email is verified, check to see if user has already been placed into database, if NOT then add to database and then move on to next page, if already done then move on to next page.
       if (user.emailVerified) {
         window.localStorage.setItem('userUID', user.uid); //unnecessary
-        databaseRef.child("studentUsers").orderByChild("email").equalTo(email_id).once("value",snapshot => {
+        databaseRef.child("studentUsers").child(user.uid).once("value",snapshot => {
           if (snapshot.exists()){
             //go to next page
             console.log("would go to next page");
+            console.log(snapshot.val());
+            localStorage.setItem("currUser", JSON.stringify(snapshot.val()));
             //window.location.href = "medtorHome.html";
           }
           else {
             //adds data to database
-            allUsers = databaseRef.child("studentUsers");
-            theCurrUser = allUsers.child(user.uid);
-            theCurrUser.set({
+            var allUsers = databaseRef.child("studentUsers");
+            var theCurrUser = allUsers.child(user.uid);
+            var addingData = {
               email: user.email,
               emailVerified: user.emailVerified,
-            }).then(function() {
+              formState: "0",
+            }
+            theCurrUser.set(addingData).then(function() {
               //go to next page;
+              localStorage.setItem("currUser", JSON.stringify(addingData));
               console.log("would go to next page because data just submitted");
               //window.location.href = "medtorHome.html";
             });
+            console.log("not snapshot");
           }
         });
         document.getElementById("nextBtn").style.display = 'block';
@@ -275,17 +281,6 @@ function switchTo(e) {
 
 }
 
-//log out feature
-function logOut(e) {
-  e = e || window.event;
-  e.preventDefault();
-  firebase.auth().signOut().then(function() {
-    window.location.href = "medtorHome.html";
-  }).catch(function(error) {
-    // An error happened.
-  });
-}
-
 //enter button usage dependent on condition of the form in log in or register
 function enterKey(e) {
   e = e || window.event;
@@ -299,24 +294,15 @@ function enterKey(e) {
     }
   }
 }
-// form.addEventListener('submit', e => {
-//   e.preventDefault();
-//   register();
-// })
 
-// form.addEventListener('submit', e => {
-//   e.preventDefault();
-//   emailText = emailIn.value;
-//   if (checkFormatting(emailText)){
-//     key = Math.floor(100000 + Math.random() * 900000);
-//     document.getElementById("hiddenVal").value = key;
-//     if (key != 0) {
-//       localStorage.setItem("confCode", key);
-//     }
-//     // fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-//     //   .then(response => window.location.href = 'medtorCodeAuth.html')
-//     //   .catch(error => console.error('Error!', error.message))
-//
-//     console.log(key);
-//   }
-// })
+//log out feature
+function logOut(e) {
+  e = e || window.event;
+  e.preventDefault();
+  localStorage.clear();
+  firebase.auth().signOut().then(function() {
+    window.location.href = "medtorHome.html";
+  }).catch(function(error) {
+    // An error happened.
+  });
+}

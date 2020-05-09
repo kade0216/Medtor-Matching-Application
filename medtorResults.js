@@ -18,6 +18,12 @@ var p3 = document.getElementById("person3");
 var p4 = document.getElementById("person4");
 var p5 = document.getElementById("person5");
 
+var per1 = null;
+var per2 = null;
+var per3 = null;
+var per4 = null;
+var per5 = null;
+
 var upperLogInBtn = document.getElementById('upperLogIn');
 var confirmBtn = document.getElementById("confirmButton");
 var selected = null;
@@ -36,11 +42,59 @@ firebase.auth().onAuthStateChanged(function(user) {
     // }
     //MAKE SURE DISPLAY NAME IS CHANGED TO STUDENTDONE
     //user signed in
+    // window.location.href = "winndo"
+    console.log(localStorage);
     console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
     };
+
+    //localStorage.clear();
+    var cells = [p1, p2, p3, p4, p5];
+    if (localStorage.getItem("allPeople") === null) {
+      var returnedPerson = firebase.functions().httpsCallable('findMatches');
+      returnedPerson( {text: " "}).then(function(result){
+        console.log(result);
+        per1 = result["data"]["firstObj"]["theObj"];
+        per2 = result["data"]["secondObj"]["theObj"];
+        per3 = result["data"]["thirdObj"]["theObj"];
+        per4 = result["data"]["fourthObj"]["theObj"];
+        per5 = result["data"]["fifthObj"]["theObj"];
+
+        var dataInputs = [per1, per2, per3, per4, per5];
+        localStorage.setItem("allPeople", JSON.stringify(dataInputs));
+
+        for (var i = 0; i < cells.length; i++){
+          document.getElementById("innerSec").style.display = "block";
+          document.getElementById("loading").style.display = "none";
+          if (dataInputs[i] == null){
+            cells[i].style.display = "none";
+          }
+          else {
+            cells[i].style.display = "flex";
+            writeCell(cells[i], dataInputs[i]);
+          }
+        }
+
+      });
+    }
+    else {
+      var dataInputs = JSON.parse(localStorage["allPeople"]);
+      for (var i = 0; i < cells.length; i++){
+        document.getElementById("innerSec").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+        if (dataInputs[i] == null){
+          cells[i].style.display = "none";
+        }
+        else {
+          cells[i].style.display = "flex";
+          writeCell(cells[i], dataInputs[i]);
+        }
+      }
+    }
+
+    //localStorage.setItem("entireObj", JSON.stringify(person));
 
   } else {
     //user not signed in
@@ -53,7 +107,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 //ADD OTHER FUNCTIONS AND CODE HERE
 //Add overflow functions for colleges and names
 
-function goDetail(e) {
+function goDetail(e, person) {
+  e = e || window.event;
+  e.preventDefault();
+
+  localStorage.setItem("accessedPerson", person);
+  //console.log(localStorage);
+
   window.location.href = "medtorDetailView.html";
 }
 
@@ -80,9 +140,95 @@ function changeColor(e, person){
   confirmBtn.style.display = "block";
 }
 
+
+
+function writeCell(cellSet, inputObject, nameFullSet, medSchoolSet, undergradSet, yearSet, gapYearSet) {
+  setList = ["mentorName", "medSchool", "college", "year", "gapYear"];
+  var name = shortenName(inputObject.firstName, inputObject.lastName);
+  var medSchool = inputObject.MedSchool;
+  var college = shortenCollege(inputObject.Undergrad);
+  var year = inputObject.UndergradYear;
+  var gap = null;
+  if (inputObject.gap1 === "No Gap Year" || inputObject.gap2 === "No Gap Year") {
+    gap = "No Gap Year"
+  }
+  else {
+    gap = "Gap Year"
+  }
+
+  inList = [name, medSchool, college, year, gap];
+
+  for (var i = 0; i < setList.length; i++) {
+    var eachCell = cellSet.getElementsByClassName(setList[i]);
+    eachCell[0].childNodes[1].innerHTML = inList[i];
+    //console.log(eachCell[0].childNodes[1].innerHTML);
+  }
+}
+
+function shortenName(firstN, lastN){
+  togetherName = firstN + " " + lastN;
+  if (togetherName.length > 17) {
+    return firstN + " " + lastN[0] + ".";
+  }
+  else {
+    return togetherName;
+  }
+}
+
+function shortenCollege(collegeN) {
+  var allWords = collegeN.split(/[ ,&-]+/);
+  if (allWords.length > 3) {
+    var shortVersion = "";
+    for (var v = 0; v < allWords.length; v++) {
+      if (allWords[v][0] === "(" || allWords[v] === "the" || allWords[v] === "The" || allWords[v] === "of" || allWords[v] === "Of" || allWords[v] === "at" || allWords[v] === "At") {
+        //console.log(allWords[v][0]);
+      }
+      else {
+        shortVersion += allWords[v][0];
+      }
+    }
+    return shortVersion.toUpperCase();
+  }
+  else {
+    return collegeN;
+  }
+}
+
+function reloadData(e) {
+  e = e || window.event;
+  e.preventDefault();
+
+  var returnedPerson = firebase.functions().httpsCallable('findMatches');
+  returnedPerson( {text: " "}).then(function(result){
+    console.log(result);
+    per1 = result["data"]["firstObj"]["theObj"];
+    per2 = result["data"]["secondObj"]["theObj"];
+    per3 = result["data"]["thirdObj"]["theObj"];
+    per4 = result["data"]["fourthObj"]["theObj"];
+    per5 = result["data"]["fifthObj"]["theObj"];
+
+    var cells = [p1, p2, p3, p4, p5];
+    var dataInputs = [per1, per2, per3, per4, per5];
+    localStorage.setItem("allPeople", JSON.stringify(dataInputs));
+
+    for (var i = 0; i < cells.length; i++){
+      document.getElementById("innerSec").style.display = "block";
+      document.getElementById("loading").style.display = "none";
+      if (dataInputs[i] == null){
+        cells[i].style.display = "none";
+      }
+      else {
+        cells[i].style.display = "flex";
+        writeCell(cells[i], dataInputs[i]);
+      }
+    }
+  });
+}
+
 function logOut(e) {
   e = e || window.event;
   e.preventDefault();
+  localStorage.clear();
   firebase.auth().signOut().then(function() {
     window.location.href = "medtorHome.html";
   }).catch(function(error) {

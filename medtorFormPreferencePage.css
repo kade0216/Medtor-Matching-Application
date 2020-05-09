@@ -375,7 +375,7 @@ button {
 
   margin-bottom: 40px;
 
-  width: 165px;
+  width: 100px;
   height: 41px;
   border-radius: 10px;
 
@@ -385,10 +385,27 @@ button {
   border: none;
 }
 
+
 button:hover {
   background: white;
   color: #27abff;
   border: 1.5px solid #27abff
+}
+
+.buttonClass {
+  box-sizing: content-box;
+  width: 760px;
+  display: flex;
+  flex-direction: row;
+}
+
+.back {
+  margin-left: 10px;
+}
+
+.next {
+  width: 165px;
+  margin-left: calc(760px - 20px - 165px - 100px);
 }
 
 
@@ -550,6 +567,19 @@ button:hover {
 @media only screen and (max-width: 850px) {
   .innerSection {
     width: 75%;
+  }
+
+  .buttonClass {
+    width: 75%;
+  }
+
+  .next {
+    width: 145px;
+    margin-left: calc(75vw - 20px - 145px - 80px);
+  }
+
+  .back {
+    width: 80px;
   }
 }
 /* super small iPhone and other tablet resizing like iPhone 5*/

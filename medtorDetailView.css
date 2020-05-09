@@ -205,12 +205,28 @@ button:hover {
 
   margin-top: 20px;
   margin-bottom: 60px;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 
   font-family: "Montserrat";
   background: #ebf5ff;
+}
+
+.load {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-right: 2%; */
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  /* line-height: 24px; */
+  color: black;
+  /* left:0px; */
+  text-align: center;
 }
 
 .nameTitle {

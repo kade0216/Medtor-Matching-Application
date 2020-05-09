@@ -265,6 +265,7 @@ button {
   background: #27abff;
   color: white;
   outline: none;
+  border: none;
 }
 
 .registerButton {

@@ -16,17 +16,59 @@ exports.findMatches = functions.https.onCall((data, context) => {
    var data = allMentors;
    var mentorUIDs = Object.keys(data);
    return studResponse(uid).then(function(theStudent){
-     var maxScore = 0
-     var dataObj = null;
+     var firstObj = {theObj: null, score: 0};
+     var secondObj = {theObj: null, score: 0};
+     var thirdObj = {theObj: null, score: 0};
+     var fourthObj = {theObj: null, score: 0};
+     var fifthObj = {theObj: null, score: 0};
+     var allScore = [];
      for (var index = 0; index < mentorUIDs.length; index++) {
        var mentorData = data[mentorUIDs[index]];
        var score = getScore(mentorData, theStudent);
-       if (score > maxScore){
-         maxScore = score;
-         dataObj = mentorData;
+       allScore.push(score);
+       var currMove = mentorData;
+       var currScore = score;
+       if (score > fifthObj["score"]){
+         if (score > fourthObj["score"]){
+           if (score > thirdObj["score"]){
+             if (score > secondObj["score"]){
+               if (score > firstObj["score"]){
+
+                 mentorData = firstObj["theObj"];
+                 score = firstObj["score"];
+                 firstObj["theObj"] = currMove;
+                 firstObj["score"] = currScore;
+               }
+
+               currMove = secondObj["theObj"];
+               currScore = secondObj["score"];
+               secondObj["theObj"] = mentorData;
+               secondObj["score"] = score;
+             }
+
+             mentorData = thirdObj["theObj"];
+             score = thirdObj["score"];
+             thirdObj["theObj"] = currMove;
+             thirdObj["score"] = currScore;
+           }
+
+           currMove = fourthObj["theObj"];
+           currScore = fourthObj["score"];
+           fourthObj["theObj"] = mentorData;
+           fourthObj["score"] = score;
+         }
+
+         fifthObj["theObj"] = currMove;
+         fifthObj["score"] = currScore;
        }
      }
-     return {theScore: maxScore, theObj: dataObj}
+     return {theScores: allScore,
+       firstObj: firstObj,
+       secondObj: secondObj,
+       thirdObj: thirdObj,
+       fourthObj: fourthObj,
+       fifthObj: fifthObj,
+     }
    });
  });
 });
@@ -68,22 +110,22 @@ function getScore(mentorObj, studentObj) {
   var profMultiplier = 1;
 
   if (mentorObj.homeState === studentObj.homeState){
-    locScore += 1;
+    locScore += 0.25;
   }
   if (mentorObj.homeState === studentObj.UndergradLoc){
-    locScore += 1;
+    locScore += 0.25;
   }
   if (studentObj.homeState === mentorObj.UndergradLoc){
-    locScore += 1;
+    locScore += 0.25;
   }
   if (studentObj.homeState === mentorObj.medSchoolLoc){
-    locScore += 1;
+    locScore += 0.25;
   }
   if (studentObj.UndergradLoc === mentorObj.UndergradLoc){
-    locScore += 1;
+    locScore += 0.25;
   }
   if (studentObj.UndergradLoc === mentorObj.medSchoolLoc){
-    locScore += 1;
+    locScore += 0.25;
   }
 
   var hobMatchScore = 0;
@@ -98,24 +140,24 @@ function getScore(mentorObj, studentObj) {
   }
 
   if (hobMatchScore === 1) {
-    hobScore += 1;
+    hobScore += 0.5;
   }
   if (hobMatchScore === 2) {
-    hobScore += 2;
+    hobScore += 1;
   }
   if (hobMatchScore === 3) {
-    hobScore += 4;
+    hobScore += 1.5;
   }
 
 
   if (mentorObj.Major === studentObj.Major){
-    majScore += 4;
+    majScore += 1;
   }
   if (mentorObj.Major === studentObj.Minor || mentorObj.Minor === studentObj.Major){
-    majScore += 1;
+    majScore += 0.5;
   }
   if (mentorObj.Minor === studentObj.Minor){
-    majScore += 1;
+    majScore += 0.5;
   }
 
   var researchMatchScore = 0;
@@ -127,11 +169,11 @@ function getScore(mentorObj, studentObj) {
   }
 
   if (researchMatchScore === 1){
-    reScore = 3;
+    reScore = 1;
   }
 
   if (researchMatchScore === 2){
-    reScore = 5;
+    reScore = 1.5;
   }
 
   var volMatchScore = 0;
@@ -143,15 +185,15 @@ function getScore(mentorObj, studentObj) {
   }
 
   if (volMatchScore === 1){
-    volScore = 2;
+    volScore = 0.75;
   }
 
   if (volMatchScore === 2){
-    volScore = 4;
+    volScore = 1.25;
   }
 
   if(mentorObj.Undergrad === studentObj.Undergrad){
-    undgScore = 4;
+    undgScore = 1.5;
   }
 
   var profMatchScore = 0;
@@ -163,17 +205,17 @@ function getScore(mentorObj, studentObj) {
   }
 
   if (profMatchScore === 1){
-    profScore = 1;
+    profScore = 0.5;
   }
 
   if (profMatchScore === 2){
-    profScore = 3;
+    profScore = 1;
   }
 
   var gapMatchScore = 0;
   if (mentorObj.gap1 === studentObj.gap1 || mentorObj.gap1 === studentObj.gap2){
     if(mentorObj.gap1 === "No Gap Year") {
-      gapScore = 3;
+      gapScore = 1.5;
     }
     else {
       gapMatchScore += 1;
@@ -181,7 +223,7 @@ function getScore(mentorObj, studentObj) {
   }
   if (mentorObj.gap2 === studentObj.gap1 || mentorObj.gap2 === studentObj.gap2){
     if(mentorObj.gap2 === "No Gap Year") {
-      gapScore = 3;
+      gapScore = 1.5;
     }
     else {
       gapMatchScore += 1;
@@ -193,80 +235,84 @@ function getScore(mentorObj, studentObj) {
   }
 
   if (gapMatchScore === 2){
-    gapScore = 3;
+    gapScore = 1.5;
   }
 
-  if(studentObj.pref1 === "Major(s)/Minor(s)"){
-    majMultiplier = 2;
-  }
-  if(studentObj.pref1 === "Hobbies/Passions"){
-    hobMultiplier = 2;
-  }
-  if(studentObj.pref1 === "Research Experiences"){
-    reMultiplier = 2;
-  }
-  if(studentObj.pref1 === "Volunteer Experiences"){
-    volMultiplier = 2;
-  }
-  if(studentObj.pref1 === "Gap Year Experiences"){
-    gapMultiplier = 2;
-  }
-  if(studentObj.pref1 === "Undergraduate Institution"){
-    undMultiplier = 2;
-  }
-  if(studentObj.pref1 === "Potential Profession/Specialty"){
-    profMultiplier = 2;
-  }
-  if(studentObj.pref1 === "Current Location"){
-    locMultiplier = 2;
-  }
-  if(studentObj.pref2 === "Major(s)/Minor(s)"){
-    majMultiplier = 1.5;
-  }
-  if(studentObj.pref2 === "Hobbies/Passions"){
-    hobMultiplier = 1.5;
-  }
-  if(studentObj.pref2 === "Research Experiences"){
-    reMultiplier = 1.5;
-  }
-  if(studentObj.pref2 === "Volunteer Experiences"){
-    volMultiplier = 1.5;
-  }
-  if(studentObj.pref2 === "Gap Year Experiences"){
-    gapMultiplier = 1.5;
-  }
-  if(studentObj.pref2 === "Undergraduate Institution"){
-    undMultiplier = 1.5;
-  }
-  if(studentObj.pref2 === "Potential Profession/Specialty"){
-    profMultiplier = 1.5;
-  }
-  if(studentObj.pref2 === "Current Location"){
-    locMultiplier = 1.5;
-  }
+  var fmult = 2.75;
+  var smult = 2;
+  var tmult = 1.5;
+
   if(studentObj.pref3 === "Major(s)/Minor(s)"){
-    majMultiplier = 1.25;
+    majMultiplier = tmult;
   }
   if(studentObj.pref3 === "Hobbies/Passions"){
-    hobMultiplier = 1.25;
+    hobMultiplier = tmult;
   }
   if(studentObj.pref3 === "Research Experiences"){
-    reMultiplier = 1.25;
+    reMultiplier = tmult;
   }
   if(studentObj.pref3 === "Volunteer Experiences"){
-    volMultiplier = 1.25;
+    volMultiplier = tmult;
   }
   if(studentObj.pref3 === "Gap Year Experiences"){
-    gapMultiplier = 1.25;
+    gapMultiplier = tmult;
   }
-  if(studentObj.pref3 === "Undergraduate Institution"){
-    undMultiplier = 1.25;
+  // if(studentObj.pref3 === "Undergraduate Institution"){
+  //   undMultiplier = tmult;
+  // }
+  if(studentObj.pref3 === "Potential Profession"){
+    profMultiplier = tmult;
   }
-  if(studentObj.pref3 === "Potential Profession/Specialty"){
-    profMultiplier = 1.25;
+  if(studentObj.pref3 === "Location"){
+    locMultiplier = tmult;
   }
-  if(studentObj.pref3 === "Current Location"){
-    locMultiplier = 1.25;
+  if(studentObj.pref2 === "Major(s)/Minor(s)"){
+    majMultiplier = smult;
+  }
+  if(studentObj.pref2 === "Hobbies/Passions"){
+    hobMultiplier = smult;
+  }
+  if(studentObj.pref2 === "Research Experiences"){
+    reMultiplier = smult;
+  }
+  if(studentObj.pref2 === "Volunteer Experiences"){
+    volMultiplier = smult;
+  }
+  if(studentObj.pref2 === "Gap Year Experiences"){
+    gapMultiplier = smult;
+  }
+  // if(studentObj.pref2 === "Undergraduate Institution"){
+  //   undMultiplier = smult;
+  // }
+  if(studentObj.pref2 === "Potential Profession"){
+    profMultiplier = smult;
+  }
+  if(studentObj.pref2 === "Location"){
+    locMultiplier = smult;
+  }
+  if(studentObj.pref1 === "Major(s)/Minor(s)"){
+    majMultiplier = fmult;
+  }
+  if(studentObj.pref1 === "Hobbies/Passions"){
+    hobMultiplier = fmult;
+  }
+  if(studentObj.pref1 === "Research Experiences"){
+    reMultiplier = fmult;
+  }
+  if(studentObj.pref1 === "Volunteer Experiences"){
+    volMultiplier = fmult;
+  }
+  if(studentObj.pref1 === "Gap Year Experiences"){
+    gapMultiplier = fmult;
+  }
+  // if(studentObj.pref1 === "Undergraduate Institution"){
+  //   undMultiplier = fmult;
+  // }
+  if(studentObj.pref1 === "Potential Profession"){
+    profMultiplier = fmult;
+  }
+  if(studentObj.pref1 === "Location"){
+    locMultiplier = fmult;
   }
 
   score = ((hobScore * hobMultiplier) + (locScore * locMultiplier) + (majScore * majMultiplier) + (reScore*reMultiplier) + (volScore * volMultiplier) + (gapScore * gapMultiplier) + (undgScore * undMultiplier) + (profScore * profMultiplier));
