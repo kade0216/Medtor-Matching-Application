@@ -71,12 +71,22 @@ nav li {
   border: 1.5px solid #1975af
 }
 
+.logIn:hover > a {
+  color: #1975af;
+}
+
 a {
   color: black;
 }
 
 a:active {
   color: #1975af;
+}
+
+.resendV {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .logColor {
@@ -203,17 +213,17 @@ hr {
   position: absolute;
   bottom: 5px;
   left: 0px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-  transform: translateY(-150%);
+  /* transform: translateY(-100%); */
   font-size: 12px;
   color: #27abff;
   background-color: white;
   padding-left: 3px;
   padding-right: 5px;
-  margin-bottom: -1px;
+  margin-bottom: 21px;
 
 }
 
@@ -266,6 +276,7 @@ button {
   color: white;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 .registerButton {
@@ -295,7 +306,7 @@ button {
 }
 
 .switcher {
-  width: 50%;
+  width: 40%;
   font-size: 10px;
   font-style: normal;
   font-weight: 500;

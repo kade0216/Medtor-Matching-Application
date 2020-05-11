@@ -48,8 +48,8 @@ firebase.auth().onAuthStateChanged(function(user) {
       theUserRN = JSON.parse(localStorage["currUser"]);
       formState = theUserRN["formState"];
       if (formState >= 4){
-        //window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
-        fillFields(); //take out
+        window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
+        //fillFields(); //take out
       }
       else if (formState >= 1){
         fillFields();

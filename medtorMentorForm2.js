@@ -163,7 +163,7 @@ function changeColor(e, obj, labeler) {
   // console.log("here");
   if (obj.value != "none") {
     obj.style.color = "black";
-    obj.style.fontSize = "14px";
+    obj.style.fontSize = "16px";
     labeler.style.display = "block";
   }
   else {
@@ -179,24 +179,43 @@ gradyearIn.addEventListener('change', e => {
 gradIn.addEventListener('change', e => {
   changeColor(e, gradIn, mYLabel);
 })
-univlocationIn.addEventListener('change', e => {
+$(".understate123").on('select2:select', e => {
   changeColor(e, univlocationIn, uLocLabel);
 })
-undergradIn.addEventListener('change', e => {
+$(".under123").on('select2:select', e => {
   changeColor(e, undergradIn, underLabel);
 })
-majIn.addEventListener('change', e => {
+$(".major123").on('select2:select', e => {
   changeColor(e, majIn, majLabel);
 })
-minIn.addEventListener('change', e => {
+$(".minor123").on('select2:select', e => {
   changeColor(e, minIn, minLabel);
 })
-medlocIn.addEventListener('change', e => {
-  changeColor(e, medlocIn, mLocLabel);
-})
-medschoolIn.addEventListener('change', e => {
+$(".medS123").on('select2:select', e => {
   changeColor(e, medschoolIn, medLabel);
 })
+$(".medLoc123").on('select2:select', e => {
+  changeColor(e, medlocIn, mLocLabel);
+})
+
+// univlocationIn.addEventListener('change', e => {
+//   changeColor(e, univlocationIn, uLocLabel);
+// })
+// undergradIn.addEventListener('change', e => {
+//   changeColor(e, undergradIn, underLabel);
+// })
+// majIn.addEventListener('change', e => {
+//   changeColor(e, majIn, majLabel);
+// })
+// minIn.addEventListener('change', e => {
+//   changeColor(e, minIn, minLabel);
+// })
+// medlocIn.addEventListener('change', e => {
+//   changeColor(e, medlocIn, mLocLabel);
+// })
+// medschoolIn.addEventListener('change', e => {
+//   changeColor(e, medschoolIn, medLabel);
+// })
 
 
 
@@ -294,6 +313,43 @@ function fillFields() {
   changeColor(eventer, minIn, minLabel);
   changeColor(eventer, medlocIn, mLocLabel);
   changeColor(eventer, medschoolIn, medLabel);
+
+  $('.under123').select2({
+    placeholder: {
+      id: "none",
+      text: undergradIn.value
+    }
+  });
+  $('.major123').select2({
+    placeholder: {
+      id: "none",
+      text: majIn.value
+    }
+  });
+  $('.minor123').select2({
+    placeholder: {
+      id: "none",
+      text: majIn.value
+    }
+  });
+  $('.understate123').select2({
+    placeholder: {
+      id: "none",
+      text: univlocationIn.value
+    }
+  });
+  $('.medS123').select2({
+    placeholder: {
+      id: "none",
+      text: medschoolIn.value
+    }
+  });
+  $('.medLoc123').select2({
+    placeholder: {
+      id: "none",
+      text: medlocIn.value
+    }
+  });
 }
 
 

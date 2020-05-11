@@ -38,12 +38,41 @@ firebase.auth().onAuthStateChanged(function(user) {
     //user not signed in
     console.log("didHere2");
     upperLogInBtn.innerHTML = "Register";
-    upperLogInBtn.href = "medtorRegisterDec.html";
+    upperLogInBtn.href = "medtorAuthPass.html";
     upperLogInBtn.onclick = function(){
       null;
     };
   }
 });
+
+function hoverStud(element) {
+  element.setAttribute('src', "Icons/RegIcons/hoverStudent.png");
+}
+
+function unhoverStud(element) {
+  element.setAttribute('src', "Icons/RegIcons/openStudent.png");
+}
+
+function hoverMent(element) {
+  element.setAttribute('src', "Icons/RegIcons/hoverMentor.png");
+}
+
+function unhoverMent(element) {
+  element.setAttribute('src', "Icons/RegIcons/openMentor.png");
+}
+
+function goStudent(){
+  window.location.href = "medtorAuthStud.html";
+}
+
+function goMentor(){
+  window.location.href = "medtorAuthPass.html";
+}
+
+
+// function unhover(element) {
+//   element.setAttribute('src', );
+// }
 
 //log out feature
 function logOut(e) {

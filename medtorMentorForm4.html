@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Medtor</title>
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="medtorAuthPass.css">
+    <link rel="stylesheet" href="medtorMentorForm22.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -20,7 +20,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
-
   </head>
 
 
@@ -34,65 +33,57 @@
         <nav>
           <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
           <li><a style="text-decoration:none" href="#">About</a></li>
-          <li class = "logIn" id = "itemLogIn" href="medtorRegisterDec.html">
-            <a onclick = null href="medtorRegisterDec.html" style="text-decoration:none" class="logColor" id = "upperLogIn">
-              Register
-            </a>
-          </li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id="upperLogIn">Log Out</a></li>
         </nav>
       </div>
     </header>
 
 
-    <div class="middleContainer" id = "theForm">
+    <div class="middleContainer">
       <div class="headerText">
         <img class = "profileLogo" src = "Icons/registerIcon2.png">
         <h3>Mentor Profile</h3>
       </div>
-      <!-- <hr> -->
-      <form name = "getEmail">
-        <div class="innerSection" id = "needLogIn">
-          <div class="description">
-            <span id = upperText>Enter your email below to create your profile</span>
-          </div>
 
-          <div class="form">
-            <input type="text" id = "emailInput" autocomplete="off" name = "email" required />
-            <label for="email" class = "nameForInput">
-              <span class="codeText">Email</span>
-            </label>
-          </div>
-          <div class="lining">
-            <span>Please use .edu email</span>
-          </div>
+      <div class="innerSection">
 
-          <div class="form">
-            <input type="password" id = "passwordInput" autocomplete="off" name = "password" required />
-            <label for="password" class = "nameForInput">
-              <span class="codeText">Password</span>
-            </label>
-          </div>
+        <div class="description">
+          <span id = upperText>Select the number of students you are willing to mentor</span>
         </div>
 
-        <div class="innerSection" id = "loggedIn">
-          <div class="description">
-            <span id = "loggedInText">You have logged in.</span>
-            <br><br>
-            <a id = "emailV" class = "resendV" onclick = "sendVerification()">Click here to resend your verification email.</a>
-          </div>
-        </div>
+        <section class = "firstPage">
+          <section class="eachSide">
+            <div class="eachSelect">
+              <label class="selectLabel" id = "menteeL">
+                <span># of Mentees</span>
+              </label>
+              <div class="custom-select2">
+                <select name = "slct" id = "studCountIn">
+                  <option value="none"># of Mentees</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </select>
+              </div>
+            </div>
 
-        <button onclick = "createAccount(event)" class="registerButton" id="registerBtn">Register</button>
-        <button onclick = "logIn(event)" class="registerButton" id="logInBtn">Log In</button>
-        <button onclick = "logOut(event)" class="logOutButton" id="logOutBtn">Log Out</button>
+          </section>
 
-        <a href="#" onclick = switchTo() class = "switchLink">
-          <span class = "switcher" id = "switcher">Already have an account? Log In</span>
-        </a>
-      </form>
-      <!-- <button onclick = "window.location.href = 'medtorMentorForm1.html'" class="nextButton" id="nextBtn">Next Page</button> -->
+        </section>
+
+      </div>
+      <div class="buttonClass">
+        <button onclick = "goBack(event)" class="back">Back</button>
+        <button onclick = "goNext(event)" class="next">Submit</button>
+      </div>
     </div>
-
 
 
     <div class="containerBottom">
@@ -105,7 +96,7 @@
       </article>
     </div>
 
-    <script src="medtorAuthFirebase.js"></script>
+    <script src="medtorMentorForm4.js"></script>
 
   </body>
 </html>

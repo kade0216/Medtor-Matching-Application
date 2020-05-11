@@ -21,6 +21,7 @@ var logBtn = document.getElementById("logOutBtn");
 var switcherText = document.getElementById("switcher");
 var onRegister = true;
 var upperLogInBtn = document.getElementById("upperLogIn");
+var resendV = document.getElementById("emailV");
 
 const form = document.forms['getEmail'];
 
@@ -74,8 +75,9 @@ firebase.auth().onAuthStateChanged(function(user) {
       //display use specific text
       var email_id = user.email;
       var email_verified = user.emailVerified;
-      document.getElementById('loggedInText').innerHTML = "A verification email has been sent to " + email_id + ". <br/> <br/> Refresh the page once you have verified your email to create your profile. <br/><br/>Verified: " + email_verified;
-      document.getElementById('')
+      document.getElementById('loggedInText').innerHTML = "A verification email has been sent to " + email_id + ". <br/> <br/> Refresh the page once you have verified your email to create your profile.";
+      resendV.innerHTML = "Click here to resend your verification email.";
+      //document.getElementById('')
 
       //If email is verified, check to see if user has already been placed into database, if NOT then add to database and then move on to next page, if already done then move on to next page.
       if (user.emailVerified) {
@@ -86,7 +88,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             console.log("would go to next page");
             console.log(snapshot.val());
             localStorage.setItem("currUser", JSON.stringify(snapshot.val()));
-            //window.location.href = "medtorHome.html";
+            window.location.href = "medtorMentorForm1.html";
           }
           else {
             //adds data to database
@@ -96,21 +98,22 @@ firebase.auth().onAuthStateChanged(function(user) {
               email: user.email,
               emailVerified: user.emailVerified,
               formState: "0",
+              studentSelect: "0",
             }
             theCurrUser.set(addingData).then(function() {
               // localStorage["formState", "0"];
               localStorage.setItem("currUser", JSON.stringify(addingData));
               console.log("would go to next page because data just submitted");
-              //window.location.href = "medtorHome.html";
+              window.location.href = "medtorMentorForm1.html";
             });
           }
         });
-        document.getElementById("nextBtn").style.display = 'block';
-        document.getElementById("nextBtn").disable = false;
+        // document.getElementById("nextBtn").style.display = 'block';
+        // document.getElementById("nextBtn").disable = false;
       }
       else {
-        document.getElementById("nextBtn").style.display = 'none';
-        document.getElementById("nextBtn").disable = true;
+        // document.getElementById("nextBtn").style.display = 'none';
+        // document.getElementById("nextBtn").disable = true;
       }
 
     }
@@ -120,14 +123,14 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log("didHere2")
     //changes upper button
     upperLogInBtn.innerHTML = "Register";
-    upperLogInBtn.href = "medtorAuthPass.html";
+    upperLogInBtn.href = "medtorRegisterDec.html";
     upperLogInBtn.onclick = function(){
       null;
     };
 
     //TAKE OUT LATER WE DONNT NNEED THIS
-    document.getElementById("nextBtn").style.display = 'none';
-    document.getElementById("nextBtn").disable = true;
+    // document.getElementById("nextBtn").style.display = 'none';
+    // document.getElementById("nextBtn").disable = true;
 
     //takes away display of loggedIn header and replaces it with form
     document.getElementById("needLogIn").style.display = 'block';

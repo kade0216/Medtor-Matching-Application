@@ -191,7 +191,7 @@ h3 {
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
-  align-items: center;
+  align-items: baseline;
 }
 
 .eachSide {
@@ -241,7 +241,19 @@ h3 {
   flex-direction: column;
   align-items: center;
 
-  line-height: 3;
+  /* line-height: 3; */
+  border-radius: .25em;
+}
+
+.custom-select3 {
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* line-height: 3; */
   border-radius: .25em;
 }
 
@@ -255,6 +267,7 @@ h3 {
   padding-right: 5px;
   margin-top: -8px;
   display: none;
+  z-index: 1;
 }
 
 /*.custom-select {
@@ -282,8 +295,8 @@ select {
   outline: 0;
   background: white;
   background-image: none;
-  border:1px solid black;
   border-radius: 5px;
+  border:1px solid black;
 }
 
 select {
@@ -297,6 +310,38 @@ select {
   color: rgb(169, 169, 169, 80.0); black;
 }
 
+.select2-container{
+  width: 97% !important;
+  height: 100% !important;
+}
+
+.select2-selection--single{
+  border: 1px solid black !important;
+  background-color: rgb(0, 0, 0, 0.0) !important;
+  outline: none !important;
+  height: 100% !important;
+  border-radius: .25em !important;
+  z-index: 0px !important;
+  padding: 3px !important;
+  padding-left: 2px !important;
+  width: 100% !important;
+  /* width: 38.8% !important; */
+  /* min-width: 300px !important; */
+}
+
+.select2-selection__rendered{
+  font-size: 16px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  color: black !important;
+  padding-left: 2px !important;
+}
+
+.select2-results__options{
+  font-size: 16px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  color: black !important;
+}
+
 select::after {
   font-size: 12px;
 }
@@ -305,12 +350,24 @@ select::-ms-expand {
   display: none;
 }
 
+/* arrow */
+/* .custom-select2::after {
+  content: '\25BC';
+  color: #27abff;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  bottom: 0;
+  padding: 0 15px;
+  pointer-events: none;
+} */
+
 .custom-select2::after {
   content: '\25BC';
   color: #888888;
   font-size: 8px;
   position: absolute;
-  top: 3px;
+  top: 10px;
   right: 0;
   bottom: 0;
   padding: 0 11px;
@@ -334,7 +391,6 @@ select::after {
   font-size: 16px;
   outline: none;
   padding-left: 5px;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .form label {
@@ -346,9 +402,6 @@ select::after {
   height: 100%;
   pointer-events: none;
   color: rgb(169, 169, 169, 80.0); black;
-  font-size: 16px;
-  margin-bottom: 2px;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .codeText {
@@ -359,13 +412,14 @@ select::after {
 }
 
 .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-  /* transform: translateY(-150%); */
+  /* transform: translateY(-100%); */
   font-size: 12px;
   color: #27abff;
   background-color: white;
   padding-left: 3px;
   padding-right: 5px;
   margin-bottom: 20px;
+
 }
 
 .form input:focus {
@@ -404,11 +458,14 @@ button:hover {
   width: 760px;
   display: flex;
   flex-direction: row;
-  /* align-items: left; */
+}
+
+.back {
+  margin-left: 10px;
 }
 
 .next {
-  margin-left: calc(760px - 10px - 100px);
+  margin-left: calc(760px - 20px - 100px - 100px);
 }
 
 
@@ -577,7 +634,14 @@ button:hover {
   }
 
   .next {
-    margin-left: calc(75vw - 20px - 100px);
+    margin-left: calc(75vw - 20px - 100px - 100px);
+  }
+
+  .select2-container{
+    width: 97% !important;
+  }
+  .select2-selection--single{
+    width: 100% !important;
   }
 }
 /* super small iPhone and other tablet resizing like iPhone 5*/
@@ -620,8 +684,35 @@ button:hover {
     width: 75%;
   }
 
+  .select2-selection__rendered{
+    font-size: 14px !important;
+  }
+
+  select {
+    font-size: 14px;
+  }
+
+  /* .select2-container{
+    width: 232.8px !important;
+  }
+
+  .select2-selection--single{
+    width: 232.8px !important;
+  } */
+
   .eachSide {
-    min-width: 260px;
+    min-width: 240px;
+    align-items: center;
+  }
+
+  .custom-select2 {
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+
+  .custom-select3 {
+    padding-left: 0px;
+    margin-left: 0px;
   }
 
   .form {

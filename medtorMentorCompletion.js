@@ -15,37 +15,47 @@ var functions = firebase.functions();
 
 var upperLogInBtn = document.getElementById('upperLogIn');
 
-console.log("working");
-
+var theUserRN = null;
+var formState = null;
+console.log("here");
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    if (user.emailVerified == false) {
+      console.log("userNotVerified");
+      window.location.href = "medtorHome.html";
+    }
+    if (user.displayName == "Student") {
+      window.location.href = "medtorAuthStud.html";
+    }
+
+    if (localStorage.getItem("currUser") === null){
+      logOut(event);
+    }
+    else {
+      theUserRN = JSON.parse(localStorage["currUser"]);
+      formState = theUserRN["formState"];
+      if (formState < 4){
+        window.location.href = "medtorHome.html";
+      }
+    }
+
     //user signed in
     console.log("here");
-    // upperLogInBtn.display = 'none';
-    // upperLogInBtn.disable = true;
-
-    //upperLogOutBtn.disable = false;
     upperLogInBtn.innerHTML = "Log Out";
-    //upperLogInBtn.href = "medtorHome.html";
     upperLogInBtn.onclick = function(){
+      console.log("trying to log out");
       logOut(event);
     };
-    // upperLogItem.style.background = "#27abff"
-    // upperLogItem.style.borderColor = "#27abff"
-    //document.getElementById("itemLogIn").style.background = #27abff;
+
 
   } else {
     //user not signed in
-    console.log("didHere2");
-    upperLogInBtn.innerHTML = "Register";
-    upperLogInBtn.href = "medtorRegisterDec.html";
-    upperLogInBtn.onclick = function(){
-      null;
-    };
+    console.log("here2");
+    window.location.href = "medtorHome.html";
   }
 });
 
-//log out feature
+
 function logOut(e) {
   e = e || window.event;
   e.preventDefault();

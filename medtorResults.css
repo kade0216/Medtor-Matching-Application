@@ -71,6 +71,10 @@ nav li {
   border: 1.5px solid #1975af
 }
 
+.logOut:hover > a {
+  color: #1975af;
+}
+
 a {
   color: black;
 }
@@ -359,6 +363,7 @@ h3 {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
   /* float:right; */
 }
 
@@ -383,6 +388,7 @@ button {
   color: white;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 .confirmer {

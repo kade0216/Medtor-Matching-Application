@@ -28,6 +28,9 @@ var upperLogInBtn = document.getElementById('upperLogIn');
 var confirmBtn = document.getElementById("confirmButton");
 var selected = null;
 
+var theUserRN = null;
+var formState = null;
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
@@ -36,6 +39,20 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     if (user.displayName == "Mentor") {
       window.location.href = "medtorAuthPass.html";
+    }
+
+    if (localStorage.getItem("currUser") === null){
+      logOut(event);
+    }
+    else {
+      theUserRN = JSON.parse(localStorage["currUser"]);
+      formState = theUserRN["formState"];
+      if (formState < 4){
+        window.location.href = "medtorMentorForm4.html";
+      }
+      else if (formState = 5){
+        //go to next page.
+      }
     }
     // if (user.displayName == "Student") {
     //   window.location.href = "medtorAuthPass.html";
@@ -117,9 +134,23 @@ function goDetail(e, person) {
   window.location.href = "medtorDetailView.html";
 }
 
-function submitSelect(e) {
+function submitSelection(e) {
   e = e || window.event;
   e.preventDefault();
+
+  allOutPeople = JSON.parse(localStorage["allPeople"]);
+
+  var submitPerson = allOutPeople[selected];
+  console.log(submitPerson.mentorUID);
+
+  var returnedResult = firebase.functions().httpsCallable('selectMentor');
+  returnedResult( {text: submitPerson.mentorUID}).then(function(result){
+    console.log(result);
+    theUserRN.formState = 5;
+    localStorage.setItem("currUser", JSON.stringify(theUserRN));
+    //go to next page.
+
+  });
 }
 
 function changeColor(e, person){
@@ -129,13 +160,15 @@ function changeColor(e, person){
   for (var index = 0; index < allPeople.length; index++){
     currPerson = allPeople[index];
     if (currPerson != person) {
-      currPerson.getElementsByTagName("img")[0].src = "Icons/checkMark/checkMarkOpen.png"
+      currPerson.getElementsByTagName("img")[0].src = "Icons/checkMark/checkMarkOpen.png";
     }
     else {
-      currPerson.getElementsByTagName("img")[0].src = "Icons/checkMark/checkedMarkFull.png"
+      currPerson.getElementsByTagName("img")[0].src = "Icons/checkMark/checkedMarkFull.png";
+      selected = index;
+      console.log(selected);
     }
   }
-  selected = person;
+  //selected = person;
 
   confirmBtn.style.display = "block";
 }

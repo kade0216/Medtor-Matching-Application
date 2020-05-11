@@ -63,6 +63,9 @@ nav li {
   border-radius: 20px;
   color: white;
   border: 1.5px solid #1975af;
+  cursor: pointer;
+  /* padding: 5px 20px; */
+  /* box-sizing: content-box; */
 }
 
 .logIn:hover {
@@ -70,6 +73,10 @@ nav li {
   border-radius: 20px;
   color: #1975af;
   border: 1.5px solid #1975af;
+}
+
+.logIn:hover > a {
+  color: #1975af;
 }
 
 a {
@@ -134,6 +141,7 @@ button {
   margin-left: 20px;
 
   outline: none;
+  cursor: pointer;
 
 }
 .menBtn {
@@ -201,6 +209,8 @@ h3 {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
 
   margin-right: auto;
   margin-left: auto;

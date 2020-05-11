@@ -71,6 +71,10 @@ nav li {
   border: 1.5px solid #1975af
 }
 
+.logOut:hover > a {
+  color: #1975af;
+}
+
 a {
   color: black;
 }
@@ -287,7 +291,7 @@ select {
   height: 100%;
   margin: 0;
   padding: 0 0 0 4px;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   color: rgb(169, 169, 169, 80.0); black;
@@ -301,11 +305,23 @@ select::-ms-expand {
   display: none;
 }
 
-.custom-select2::after {
+/* .custom-select2::after {
   content: '\25BC';
   color: #27abff;
   position: absolute;
   top: -10px;
+  right: 0;
+  bottom: 0;
+  padding: 0 15px;
+  pointer-events: none;
+} */
+
+.custom-select2::after {
+  content: '\25BC';
+  color: #888888;
+  font-size: 8px;
+  position: absolute;
+  top: 5px;
   right: 0;
   bottom: 0;
   padding: 0 15px;
@@ -383,6 +399,7 @@ button {
   color: white;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 

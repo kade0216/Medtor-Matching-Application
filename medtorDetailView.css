@@ -71,6 +71,10 @@ nav li {
   border: 1.5px solid #1975af
 }
 
+.logOut:hover > a {
+  color: #1975af;
+}
+
 a {
   color: black;
 }
@@ -181,6 +185,7 @@ button {
   outline: none;
   display: inline-block;
   border: none;
+  cursor: pointer;
 }
 
 .backBtn {

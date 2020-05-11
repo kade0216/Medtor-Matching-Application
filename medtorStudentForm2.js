@@ -42,6 +42,15 @@ firebase.auth().onAuthStateChanged(function(user) {
       window.location.href = "medtorAuthPass.html";
     }
 
+    // $(document).ready(function() {
+    //     $('.tester123').select2({
+    //       // allowClear: true,
+    //     });
+    //     document.getElementsByClassName('tester123')[0].style.fontSize = 14;
+    //     // var eventer = new Event('change');
+    //     // changeColor(eventer, undergradIn, underLabel);
+    // });
+
     if (localStorage.getItem("currUser") === null){
       logOut(event);
     }
@@ -49,8 +58,8 @@ firebase.auth().onAuthStateChanged(function(user) {
       theUserRN = JSON.parse(localStorage["currUser"]);
       formState = theUserRN["formState"];
       if (formState >= 4){
-        //window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
-        fillFields(); //take out
+        window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
+        //fillFields(); //take out
       }
       else if (formState >= 2){
         fillFields();
@@ -59,6 +68,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         window.location.href = "medtorStudentForm1.html";
       }
     }
+
     //user signed in
     console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
@@ -157,6 +167,7 @@ function changeColor(e, obj, labeler) {
   e = e || window.event;
   e.preventDefault();
   console.log("here");
+  console.log(obj.value);
   if (obj.value != "none") {
     obj.style.color = "black";
     obj.style.fontSize = "14px";
@@ -172,18 +183,27 @@ function changeColor(e, obj, labeler) {
 gradyearIn.addEventListener('change', e => {
   changeColor(e, gradyearIn, uYLabel);
 })
-univlocationIn.addEventListener('change', e => {
+// univlocationIn.addEventListener('change', e => {
+//   changeColor(e, univlocationIn, uLocLabel);
+// })
+$(".understate123").on('select2:select', e => {
   changeColor(e, univlocationIn, uLocLabel);
 })
-undergradIn.addEventListener('change', e => {
+$(".under123").on('select2:select', e => {
   changeColor(e, undergradIn, underLabel);
 })
-majIn.addEventListener('change', e => {
+$(".major123").on('select2:select', e => {
   changeColor(e, majIn, majLabel);
 })
-minIn.addEventListener('change', e => {
+$(".minor123").on('select2:select', e => {
   changeColor(e, minIn, minLabel);
 })
+// majIn.addEventListener('change', e => {
+//   changeColor(e, majIn, majLabel);
+// })
+// minIn.addEventListener('change', e => {
+//   changeColor(e, minIn, minLabel);
+// })
 
 
 
@@ -263,6 +283,31 @@ function fillFields() {
   changeColor(eventer, undergradIn, underLabel);
   changeColor(eventer, majIn, majLabel);
   changeColor(eventer, minIn, minLabel);
+
+  $('.under123').select2({
+    placeholder: {
+      id: "none",
+      text: undergradIn.value
+    }
+  });
+  $('.major123').select2({
+    placeholder: {
+      id: "none",
+      text: majIn.value
+    }
+  });
+  $('.minor123').select2({
+    placeholder: {
+      id: "none",
+      text: majIn.value
+    }
+  });
+  $('.understate123').select2({
+    placeholder: {
+      id: "none",
+      text: univlocationIn.value
+    }
+  });
 }
 
 

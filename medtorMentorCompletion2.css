@@ -83,6 +83,11 @@ a:active {
   color: #1975af;
 }
 
+.editInfo {
+  color: blue;
+  text-decoration: underline;
+}
+
 .logColor {
   color: white;
 }
@@ -117,29 +122,38 @@ a:active {
 
 }
 
+.headerText {
+  box-sizing: content-box;
+  border-bottom: 3px solid #1975af;
+  display: flex;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .profileLogo {
-  display: inline-block;
+  /* display: inline-block; */
   background: #ffffff;
   height: 85px;
 
   padding-top: 20px;
 
   vertical-align: middle;
-  margin-bottom: 35px;
+  margin-bottom: 8px;
   margin-right: 15px;
   margin-left: -10px;
 }
 
 h3 {
-  display: inline-block;
+  /* display: inline-block; */
   font-style: normal;
   font-weight: bold;
   font-size: 35px;
-  line-height: 43px;
+  /* line-height: 43px; */
 
   margin: auto;
   text-align: center;
-  margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 /*hr {
@@ -156,14 +170,16 @@ h3 {
   /* height: 390px; */
   box-sizing: content-box;
   width: 760px;
-  border: 3px solid #1975af;
+  /* border: 3px solid #1975af; */
   background-color: white;
   border-radius: 10px;
 
-  margin-top: -10px;
-  margin-bottom: 60px;
+  margin-top: 0px;
+  margin-bottom: 40px;
 
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
+
+  text-align: center;
 }
 
 .description {
@@ -172,204 +188,27 @@ h3 {
   margin-right: auto;
   margin-top: 30px;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 25px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
   color: black;
   left:0px;
   text-align: center;
 }
 
-.firstPage {
-  width: 95%;
-  padding-left: 0%;
-  padding-right: 0%;
-  margin-top: -15px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-}
-
-.eachSide {
-  box-sizing: content-box;
-  width: 45%;
-  min-width: 360px;
-  padding-left: 0%;
-  padding-right: 0%;
-  margin-top: 0px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-}
-
-.form {
-  width: 40%;
-  min-width: 300px;
+.mainLogo {
   position: relative;
-  height: 60px;
-  overflow: hidden;
-  margin-left: auto;
+  width: 175px;
+  height: 175px;
+
+  /* top: 57%; */
   margin-right: auto;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.eachSelect {
-  width: 40%;
-  min-width: 300px;
-  position: relative;
-  height: 35px;
   margin-left: auto;
-  margin-right: auto;
-  margin-top: 35px;
-}
-
-.custom-select2 {
-  width: 100%;
-  height: 35px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  line-height: 3;
-  border-radius: .25em;
-}
-
-.selectLabel {
-  position:absolute;
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  margin-left: 9px;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-top: -8px;
-  display: none;
-}
-
-/*.custom-select {
-  width = 40%;
-  min-width: 300px;
-  position: relative;
-  height: 35px;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 
-  line-height: 3;
-  border-radius: .25em;
-} */
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  background: white;
-  background-image: none;
-  border:1px solid black;
-  border-radius: 5px;
-}
-
-select {
-  width: 97%;
-  height: 100%;
-  margin: 0;
-  padding: 0 0 0 4px;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
-  color: rgb(169, 169, 169, 80.0); black;
-}
-
-select::after {
-  font-size: 12px;
-}
-
-select::-ms-expand {
-  display: none;
-}
-
-.custom-select2::after {
-  content: '\25BC';
-  color: #888888;
-  font-size: 8px;
-  position: absolute;
-  top: 3px;
-  right: 0;
-  bottom: 0;
-  padding: 0 11px;
-  pointer-events: none;
-}
-
-select::after {
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
-}
-
-
-.form input {
-  width: 95%;
-  position: absolute;
-  bottom: 0px;
-  height: 50%;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-  padding-left: 5px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.form label {
-  position: absolute;
-  margin-left: 8px;
-  bottom: 0px;
-  left: 0%;
-  width: 95%;
-  height: 100%;
-  pointer-events: none;
-  color: rgb(169, 169, 169, 80.0); black;
-  font-size: 16px;
-  margin-bottom: 2px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.codeText {
-  position: absolute;
-  bottom: 5px;
-  left: 0px;
-  transition: all 0.2s ease;
-}
-
-.form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-  /* transform: translateY(-150%); */
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: 20px;
-}
-
-.form input:focus {
-    border:1px solid #1975af;
+  background: rgb(255, 0, 0, 0.0);
 }
 
 
@@ -404,11 +243,14 @@ button:hover {
   width: 760px;
   display: flex;
   flex-direction: row;
-  /* align-items: left; */
+}
+
+.back {
+  margin-left: 10px;
 }
 
 .next {
-  margin-left: calc(760px - 10px - 100px);
+  margin-left: calc(760px - 20px - 100px - 100px);
 }
 
 
@@ -527,27 +369,6 @@ button:hover {
     height: 700px;
   } */
 
-  .form {
-    min-width: 300px;
-  }
-
-  .form label {
-    font-size: 16px;
-    margin-bottom: 2px;
-  }
-
-  .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-    margin-bottom: 20px;
-  }
-
-  .eachSelect {
-    min-width: 300px;
-  }
-
-  select {
-    font-size: 16px;
-  }
-
   .contactUs {
     width: 110px; /* changed */
     height: 34px;
@@ -577,7 +398,7 @@ button:hover {
   }
 
   .next {
-    margin-left: calc(75vw - 20px - 100px);
+    margin-left: calc(75vw - 20px - 100px - 100px);
   }
 }
 /* super small iPhone and other tablet resizing like iPhone 5*/
@@ -619,17 +440,14 @@ button:hover {
   .innerSection {
     width: 75%;
   }
-
-  .eachSide {
-    min-width: 260px;
+  .description {
+    margin-bottom:15px;
+    font-size: 16px;
+    line-height: 21px;
   }
-
-  .form {
-    min-width: 240px;
-  }
-
-  .eachSelect {
-    min-width: 240px;
+  .mainLogo {
+    height: auto;
+    width: 60%;
   }
 
 }

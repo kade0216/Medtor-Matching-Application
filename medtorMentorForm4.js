@@ -15,25 +15,11 @@ var functions = firebase.functions();
 
 var upperLogInBtn = document.getElementById('upperLogIn');
 
-var res1L = document.getElementById('res1Label');
-var res2L = document.getElementById('res2Label');
-var vol1L = document.getElementById('vol1Label');
-var vol2L = document.getElementById('vol2Label');
-var gap1L = document.getElementById('gap1Label');
-var gap2L = document.getElementById('gap2Label');
-var prof1L = document.getElementById('prof1Label');
-var prof2L = document.getElementById('prof2Label');
+var menteeLabel = document.getElementById('menteeL');
 
-var research1 = document.getElementById('research1Input');
-var research2 = document.getElementById("research2Input");
-var volunteer1 = document.getElementById('volunteer1Input');
-var volunteer2 = document.getElementById("volunteer2Input");
-var gap1 = document.getElementById('gapyear1Input');
-var gap2 = document.getElementById("gapyear2Input");
-var future1 = document.getElementById('futureprof1Input');
-var future2 = document.getElementById("futureprof2Input");
+var studentCount = document.getElementById('studCountIn');
 
-var originalFontSize = research1.style.fontSize;
+var originalFontSize = studentCount.style.fontSize;
 
 var theUserRN = null;
 var formState = null;
@@ -54,11 +40,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     else {
       theUserRN = JSON.parse(localStorage["currUser"]);
       formState = theUserRN["formState"];
-      if (formState >= 3){
-        fillFields();
+      if (formState >= 4){
+        window.location.href = "medtorResults.html";
+        //fillFields();
       }
-      else if (formState < 2) {
-        window.location.href = "medtorMentorForm2.html";
+      else if (formState < 3) {
+        window.location.href = "medtorMentorForm3.html";
       }
     }
     //user signed in
@@ -67,14 +54,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     upperLogInBtn.onclick = function(){
       logOut(event);
     };
-
-    sortList("futureprof1Input");
-    sortList("futureprof2Input");
-    sortList("yesgroup"); //for the yes group for gap years
-    sortList("research1Input");
-    sortList("research2Input");
-    sortList("volunteer1Input");
-    sortList("volunteer2Input");
 
     // theUserRN = JSON.parse(localStorage["currUser"]);
     // formState = theUserRN["formState"];
@@ -96,27 +75,13 @@ function goNext(e) {
 
   var user = firebase.auth().currentUser;
 
-  var res1 = research1.value
-  var res2 = research2.value
-  var vol1 = volunteer1.value
-  var vol2 = volunteer2.value
-  var g1 = gap1.value
-  var g2 = gap2.value
-  var prof1 = future1.value
-  var prof2 = future2.value
+  var studCount = studentCount.value
 
   if (checkFields()) {
     if (user.emailVerified == true) {
-      theUserRN.research1 = res1;
-      theUserRN.research2 = res2;
-      theUserRN.volunteer1 = vol1;
-      theUserRN.volunteer2 = vol2;
-      theUserRN.gap1 = g1;
-      theUserRN.gap2 = g2;
-      theUserRN.profession1 = prof1;
-      theUserRN.profession2 = prof2;
-      if (formState < 3){
-        theUserRN.formState = 3;
+      theUserRN.studCount = studCount;
+      if (formState < 4){
+        theUserRN.formState = 4;
       }
       localStorage.setItem("currUser", JSON.stringify(theUserRN));
       //console.log("data passes");
@@ -134,7 +99,7 @@ function goNext(e) {
       theCurrUser.update(theUserRN).then(function() {
         //new code
         console.log("entered new data")
-        window.location.href = "medtorMentorForm4.html";
+        window.location.href = "medtorMentorCompletion.html"
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
         // returnedPerson( {text: " "}).then(function(result){
         //   theObject = result;
@@ -150,7 +115,7 @@ function goNext(e) {
 }
 
 function checkFields() {
-  if (research1.value != 'none' && research2.value != 'none' && volunteer1.value != 'none' && volunteer2.value != 'none' && gap1.value != 'none' && gap2.value != 'none' && future1.value != 'none' && future2.value != 'none'){
+  if (studentCount.value != 'none'){
     console.log('fields are good');
     return true;
   }
@@ -163,7 +128,7 @@ function checkFields() {
 function goBack(e) {
   e = e || window.event;
   e.preventDefault();
-  window.location.href = "medtorMentorForm2.html";
+  window.location.href = "medtorMentorForm3.html";
 }
 
 function changeColor(e, obj, labeler) {
@@ -182,30 +147,8 @@ function changeColor(e, obj, labeler) {
   }
 }
 
-research1.addEventListener('change', e => {
-  changeColor(e, research1, res1L);
-})
-research2.addEventListener('change', e => {
-  changeColor(e, research2, res2L);
-})
-
-volunteer1.addEventListener('change', e => {
-  changeColor(e, volunteer1, vol1L);
-})
-volunteer2.addEventListener('change', e => {
-  changeColor(e, volunteer2, vol2L);
-})
-gap1.addEventListener('change', e => {
-  changeColor(e, gap1, gap1L);
-})
-gap2.addEventListener('change', e => {
-  changeColor(e, gap2, gap2L);
-})
-future1.addEventListener('change', e => {
-  changeColor(e, future1, prof1L);
-})
-future2.addEventListener('change', e => {
-  changeColor(e, future2, prof2L);
+studentCount.addEventListener('change', e => {
+  changeColor(e, studentCount, menteeL);
 })
 
 function sortList(id) {
@@ -232,23 +175,9 @@ function sortList(id) {
 function fillFields() {
   var eventer = new Event('change');
 
-  research1.value = theUserRN["research1"];
-  research2.value = theUserRN["research2"];
-  volunteer1.value = theUserRN["volunteer1"];
-  volunteer2.value = theUserRN["volunteer2"];
-  gap1.value = theUserRN["gap1"];
-  gap2.value = theUserRN["gap2"];
-  future1.value = theUserRN["profession1"];
-  future2.value = theUserRN["profession2"];
+  studentCount.value = theUserRN["studCount"];
 
-  changeColor(eventer, research1, res1L);
-  changeColor(eventer, research2, res2L);
-  changeColor(eventer, volunteer1, vol1L);
-  changeColor(eventer, volunteer2, vol2L);
-  changeColor(eventer, gap1, gap1L);
-  changeColor(eventer, gap2, gap2L);
-  changeColor(eventer, future1, prof1L);
-  changeColor(eventer, future2, prof2L);
+  changeColor(eventer, studentCount, menteeL);
 }
 
 

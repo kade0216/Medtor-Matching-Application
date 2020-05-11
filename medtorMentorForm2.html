@@ -25,6 +25,10 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
   </head>
 
 
@@ -61,8 +65,8 @@
               <label class="selectLabel" id = "uLabel">
                 <span>Undergrad Institution</span>
               </label>
-              <div class="custom-select2">
-                <select id = "undergradInput">
+              <div class="custom-select3">
+                <select id = "undergradInput" class = "under123">
                   <option value="none">Undergraduate Institution</option>
                 </select>
                 <!---<select id="selectNumber">
@@ -75,8 +79,8 @@
               <label class="selectLabel" id = "underLocLabel">
                 <span>Undergrad Location</span>
               </label>
-              <div class="custom-select2">
-                <select name = "slct" id = "univlocInput">
+              <div class="custom-select3">
+                <select name = "slct" id = "univlocInput" class = "understate123">
                   <option value="none">University Location</option>
                   <option value="AL">Alabama</option>
                 	<option value="AK">Alaska</option>
@@ -159,8 +163,8 @@
               <label class="selectLabel" id = "majorLabel">
                 <span>Major</span>
               </label>
-              <div class="custom-select2">
-                <select id = "majorInput">
+              <div class="custom-select3">
+                <select id = "majorInput" class = "major123">
                   <option value="none">Major</option>
                 </select>
                 <!---<select id="selectNumber">
@@ -173,8 +177,8 @@
               <label class="selectLabel" id = "minorLabel">
                 <span>Minor/Second Major</span>
               </label>
-              <div class="custom-select2">
-                <select id = "minorInput">
+              <div class="custom-select3">
+                <select id = "minorInput" class = "minor123">
                   <option value="none">Minor/Second Major</option>
                   <option value="n/a">None</option>
                 </select>
@@ -190,8 +194,8 @@
               <label class="selectLabel" id = "medSLabel">
                 <span>Medical School</span>
               </label>
-              <div class="custom-select2">
-                <select id = "medschoolInput">
+              <div class="custom-select3">
+                <select id = "medschoolInput" class = "medS123">
                   <option value="none">Medical School</option>
                 </select>
               </div>
@@ -201,8 +205,8 @@
               <label class="selectLabel" id = "medLocLabel">
                 <span>Medical School Location</span>
               </label>
-              <div class="custom-select2">
-                <select name = "slct" id = "medlocInput">
+              <div class="custom-select3">
+                <select name = "slct" id = "medlocInput" class = "medLoc123">
                   <option value="none">Medical School Location</option>
                   <option value="AL">Alabama</option>
                 	<option value="AK">Alaska</option>
@@ -309,6 +313,54 @@
         © 2020 Medtor. Trademarks and brands are the property of their respective owners.
       </article>
     </div>
+
+    <script>
+    $(document).ready(function() {
+        $('.under123').select2({
+          placeholder: {
+            id: "none",
+            text: "Undergraduate Institution"
+          },
+          width: 'resolve'
+        });
+        $('.understate123').select2({
+          placeholder: {
+            id: "none",
+            text: "University Location"
+          },
+          width: 'resolve',
+        });
+        $('.major123').select2({
+          placeholder: {
+            id: "none",
+            text: "Major"
+          },
+          width: 'resolve',
+        });
+        $('.minor123').select2({
+          placeholder: {
+            id: "none",
+            text: "Minor/Second Major"
+          },
+          width: 'resolve'
+        });
+        $('.medS123').select2({
+          placeholder: {
+            id: "none",
+            text: "Medical School"
+          },
+          width: 'resolve'
+        });
+        $('.medLoc123').select2({
+          placeholder: {
+            id: "none",
+            text: "Medical School Location"
+          },
+          width: 'resolve'
+        });
+    });
+
+    </script>
 
     <script src="medtorMentorForm2.js"></script>
 
