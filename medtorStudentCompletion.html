@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Medtor</title>
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="medtorRegisterDec.css">
+    <link rel="stylesheet" href="medtorMentorCompletion2.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -21,6 +21,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
 
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> -->
   </head>
 
 
@@ -34,32 +36,46 @@
         <nav>
           <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
           <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
-          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id = "upperLogIn">Register</a></li>
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id="upperLogIn">Log Out</a></li>
         </nav>
       </div>
     </header>
 
 
     <div class="middleContainer">
+      <div class="headerText">
+        <img class = "profileLogo" src = "Icons/registerIconStud.png">
+        <h3>Student Profile</h3>
+      </div>
 
       <div class="innerSection">
         <div class="description">
-          <span id = upperText>Register today!</span>
-          <br>
-          <span class = "subheader">Select the profile you would like to create.</span>
+          <span>
+            You have selected your mentor! An email has been sent to you providing your mentor's contact information:
+            <br>
+            <br>
+            <div class="detailers">
+              <strong>Name: </strong>
+              <span id = "nameIns"></span>
+              <br>
+              <strong>Email: </strong>
+              <span id = "emailIns"></span>
+              <br>
+              <strong>Phone Number: </strong>
+              <span id = "phoneIns"></span>
+            </div>
+            <br>
+            <br>
+            Your mentor has also been notified about your selection. Thank you for using Medtor!
+          </span>
         </div>
-        <div class = "selectArea">
-          <div class="imgClass">
-            <img src="Icons/RegIcons/OpenStudent.png" class = "imgSize"  onmouseover="hoverStud(this)" onmouseout="unhoverStud(this)" onclick = "goStudent()">
-          </div>
-          <div class="imgClass">
-            <img src="Icons/RegIcons/OpenMentor.png" class = "imgSize" onmouseover="hoverMent(this)" onmouseout="unhoverMent(this)" onclick = "goMentor()">
-          </div>
-
-        </div>
+        <img class = "mainLogo" src="Icons/MedTorLogo2.png">
       </div>
 
+
     </div>
+
+
 
     <div class="containerBottom">
       <button class="contactUs" onclick = "window.location.href = 'medtorContactUs.html'">Contact Us</button>
@@ -72,8 +88,7 @@
       </article>
     </div>
 
-    <script src="medtorRegisterDec.js"></script>
+    <script src="medtorStudentCompletion.js"></script>
 
   </body>
-
 </html>

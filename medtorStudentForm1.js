@@ -47,9 +47,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     else {
       theUserRN = JSON.parse(localStorage["currUser"]);
       formState = theUserRN["formState"];
-      if (formState >= 4){
+      if (formState == 4){
         window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
         //fillFields(); //take out
+      }
+      else if (formState == 5){
+        window.location.href = "medtorStudentCompletion.html";
       }
       else if (formState >= 1){
         fillFields();
@@ -134,9 +137,37 @@ function goNext(e) {
 function checkFields(first, last, phone, hState, gen, hob1, hob2, hob3) {
   var firstFormat = new RegExp(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i);
   var lastFormat = new RegExp(/^[a-z ,.'-]+$/i);
-  var phoneFormat = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
-  if (first.match(lastFormat) && last.match(lastFormat) && phone.match(phoneFormat) && hState != "none" && gen != "none" && hob1 != "none" && hob2 != "none" && hob3 != "none") {
-    return true;
+  var phoneFormat = new RegExp(/^\d+$/);
+  var phoneList = phone.split("-");
+  if (first.match(lastFormat) && last.match(lastFormat) && hState != "none" && gen != "none" && hob1 != "none" && hob2 != "none" && hob3 != "none") {
+    if (phoneList.length != 3) {
+      window.alert("Please input phone number in the format 555-555-5555");
+      console.log("0");
+      return false;
+    }
+    else if (!(phoneList[0].match(phoneFormat)) || !(phoneList[1].match(phoneFormat)) || !(phoneList[2].match(phoneFormat))) {
+      window.alert("Please input phone number in the format 555-555-5555");
+      console.log("1");
+      return false;
+    }
+    else if (phoneList[0].length != 3) {
+      window.alert("Please input phone number in the format 555-555-5555");
+      console.log("2");
+      return false;
+    }
+    else if (phoneList[1].length != 3) {
+      window.alert("Please input phone number in the format 555-555-5555");
+      console.log("3");
+      return false;
+    }
+    else if (phoneList[2].length != 4) {
+      window.alert("Please input phone number in the format 555-555-5555");
+      console.log("4");
+      return false;
+    }
+    else {
+      return true;
+    }
   }
   else {
     window.alert("Incomplete: Fill in all fields with proper inputs");

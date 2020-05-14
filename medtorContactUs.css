@@ -61,14 +61,19 @@ nav li {
   background: #1975af;
   border-radius: 20px;
   color: white;
-  border: 1.5px solid #1975af
+  border: 1.5px solid #1975af;
+  cursor: pointer;
 }
 
 .logIn:hover {
   background: white;
   border-radius: 20px;
   color: #1975af;
-  border: 1.5px solid #1975af
+  border: 1.5px solid #1975af;
+}
+
+.logIn:hover > a {
+  color: #1975af;
 }
 
 a {
@@ -140,16 +145,6 @@ h3 {
   text-align: center;
   margin-bottom: 10px;
 }
-
-/*hr {
-  width: 500px;
-  border: none;
-  height: 3px;
-  border-radius: 2px;
-  background-color: #1975af;
-  margin-top: -10px;
-  margin-bottom: 60px;
-}*/
 
 /* form section */
 .innerSection {
@@ -265,7 +260,18 @@ h3 {
   padding-left: 3px;
   padding-right: 5px;
   margin-bottom: -1px;
+
 }
+
+/* .form2 textarea:focus + .nameForInput .codeText, .form2 textarea:valid + .nameForInput .codeText{
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: red;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: -1px;
+} */
 
 
 .form input:focus {
@@ -327,7 +333,8 @@ h3 {
   background: #27abff;
   color: white;
   outline: none;
-
+  cursor: pointer;
+  border: none;
 }
 
 #submitButton:hover {
@@ -340,7 +347,7 @@ h3 {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 80px;
   background: #ebf5ff;

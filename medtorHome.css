@@ -102,7 +102,7 @@ a:active {
 /* ---- Logo and Buttons ---- */
 
 .midContainer {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   margin: auto;
   background-color: #ebf5ff;
@@ -144,34 +144,66 @@ button {
   cursor: pointer;
 
 }
-.menBtn {
+.menBtn, .profileBtn {
   background: #1975af;
-  margin-right: 80px;
   color: white;
   border: 1.5px solid #1975af
 }
-.menBtn:hover {
+
+.menBtn {
+  margin-right: 80px;
+}
+.menBtn:hover, .profileBtn:hover{
   background: white;
   color: #1975af;
   border: 1.5px solid #1975af
 }
 
-.studBtn {
+.studBtn{
   background: #ffffff;
   color: #1975af;
   border: 1.5px solid #1975af;
 }
+
 .studBtn:hover {
   background: #1975af;
   color: white;
   border: 1.5px solid #1975af
 }
 
+.userInSec {
+  box-sizing: content-box;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  float: right;
+  padding-right: 50px;
+  margin-top: -20px;
+  /* display: none; */
+}
+.profileBtn {
+  display: block;
+
+  width: 128px;
+  height: 34px;
+  border-radius: 60px;
+
+  float: left;
+
+  margin-top:15px;
+
+  outline: none;
+  cursor: pointer;
+}
+
 /* ---- How it works section ---- */
 
 .containerTwo {
   width: 100%;
-  max-width: 1700px;
+  /* max-width: 1700px; */
   margin: auto;
   background: #ffffff;
   margin-top: 25px;
@@ -249,7 +281,7 @@ h4 {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 90px;
   background: #ebf5ff;
@@ -385,6 +417,16 @@ h4 {
     margin-left: 10%;
     color: #1975af;
     border: 1.5px solid #1975af;
+  }
+
+  .userInSec {
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    /* display: none; */
   }
 
   .contactUs {

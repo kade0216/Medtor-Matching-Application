@@ -18,6 +18,7 @@ var upperLogInBtn = document.getElementById('upperLogIn');
 var menteeLabel = document.getElementById('menteeL');
 
 var studentCount = document.getElementById('studCountIn');
+var terms = document.getElementById("terms");
 
 var originalFontSize = studentCount.style.fontSize;
 
@@ -41,8 +42,8 @@ firebase.auth().onAuthStateChanged(function(user) {
       theUserRN = JSON.parse(localStorage["currUser"]);
       formState = theUserRN["formState"];
       if (formState >= 4){
-        window.location.href = "medtorResults.html";
-        //fillFields();
+        //window.location.href = "medtorResults.html";
+        fillFields();
       }
       else if (formState < 3) {
         window.location.href = "medtorMentorForm3.html";
@@ -80,21 +81,11 @@ function goNext(e) {
   if (checkFields()) {
     if (user.emailVerified == true) {
       theUserRN.studCount = studCount;
+      theUserRN.terms = true;
       if (formState < 4){
         theUserRN.formState = 4;
       }
       localStorage.setItem("currUser", JSON.stringify(theUserRN));
-      //console.log("data passes");
-      // extraData = {
-      //   research1: res1,
-      //   research2: res2,
-      //   volunteer1: vol1,
-      //   volunteer2: vol2,
-      //   gap1: g1,
-      //   gap2: g2,
-      //   profession1: prof1,
-      //   profession2: prof2,
-      // }
       theCurrUser = databaseRef.child("mentorUsers").child(user.uid);
       theCurrUser.update(theUserRN).then(function() {
         //new code
@@ -116,8 +107,14 @@ function goNext(e) {
 
 function checkFields() {
   if (studentCount.value != 'none'){
-    console.log('fields are good');
-    return true;
+    if(terms.checked == true){
+      console.log("fields are good");
+      return true;
+    }
+    else {
+      window.alert("Terms of Use: Please agree to terms of use and privacy policy");
+      return false;
+    }
   }
   else {
     window.alert("Incomplete: Fill in all fields with proper inputs");
@@ -176,6 +173,7 @@ function fillFields() {
   var eventer = new Event('change');
 
   studentCount.value = theUserRN["studCount"];
+  terms.checked = theUserRN["terms"];
 
   changeColor(eventer, studentCount, menteeL);
 }

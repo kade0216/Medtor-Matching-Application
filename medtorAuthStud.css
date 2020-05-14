@@ -163,8 +163,8 @@ hr {
 
 /* form section */
 .innerSection {
+  box-sizing: content-box;
   width: 500px;
-  height: 250px;
   border: 3px solid #1975af;
   background-color: white;
   border-radius: 10px;
@@ -172,6 +172,7 @@ hr {
   margin-top: -10px;
   margin-bottom: 60px;
   display: none;
+  padding-bottom: 30px;
 }
 
 .form {
@@ -321,7 +322,7 @@ button {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 80px;
   background: #ebf5ff;

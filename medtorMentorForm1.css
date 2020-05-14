@@ -190,7 +190,7 @@ h3 {
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .eachSide {
@@ -222,7 +222,21 @@ h3 {
   align-items: center;
 }
 
-.eachSelect {
+.lining {
+  width: 40%;
+  min-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  height: 15px;
+  color: black;
+  padding-left: 8px;
+  /* position: absolute; */
+}
+
+.eachSelect, .eachSelectAdj {
   width: 40%;
   min-width: 300px;
   position: relative;
@@ -230,6 +244,10 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 35px;
+}
+
+.eachSelectAdj {
+  margin-top: 20px;
 }
 
 .custom-select2 {
@@ -412,7 +430,7 @@ button:hover {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 80px;
   background: #ebf5ff;
@@ -473,39 +491,6 @@ button:hover {
 
 /* iPhone and other tablet resizing smaller than typical laptop */
 @media only screen and (max-width: 971px) {
-  .container {
-    max-width: 1700px;
-    width: 96%;
-    margin: auto;
-    /* padding-top: 0%;
-    padding-bottom: 20%; */
-  }
-
-  .upperLogo {
-    float: left;
-    margin-top: 15px;
-    width: 100px;
-  }
-
-  nav {
-    float: right;
-    line-height: 50px;
-  }
-
-  nav li {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 10px;
-    line-height: normal;
-
-    background: rgba(255, 0, 0, 0.0);
-    border-color: rgba(255, 0, 0, 0.0);
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    text-align: center;
-  }
 
   .middleContainer {
     min-height: calc(100vh - 50px - 100px - 30px);
@@ -538,7 +523,7 @@ button:hover {
     margin-bottom: 20px;
   }
 
-  .eachSelect {
+  .eachSelect, .eachSelectAdj {
     min-width: 300px;
   }
 
@@ -576,6 +561,42 @@ button:hover {
 
   .next {
     margin-left: calc(75vw - 20px - 100px);
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    /* padding-top: 0%;
+    padding-bottom: 20%; */
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
   }
 }
 
@@ -623,11 +644,11 @@ button:hover {
     min-width: 260px;
   }
 
-  .form {
+  .form, .lining {
     min-width: 240px;
   }
 
-  .eachSelect {
+  .eachSelect, .eachSelectAdj {
     min-width: 240px;
   }
 

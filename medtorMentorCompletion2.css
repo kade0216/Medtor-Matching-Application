@@ -182,7 +182,7 @@ h3 {
   text-align: center;
 }
 
-.description {
+.description, .detailers {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -193,8 +193,16 @@ h3 {
   font-style: normal;
   font-weight: 500;
   color: black;
-  left:0px;
+  left: 0px;
   text-align: center;
+}
+
+.detailers {
+  width: max-content;
+  max-width: 100%;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .mainLogo {
@@ -256,7 +264,7 @@ button:hover {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 80px;
   background: #ebf5ff;
@@ -317,39 +325,6 @@ button:hover {
 
 /* iPhone and other tablet resizing smaller than typical laptop */
 @media only screen and (max-width: 971px) {
-  .container {
-    max-width: 1700px;
-    width: 96%;
-    margin: auto;
-    /* padding-top: 0%;
-    padding-bottom: 20%; */
-  }
-
-  .upperLogo {
-    float: left;
-    margin-top: 15px;
-    width: 100px;
-  }
-
-  nav {
-    float: right;
-    line-height: 50px;
-  }
-
-  nav li {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 10px;
-    line-height: normal;
-
-    background: rgba(255, 0, 0, 0.0);
-    border-color: rgba(255, 0, 0, 0.0);
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    text-align: center;
-  }
 
   .middleContainer {
     min-height: calc(100vh - 50px - 100px - 30px);
@@ -401,6 +376,43 @@ button:hover {
     margin-left: calc(75vw - 20px - 100px - 100px);
   }
 }
+
+@media only screen and (max-width: 630px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    /* padding-top: 0%;
+    padding-bottom: 20%; */
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
   .container {
@@ -440,10 +452,14 @@ button:hover {
   .innerSection {
     width: 75%;
   }
-  .description {
+  .description, .detailers {
     margin-bottom:15px;
     font-size: 16px;
     line-height: 21px;
+  }
+
+  .detailers {
+    margin-bottom: 0px;
   }
   .mainLogo {
     height: auto;

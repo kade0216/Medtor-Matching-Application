@@ -195,6 +195,7 @@ button:hover {
 
 .imgClass {
   width: 40%;
+  max-width: 430px;
   min-width: 270px;
   display: flex;
   flex-direction: column;
@@ -226,7 +227,7 @@ button:hover {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 80px;
   background: #ebf5ff;
@@ -287,6 +288,35 @@ button:hover {
 
 /* iPhone and other tablet resizing smaller than typical laptop */
 @media only screen and (max-width: 971px) {
+
+  .middleContainer {
+    min-height: calc(100vh - 50px - 100px - 30px);
+  }
+
+  /* .innerSection {
+    height: 700px;
+  } */
+
+  .contactUs {
+    width: 110px; /* changed */
+    height: 34px;
+    font-size: 14px;
+  }
+
+  .infoText {
+    font-weight: 300;
+    line-height: 24px;
+    line-height: 12px;
+    font-size: 10px;
+    text-align: center;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+}
+
+@media only screen and (max-width: 630px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -320,34 +350,7 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
-
-  .middleContainer {
-    min-height: calc(100vh - 50px - 100px - 30px);
-  }
-
-  /* .innerSection {
-    height: 700px;
-  } */
-
-  .contactUs {
-    width: 110px; /* changed */
-    height: 34px;
-    font-size: 14px;
-  }
-
-  .infoText {
-    font-weight: 300;
-    line-height: 24px;
-    line-height: 12px;
-    font-size: 10px;
-    text-align: center;
-
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
 }
-
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
   .container {

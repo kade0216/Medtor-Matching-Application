@@ -83,6 +83,10 @@ a:active {
   color: #1975af;
 }
 
+.linkers {
+  color: blue;
+}
+
 .logColor {
   color: white;
 }
@@ -179,6 +183,22 @@ h3 {
   color: black;
   left:0px;
   text-align: center;
+}
+
+.termsSec {
+  width: 100%;
+  min-width: 300px;
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  /* padding-left: 8px; */
+  /* position: absolute; */
 }
 
 .firstPage {
@@ -471,7 +491,7 @@ button:hover {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 80px;
   background: #ebf5ff;
@@ -532,39 +552,6 @@ button:hover {
 
 /* iPhone and other tablet resizing smaller than typical laptop */
 @media only screen and (max-width: 971px) {
-  .container {
-    max-width: 1700px;
-    width: 96%;
-    margin: auto;
-    /* padding-top: 0%;
-    padding-bottom: 20%; */
-  }
-
-  .upperLogo {
-    float: left;
-    margin-top: 15px;
-    width: 100px;
-  }
-
-  nav {
-    float: right;
-    line-height: 50px;
-  }
-
-  nav li {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 10px;
-    line-height: normal;
-
-    background: rgba(255, 0, 0, 0.0);
-    border-color: rgba(255, 0, 0, 0.0);
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    text-align: center;
-  }
 
   .middleContainer {
     min-height: calc(100vh - 50px - 100px - 30px);
@@ -644,6 +631,43 @@ button:hover {
     width: 100% !important;
   }
 }
+
+@media only screen and (max-width: 630px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    /* padding-top: 0%;
+    padding-bottom: 20%; */
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
   .container {
@@ -715,7 +739,7 @@ button:hover {
     margin-left: 0px;
   }
 
-  .form {
+  .form, .termsSec {
     min-width: 240px;
   }
 

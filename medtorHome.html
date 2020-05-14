@@ -33,7 +33,7 @@
 
         <nav>
           <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
-          <li><a style="text-decoration:none" href="#">About</a></li>
+          <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
           <li class = "logIn" id = "itemLogIn" href="medtorRegisterDec.html">
             <a onclick = null href="medtorRegisterDec.html" style="text-decoration:none" class="logColor" id = "upperLogIn">
               Register
@@ -48,12 +48,12 @@
       <div class="content">
         <img class="mainLogo" src="Icons/frontLogo.png">
         <img class = "iPhoneLogo" src="Icons/MedtorDesignsiphoneLogo.png">
-        <a href="medtorAuthPass.html"><button class="menBtn">Mentor</button></a>
-        <a href="medtorAuthStud.html"><button class="studBtn">Student</button></a>
-        <!-- <div class="userInSec">
-          <span>Welcome Friend</span>
-          <a href="medtorAuthStud.html"><button class="studBtn">My Profile</button></a>
-        </div> -->
+        <a href="medtorAuthPass.html" id = "mentBtn" ><button class="menBtn">Mentor</button></a>
+        <a href="medtorAuthStud.html" id = "studBtn" ><button class="studBtn">Student</button></a>
+        <div class="userInSec" id = "welcomeSec">
+          <span id = "welcome">Welcome Friend</span>
+          <a href="#" onclick = "goNextPage()"><button class="profileBtn" id = "profBtn">My Profile</button></a>
+        </div>
       </div>
     </div>
 
@@ -89,30 +89,16 @@
     </div>
 
     <div class="containerBottom">
-      <button class="contactUs">Contact Us</button>
+      <button class="contactUs" onclick = "window.location.href = 'medtorContactUs.html'">Contact Us</button>
       <article class="infoText">
         Created by Vin Somasundaram, Karan Desai, and Anshu Jonnalagadda
       </article>
       <article class="infoText">
-        © 2020 Medtor. Trademarks and brands are the property of their respective owners.
+        © 2020 Medtor. Trademarks and brands are the property of Medtor.
+        <a href="medtorPrivacyPolicy.html">Privacy Policy</a>
       </article>
     </div>
 
-    <!-- <img class="upperLeft" src="Icons/logoText.png"> -->
-    <!--mainLogo-->
-    <!-- <img class="mainLogo" src="Icons/logoText.png"> -->
-    <!-- logo -->
-    <!-- <img class="bigLogo" src="Icons/MedTorLogo2.png"> -->
-    <!-- tab bar items -->
-    <!-- <button class="tabBar">Home</button>
-    <button class="tabBar">About</button>
-    <button class="tabBar">Data</button>
-    <button class = "upperButton">Log In</button> -->
-    <!-- italized other font -->
-    <!-- <p class = "subLine">Find a mentor to guide your way through medical school!</p> -->
-    <!-- other fonts -->
-    <!-- <button class = "studBtn">Student</button>
-    <button class = "menBtn">Mentor</button> -->
     <script src="medtorHome.js"></script>
 
   </body>

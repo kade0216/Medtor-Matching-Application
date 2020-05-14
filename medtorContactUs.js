@@ -28,15 +28,15 @@ console.log("working");
 
 // --FUNCTIONS--------------------------------------------------------------------------------------------
 
-/*firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    if (user.emailVerified == false) {
-      console.log("userNotVerified");
-      window.location.href = "medtorHome.html";
-    }
-    if (user.displayName == "Mentor") {
-      window.location.href = "medtorAuthPass.html";
-    }
+    // if (user.emailVerified == false) {
+    //   console.log("userNotVerified");
+    //   window.location.href = "medtorHome.html";
+    // }
+    // if (user.displayName == "Mentor") {
+    //   window.location.href = "medtorAuthPass.html";
+    // }
     //user signed in
     console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
@@ -47,16 +47,9 @@ console.log("working");
   } else {
     //user not signed in
     console.log("here2");
-    window.location.href = "medtorHome.html";
+    // window.location.href = "medtorRegisterDec.html";
   }
-});*/
-
-function submitBut(e) {
-  e = e || window.event;
-  e.preventDefault();
-
-
-}
+});
 
 //checks formatting of email
 function checkFormatting(inputText){
@@ -84,7 +77,7 @@ function checkEdu(inputText) {
     return true;
   }
   else {
-    alert("Error: Please use .edu email");
+    alert("Error: Please use edu/com email");
     return false;
   }
 }
@@ -96,8 +89,6 @@ form.addEventListener('submit', e => {
     fetch(scriptURL, {method: 'POST', body: new FormData(form)})
       .then(response => window.location.href = 'medtorHome.html')
       .catch(error => console.error('Error!', error.message))
-
-    console.log(key);
   }
 })
 

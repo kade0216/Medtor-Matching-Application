@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     //user not signed in
     console.log("didHere2");
     upperLogInBtn.innerHTML = "Register";
-    upperLogInBtn.href = "medtorAuthPass.html";
+    upperLogInBtn.href = "#";
     upperLogInBtn.onclick = function(){
       null;
     };

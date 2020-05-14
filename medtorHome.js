@@ -15,6 +15,9 @@ var functions = firebase.functions();
 
 var upperLogInBtn = document.getElementById('upperLogIn');
 
+var theUserRN = null;
+var formState = null;
+
 console.log("working");
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -30,6 +33,23 @@ firebase.auth().onAuthStateChanged(function(user) {
     upperLogInBtn.onclick = function(){
       logOut(event);
     };
+
+    if (localStorage.getItem("currUser") === null){
+      logOut(event);
+    }
+    else {
+      theUserRN = JSON.parse(localStorage["currUser"]);
+      formState = theUserRN["formState"];
+      if (formState >= 4 && user.displayName == "Student"){
+        document.getElementById("profBtn").innerHTML = "My Matches";
+
+      }
+    }
+
+    document.getElementById("welcomeSec").style.display = "flex";
+    document.getElementById("welcome").innerHTML = "Welcome " + user.email + "!";
+    document.getElementById("mentBtn").style.display = "none";
+    document.getElementById("studBtn").style.display = "none";
     // upperLogItem.style.background = "#27abff"
     // upperLogItem.style.borderColor = "#27abff"
     //document.getElementById("itemLogIn").style.background = #27abff;
@@ -44,6 +64,24 @@ firebase.auth().onAuthStateChanged(function(user) {
     };
   }
 });
+
+function goNextPage(){
+  var user = firebase.auth().currentUser;
+  if (user.displayName == "Student") {
+    if (formState == 5){
+      window.location.href = "medtorStudentCompletion.html";
+    }
+    else if (formState == 4){
+      window.location.href = "medtorResults.html";
+    }
+    else {
+      window.location.href = "medtorStudentForm1.html";
+    }
+  }
+  if (user.displayName == "Mentor") {
+    window.location.href = "medtorMentorForm1.html";
+  }
+}
 
 //log out feature
 function logOut(e) {

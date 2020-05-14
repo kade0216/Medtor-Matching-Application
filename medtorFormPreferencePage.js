@@ -22,6 +22,7 @@ var pre3L = document.getElementById("pref3L");
 var pref1 = document.getElementById('preference1');
 var pref2 = document.getElementById("preference2");
 var pref3 = document.getElementById("preference3");
+var terms = document.getElementById("terms");
 var originalFontSize = pref1.style.fontSize;
 
 var theUserRN = null;
@@ -43,9 +44,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     else {
       theUserRN = JSON.parse(localStorage["currUser"]);
       formState = theUserRN["formState"];
-      if (formState >= 4){
-        //window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
-        fillFields(); //take out
+      if (formState == 4){
+        window.location.href = "medtorResults.html" //ADD IN because shouldn't be able to edit
+        //fillFields(); //take out
+      }
+      else if (formState == 5){
+        window.location.href = "medtorStudentCompletion.html";
       }
       else if (formState < 3) {
         window.location.href = "medtorStudentForm3.html";
@@ -96,6 +100,7 @@ function goNext(e) {
       theUserRN.pref1 = p1;
       theUserRN.pref2 = p2;
       theUserRN.pref3 = p3;
+      theUserRN.terms = true;
       if (formState < 4){
         theUserRN.formState = 4;
       }
@@ -127,9 +132,16 @@ function goNext(e) {
 
 //checks all input fields to make sure they are of proper format and are filled in
 function checkFields() {
+  // console.log(terms.checked);
   if (pref1.value != "none" && pref2.value != "none" && pref3.value != "none"){
-    console.log("data passes standards")
-    return true
+    if(terms.checked == true){
+      console.log("data passes standards");
+      return true;
+    }
+    else {
+      window.alert("Terms of Use: Please agree to terms of use and privacy policy");
+      return false;
+    }
   }
   else {
     window.alert("Incomplete: Fill in all fields with proper inputs");

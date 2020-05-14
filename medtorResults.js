@@ -50,16 +50,11 @@ firebase.auth().onAuthStateChanged(function(user) {
       if (formState < 4){
         window.location.href = "medtorMentorForm4.html";
       }
-      else if (formState = 5){
-        //go to next page.
+      else if (formState == 5){
+        window.location.href = "medtorStudentCompletion.html";
       }
     }
-    // if (user.displayName == "Student") {
-    //   window.location.href = "medtorAuthPass.html";
-    // }
-    //MAKE SURE DISPLAY NAME IS CHANGED TO STUDENTDONE
-    //user signed in
-    // window.location.href = "winndo"
+    
     console.log(localStorage);
     console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
@@ -86,9 +81,13 @@ firebase.auth().onAuthStateChanged(function(user) {
           document.getElementById("innerSec").style.display = "block";
           document.getElementById("loading").style.display = "none";
           if (dataInputs[i] == null){
+            if (i == 0){
+              document.getElementById("noDisplay").style.display = "block";
+            }
             cells[i].style.display = "none";
           }
           else {
+            document.getElementById("noDisplay").style.display = "none";
             cells[i].style.display = "flex";
             writeCell(cells[i], dataInputs[i]);
           }
@@ -102,9 +101,13 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById("innerSec").style.display = "block";
         document.getElementById("loading").style.display = "none";
         if (dataInputs[i] == null){
+          if (i == 0){
+            document.getElementById("noDisplay").style.display = "block";
+          }
           cells[i].style.display = "none";
         }
         else {
+          document.getElementById("noDisplay").style.display = "none";
           cells[i].style.display = "flex";
           writeCell(cells[i], dataInputs[i]);
         }
@@ -138,19 +141,63 @@ function submitSelection(e) {
   e = e || window.event;
   e.preventDefault();
 
-  allOutPeople = JSON.parse(localStorage["allPeople"]);
+  if (selected == null) {
+    window.alert("Please select a mentor");
+  }
+  else {
+    confirmBtn.disable = true;
+    document.getElementById("innerSec").style.display = "none";
+    document.getElementById("submittedWait").style.display = "block";
 
-  var submitPerson = allOutPeople[selected];
-  console.log(submitPerson.mentorUID);
+    allOutPeople = JSON.parse(localStorage["allPeople"]);
 
-  var returnedResult = firebase.functions().httpsCallable('selectMentor');
-  returnedResult( {text: submitPerson.mentorUID}).then(function(result){
-    console.log(result);
-    theUserRN.formState = 5;
-    localStorage.setItem("currUser", JSON.stringify(theUserRN));
-    //go to next page.
+    var submitPerson = allOutPeople[selected];
+    // console.log(submitPerson.mentorUID);
 
-  });
+    var returnedResult = firebase.functions().httpsCallable('selectMentor');
+    returnedResult( {text: submitPerson.mentorUID}).then(function(result){
+      console.log(result["data"][0]);
+
+      if (result["data"][0] == 0) {
+        localStorage.removeItem("allPeople");
+        var details = result["data"][1];
+        theUserRN.formState = 5;
+        theUserRN.matchMentor = {
+          uid: submitPerson.mentorUID,
+          name: details[1] + " " + details[2],
+          email: details[0],
+          phone: details[3],
+        }
+        localStorage.setItem("currUser", JSON.stringify(theUserRN));
+
+        dataToBeSent = {
+          userFirst: theUserRN.firstName,
+          userFull: theUserRN.firstName + " " + theUserRN.lastName,
+          userEmail: theUserRN.email,
+          userPhone: theUserRN.phone,
+          mentorFull: details[1] + " " + details[2],
+          mentorFirst: details[1],
+          mentorEmail: details[0],
+          mentorPhone: details[3],
+        };
+
+        var sendingEmail = firebase.functions().httpsCallable('sendMail');
+        sendingEmail( {text: dataToBeSent}).then(function(resulter){
+          //console.log(resulter);
+          window.location.href = "medtorStudentCompletion.html";
+        }).catch(function(resulter){
+          window.alert("Servers are down: You will not receive an email regarding your mentor's information, but it will be displayed on the next page");
+          window.location.href = "medtorStudentCompletion.html";
+        });
+      }
+      else {
+        window.alert("This mentor is not available, please press on reload data to see available mentors.");
+      }
+      //go to next page.
+
+    });
+
+  }
 }
 
 function changeColor(e, person){
@@ -231,6 +278,12 @@ function reloadData(e) {
   e = e || window.event;
   e.preventDefault();
 
+  selected = null;
+
+  document.getElementById("innerSec").style.display = "none";
+  document.getElementById("loading").style.display = "block";
+  document.getElementById("noDisplay").style.display = "none";
+
   var returnedPerson = firebase.functions().httpsCallable('findMatches');
   returnedPerson( {text: " "}).then(function(result){
     console.log(result);
@@ -248,14 +301,29 @@ function reloadData(e) {
       document.getElementById("innerSec").style.display = "block";
       document.getElementById("loading").style.display = "none";
       if (dataInputs[i] == null){
+        if (i == 0){
+          document.getElementById("noDisplay").style.display = "block";
+        }
         cells[i].style.display = "none";
       }
       else {
+        document.getElementById("noDisplay").style.display = "none";
         cells[i].style.display = "flex";
         writeCell(cells[i], dataInputs[i]);
       }
     }
   });
+
+  allPeople = [p1, p2, p3, p4, p5];
+  for (var index = 0; index < allPeople.length; index++){
+    currPerson = allPeople[index];
+    currPerson.getElementsByTagName("img")[0].src = "Icons/checkMark/checkMarkOpen.png";
+    selected = null;
+  }
+  //selected = person;
+
+  confirmBtn.style.display = "none";
+
 }
 
 function logOut(e) {

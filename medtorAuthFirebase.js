@@ -112,7 +112,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById("nextBtn").disable = false;
       }
       else {
-        // document.getElementById("nextBtn").style.display = 'none';
+        // console.log("not verified");
         // document.getElementById("nextBtn").disable = true;
       }
 
@@ -278,6 +278,22 @@ function switchTo(e) {
     onRegister = true;
   }
 
+}
+
+function resetPassword(e){
+  e = e || window.event;
+  e.preventDefault();
+
+  var auth = firebase.auth();
+  var emailAddress = document.getElementById("emailInput").value;
+
+  if (checkFormatting(emailAddress)){
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+      window.alert("An email has been sent to " + emailAddress + " with instructions to reset your password.");
+    }).catch(function(error){
+      window.alert(error);
+    });
+  }
 }
 
 //enter button usage dependent on condition of the form in log in or register

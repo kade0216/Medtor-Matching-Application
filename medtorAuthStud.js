@@ -45,6 +45,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user.displayName == "Mentor") {
       window.location.href = "medtorAuthPass.html"
     }
+    // if (user.displayName == "student"){
+    //   console.log("student here");
+    // }
 
     //takes away display of form and replaces it with loggedIn header
     console.log("didHere")
@@ -84,7 +87,10 @@ firebase.auth().onAuthStateChanged(function(user) {
             //go to next page
             console.log("would go to next page");
             localStorage.setItem("currUser", JSON.stringify(snapshot.val()));
-            if (snapshot.val().formState == 4) {
+            if (snapshot.val().formState == 5) {
+              window.location.href = "medtorStudentCompletion.html";
+            }
+            else if (snapshot.val().formState >= 4) {
               window.location.href = "medtorResults.html";
             }
             else {
@@ -113,6 +119,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById("nextBtn").disable = false;
       }
       else {
+        console.log("here loggre fjdkj");
         // document.getElementById("nextBtn").style.display = 'none';
         // document.getElementById("nextBtn").disable = true;
       }
@@ -121,8 +128,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //displaying objects
-    console.log("didHere2")
-    //changes upper button
+    console.log("didHere222")
+    // console.log(user.email);
     upperLogInBtn.innerHTML = "Register";
     upperLogInBtn.href = "medtorRegisterDec.html";
     upperLogInBtn.onclick = function(){
@@ -186,9 +193,9 @@ function checkEdu(inputText) {
   if ((inputText.slice(-4)) == ".edu") {
     return true;
   }
-  else if ((inputText.slice(-4)) == ".com") {
-    return true;
-  }
+  // else if ((inputText.slice(-4)) == ".com") {
+  //   return true;
+  // }
   else {
     alert("Error: Please use .edu email");
     return false;
@@ -210,7 +217,7 @@ function createAccount(e) {
         displayName: "Student"
       })
       sendVerification();
-
+      //console.log("here creating");
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -283,6 +290,22 @@ function switchTo(e) {
 
 }
 
+function resetPassword(e){
+  e = e || window.event;
+  e.preventDefault();
+
+  var auth = firebase.auth();
+  var emailAddress = document.getElementById("emailInput").value;
+
+  if (checkFormatting(emailAddress)){
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+      window.alert("An email has been sent to " + emailAddress + " with instructions to reset your password.");
+    }).catch(function(error){
+      window.alert(error);
+    });
+  }
+}
+
 //enter button usage dependent on condition of the form in log in or register
 function enterKey(e) {
   e = e || window.event;
@@ -299,6 +322,7 @@ function enterKey(e) {
 
 //log out feature
 function logOut(e) {
+  console.log("im logging out");
   e = e || window.event;
   e.preventDefault();
   localStorage.clear();

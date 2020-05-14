@@ -179,7 +179,7 @@ h3 {
   text-align: center;
 }
 
-.load {
+.load, .noDis {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -193,6 +193,13 @@ h3 {
   color: black;
   /* left:0px; */
   text-align: center;
+}
+
+.noDis {
+  margin-top: 30px;
+  font-size: 24px;
+  display: none;
+  font-weight: 600;
 }
 
 .upperCell {
@@ -405,7 +412,7 @@ button:hover {
 
 /* bottom section */
 .containerBottom {
-  max-width: 1700px;
+  /* max-width: 1700px; */
   width: 100%;
   height: 80px;
   background: #ebf5ff;
@@ -539,39 +546,6 @@ button:hover {
 
 /* iPhone and other tablet resizing smaller than typical laptop */
 @media only screen and (max-width: 745px) {
-  .container {
-    max-width: 1700px;
-    width: 96%;
-    margin: auto;
-    /* padding-top: 0%;
-    padding-bottom: 20%; */
-  }
-
-  .upperLogo {
-    float: left;
-    margin-top: 15px;
-    width: 100px;
-  }
-
-  nav {
-    float: right;
-    line-height: 50px;
-  }
-
-  nav li {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 10px;
-    line-height: normal;
-
-    background: rgba(255, 0, 0, 0.0);
-    border-color: rgba(255, 0, 0, 0.0);
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    text-align: center;
-  }
 
   .middleContainer {
     min-height: calc(100vh - 50px - 100px - 30px);
@@ -702,6 +676,42 @@ button:hover {
   }
 }
 
+@media only screen and (max-width: 630px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    /* padding-top: 0%;
+    padding-bottom: 20%; */
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 530px) {
   .container {
@@ -745,6 +755,10 @@ button:hover {
 
   .innerSection {
     width: 85%;
+  }
+
+  .noDis {
+    font-size: 18px;
   }
 
   .mainTab {

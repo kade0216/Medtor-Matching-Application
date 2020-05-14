@@ -33,7 +33,7 @@
 
         <nav>
           <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
-          <li><a style="text-decoration:none" href="#">About</a></li>
+          <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
           <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id = "upperLogIn">Log Out</a></li>
         </nav>
       </div>
@@ -42,7 +42,7 @@
 
     <div class="middleContainer">
       <div class="headerText">
-        <img class = "profileLogo" src = "Icons/registerIcon2.png">
+        <img class = "profileLogo" src = "Icons/registerIconStud.png">
         <h3>Student Profile</h3>
       </div>
 
@@ -107,6 +107,15 @@
               </div>
             </div>
 
+            <div class="termsSec">
+              <input type="checkbox" id="terms" name="terms">
+              <label for="terms">I agree to the
+                <a class = "linkers" href="medtorTerms.html">Terms of Use</a>
+                 and
+                <a class = "linkers" href="medtorPrivacyPolicy.html">Privacy Policy</a>
+              </label>
+            </div>
+
           </section>
 
         </section>
@@ -118,12 +127,13 @@
     </div>
 
     <div class="containerBottom">
-      <button class="contactUs">Contact Us</button>
+      <button class="contactUs" onclick = "window.location.href = 'medtorContactUs.html'">Contact Us</button>
       <article class="infoText">
         Created by Vin Somasundaram, Karan Desai, and Anshu Jonnalagadda
       </article>
       <article class="infoText">
-        © 2020 Medtor. Trademarks and brands are the property of their respective owners.
+        © 2020 Medtor. Trademarks and brands are the property of Medtor.
+        <a href="medtorPrivacyPolicy.html">Privacy Policy</a>
       </article>
     </div>
 
