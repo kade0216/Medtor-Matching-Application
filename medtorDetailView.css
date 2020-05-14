@@ -381,6 +381,7 @@ button:hover {
   background: #1975af;
   color: white;
   outline: none;
+  border: none;
 }
 
 .contactUs:hover {

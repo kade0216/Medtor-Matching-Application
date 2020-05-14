@@ -200,6 +200,7 @@ h3 {
 .detailers {
   width: max-content;
   max-width: 100%;
+  overflow-wrap: break-word;
   text-align: left;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -300,6 +301,7 @@ button:hover {
   background: #1975af;
   color: white;
   outline: none;
+  border: none;
 }
 
 .contactUs:hover {
