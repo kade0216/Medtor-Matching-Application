@@ -18,7 +18,9 @@ var emailText = document.getElementById('emailer');
 
 var theUserRN = null;
 var formState = null;
+
 console.log("here");
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
@@ -53,10 +55,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     };
 
 
-  } else {
+  }
+  else {
     //user not signed in
     console.log("here2");
     window.location.href = "medtorHome.html";
+
   }
 });
 

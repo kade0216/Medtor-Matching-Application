@@ -123,7 +123,8 @@ a:active {
 }
 
 .headerText {
-  box-sizing: content-box;
+  /* box-sizing: content-box; */
+  width: 380px;
   border-bottom: 3px solid #1975af;
   display: flex;
   padding-bottom: 20px;
@@ -332,6 +333,10 @@ button:hover {
     min-height: calc(100vh - 50px - 100px - 30px);
   }
 
+  .headerText {
+    width: 280px;
+  }
+
   .profileLogo {
     height: 65px;
     margin-right: 5px;
@@ -367,7 +372,7 @@ button:hover {
 
 @media only screen and (max-width: 850px) {
   .innerSection {
-    width: 75%;
+    width: 85%;
   }
 
   .buttonClass {
@@ -452,12 +457,12 @@ button:hover {
   }
 
   .innerSection {
-    width: 75%;
+    width: 85%;
   }
   .description, .detailers {
     margin-bottom:15px;
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 15px;
+    line-height: 19px;
   }
 
   .detailers {

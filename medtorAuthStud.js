@@ -13,6 +13,9 @@ firebase.initializeApp(firebaseConfig);
 var databaseRef = firebase.database().ref();
 var functions = firebase.functions();
 
+var isFirefox = typeof InstallTrigger !== 'undefined';
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
 document.getElementById("loggedIn").style.display = 'none';
 var myForm = document.getElementById("theForm");
 var regBtn = document.getElementById("registerBtn");
@@ -168,6 +171,14 @@ firebase.auth().onAuthStateChanged(function(user) {
       document.getElementById('upperText').innerHTML = "Log in with your email and password";
     }
     switcherText.style.display = 'block';
+
+    if (isIE || isFirefox) {
+      document.getElementById("unsupported").style.display = "block"
+      document.getElementById("needLogIn").style.display = 'none';
+      document.getElementById("loggedIn").style.display = 'none';
+      regBtn.style.display = 'none';
+      switcherText.style.display = 'none';
+    }
   }
 });
 
@@ -209,7 +220,7 @@ function createAccount(e) {
   console.log("creating...");
   var emailIn = document.getElementById("emailInput").value;
   var passwordIn = document.getElementById("passwordInput").value;
-  console.log(passwordIn)
+  //console.log(passwordIn)
   if (checkFormatting(emailIn)) {
     firebase.auth().createUserWithEmailAndPassword(emailIn, passwordIn).then(function(){
       var user = firebase.auth().currentUser;
@@ -251,7 +262,7 @@ function logIn(e) {
   console.log("woo");
   var emailIn = document.getElementById("emailInput").value;
   var passwordIn = document.getElementById("passwordInput").value;
-  console.log(passwordIn)
+  //console.log(passwordIn)
   if (checkFormatting(emailIn)) {
      firebase.auth().signInWithEmailAndPassword(emailIn, passwordIn).catch(function(error) {
        // Handle Errors here.
