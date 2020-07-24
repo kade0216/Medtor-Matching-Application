@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <link rel="icon" type = "image/png" href="favicon.png">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorResults.css?v=1.0.3">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id = "upperLogIn">Log Out</a></li>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="middleContainer">
+      <div class="headerText">
+        <img class = "profileLogo" src = "Icons/MedTorLogo2.png">
+        <h3>Mentor Matches</h3>
+      </div>
+
+      <div class="innerSection" id = "innerSec">
+        <div class="description">
+          <span id = upperText>
+            Select your mentor!<br>Click on a mentor to learn more about them.
+            <a onclick="reloadData(event)" href = "#"><br>Reload Data</a>
+          </span>
+        </div>
+        <div class="upperCell">
+          <div class="headerName">
+            <span>Name</span>
+          </div>
+          <div class="headerUnder">
+            <span>Undergrad</span>
+          </div>
+          <div class="headerYear">
+            <span>Grad Year</span>
+          </div>
+          <div class="headerBetween">
+            <span>Between</span>
+          </div>
+          <div class="headerSelect">
+            <span></span>
+          </div>
+        </div>
+
+        <div class="cell" id = "person1">
+          <div class="mainTab" onclick = "goDetail(event, 1)">
+            <div class="mentorName">
+              <span id = "mentorName">Vineethsubbu S</span>
+            </div>
+            <div class="medSchool">
+              <span id = "mentorMed">Stanford Med School</span>
+            </div>
+          </div>
+
+          <div class="college" onclick = "goDetail(event, 1)">
+            <span id = "collegeName">Princeton University</span>
+          </div>
+
+          <div class="year" onclick = "goDetail(event, 1)">
+            <span id = "gradYear">2017</span>
+          </div>
+
+          <div class="gapYear" onclick = "goDetail(event, 1)">
+            <span id = "gapYear">Gap Year</span>
+          </div>
+
+          <div class="checkerBox" id = "checkerBox">
+            <img id = "checker" class ="check" src = "Icons/checkMark/checkMarkOpen.png" onclick = "changeColor(event, p1)">
+          </div>
+        </div>
+
+        <div class="cell2" id = "person2">
+          <div class="mainTab" onclick = "goDetail(event, 2)">
+            <div class="mentorName">
+              <span id = "mentorName">Vineethsubbu S</span>
+            </div>
+            <div class="medSchool">
+              <span id = "mentorMed">Stanford Med School</span>
+            </div>
+          </div>
+
+          <div class="college" onclick = "goDetail(event, 2)">
+            <span id = "collegeName">Princeton University</span>
+          </div>
+
+          <div class="year" onclick = "goDetail(event, 2)">
+            <span id = "gradYear">2017</span>
+          </div>
+
+          <div class="gapYear" onclick = "goDetail(event, 2)">
+            <span id = "gapYear">Gap Year</span>
+          </div>
+
+          <div class="checkerBox" id = "checkerBox">
+            <img id = "checker" class ="check" src = "Icons/checkMark/checkMarkOpen.png" onclick = "changeColor(event, p2)">
+          </div>
+        </div>
+
+        <div class="cell" id = "person3">
+          <div class="mainTab" onclick = "goDetail(event, 3)">
+            <div class="mentorName">
+              <span id = "mentorName">Vineethsubbu S</span>
+            </div>
+            <div class="medSchool">
+              <span id = "mentorMed">Stanford Med School</span>
+            </div>
+          </div>
+
+          <div class="college" onclick = "goDetail(event, 3)">
+            <span id = "collegeName">Princeton University</span>
+          </div>
+
+          <div class="year" onclick = "goDetail(event, 3)">
+            <span id = "gradYear">2017</span>
+          </div>
+
+          <div class="gapYear" onclick = "goDetail(event, 3)">
+            <span id = "gapYear">Gap Year</span>
+          </div>
+
+          <div class="checkerBox" id = "checkerBox">
+            <img id = "checker" class ="check" src = "Icons/checkMark/checkMarkOpen.png" onclick = "changeColor(event, p3)">
+          </div>
+        </div>
+
+        <div class="cell2" id = "person4">
+          <div class="mainTab" onclick = "goDetail(event, 4)">
+            <div class="mentorName">
+              <span id = "mentorName">Vineethsubbu S</span>
+            </div>
+            <div class="medSchool">
+              <span id = "mentorMed">Stanford Med School</span>
+            </div>
+          </div>
+
+          <div class="college" onclick = "goDetail(event, 4)">
+            <span id = "collegeName">Princeton University</span>
+          </div>
+
+          <div class="year" onclick = "goDetail(event, 4)">
+            <span id = "gradYear">2017</span>
+          </div>
+
+          <div class="gapYear" onclick = "goDetail(event, 4)">
+            <span id = "gapYear">Gap Year</span>
+          </div>
+
+          <div class="checkerBox" id = "checkerBox">
+            <img id = "checker" class ="check" src = "Icons/checkMark/checkMarkOpen.png" onclick = "changeColor(event, p4)">
+          </div>
+        </div>
+
+        <div class="cell" id = "person5">
+          <div class="mainTab" onclick = "goDetail(event, 5)">
+            <div class="mentorName">
+              <span id = "mentorName">Vineethsubbu S</span>
+            </div>
+            <div class="medSchool">
+              <span id = "mentorMed">Stanford Med School</span>
+            </div>
+          </div>
+
+          <div class="college" onclick = "goDetail(event, 5)">
+            <span id = "collegeName">Princeton University</span>
+          </div>
+
+          <div class="year" onclick = "goDetail(event, 5)">
+            <span id = "gradYear">2017</span>
+          </div>
+
+          <div class="gapYear" onclick = "goDetail(event, 5)">
+            <span id = "gapYear">Gap Year</span>
+          </div>
+
+          <div class="checkerBox" id = "checkerBox">
+            <img id = "checker" class ="check" src = "Icons/checkMark/checkMarkOpen.png" onclick = "changeColor(event, p5)">
+          </div>
+        </div>
+
+        <button onclick = "submitSelection(event)" class="confirmer" id="confirmButton">Confirm</button>
+        <div class="noDis" id = "noDisplay">
+          <span>There are currently no mentors available. Please reload your results in a few days to find your mentor!</span>
+        </div>
+
+      </div>
+
+      <div class="load" id = "loading">
+        <span>Loading...</span>
+        <br>
+        <span class = "smallerLoad">Please wait, do not the refresh page</span>
+      </div>
+
+      <div class="noDis" id = "submittedWait">
+        <span>You have selected your mentor! Please wait while we confirm your selection and display your mentor's contact information.</span>
+      </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="containerBottom">
+      <button class="contactUs" onclick = "window.location.href = 'medtorContactUs.html'">Contact Us</button>
+      <article class="infoText">
+        Created by Duke Students
+      </article>
+      <article class="infoText">
+        © 2020 Medtor.
+        <a href="medtorPrivacyPolicy.html">Privacy Policy</a>
+      </article>
+    </div>
+
+    <script src="medtorResults.js?1.0.3"></script>
+
+  </body>
+
+</html>

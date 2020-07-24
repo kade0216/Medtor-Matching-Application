@@ -164,7 +164,7 @@ hr {
 /* form section */
 .innerSection {
   box-sizing: content-box;
-  width: 500px;
+  width: 80%;
   border: 3px solid #1975af;
   background-color: white;
   border-radius: 10px;
@@ -175,103 +175,37 @@ hr {
   padding-bottom: 30px;
 }
 
-.form {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 
-  width: 400px;
-  position: relative;
-  /* height: 60px; */
-  height: 35px;
-  /* overflow: hidden; */
-  overflow: visible;
-  margin-left: auto;
-  margin-right: auto;
-  /* margin-top: 10px; */
-  margin-top: 35px;
-
-}
-
-.form input {
-  /* Remove First */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  width: 93.5%;
-  position: absolute;
-  bottom: 0px;
-  height: 33px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-  padding-left: 5px;
-  box-shadow: none !important;
-}
-
-.form label {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  position: absolute;
-  margin-left: 5px;
-
-  bottom: 1px;
-  left: 0px;
-  width: 95%;
-  height: 100%;
-  pointer-events: none;
-  color: rgb(169, 169, 169, 80.0);
-  /* font-size: 16px; */
-  /* margin-bottom: 2px; */
-  font-family: 'Montserrat', sans-serif;
-  /* border-bottom: 1px solid black; */
-}
-
-.codeText {
-  position: absolute;
-  bottom: 5px;
-  left: 0px;
-  transition: all 0.2s ease;
-}
-
-.form input:focus ~ .nameForInput .codeText{
-  /* transform: translateY(-100%); */
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: 21px;
-
-}
-
-.form input:valid ~ .nameForInput .codeText{
-  /* transform: translateY(-100%); */
-  font-size: 12px;
-  color: #27abff;
-  background-color: white;
-  padding-left: 3px;
-  padding-right: 5px;
-  margin-bottom: 21px;
-
-}
-
-.form input:focus {
-    border:1px solid #1975af;
-}
-
-.description {
+.mentStats {
+  box-sizing: content-box;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
-  font-size: 15px;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color: black;
+  left:0px;
+}
+
+.insMentStats {
+  box-sizing: content-box;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  display: flex;
+}
+
+.leftSide, .rightSide {
+  box-sizing: content-box;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 30px; */
+  font-size: 30px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
@@ -280,76 +214,43 @@ hr {
   text-align: center;
 }
 
-.lining {
-  width: 400px;
+.eachBoxL {
+  border-right: 2px solid #1975af;
+}
+
+.eachBoxL, .eachBoxR {
+  width: 100%;
+  height: 150px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 10px;
+  margin-top: 25px;
+  padding-top: 15px;
+  /* margin-top: 30px; */
+  font-size: 30px;
   font-style: normal;
   font-weight: 500;
-  line-height: 15px;
+  line-height: 20px;
   color: black;
   left:0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-button {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-
-  margin-top: -10px;
-  margin-left: auto;
-  margin-right: auto;
-  /* margin-bottom: 30px; */
-  /* margin-bottom: 60px; */
-
-  width: 155px;
-  height: 41px;
-  border-radius: 10px;
-
-  background: #27abff;
-  color: white;
-  outline: none;
-  border: none;
-  cursor: pointer;
+.num {
+  margin: auto;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 100;
 }
 
-.registerButton {
-  float: right;
-  display: none;
-}
-
-.logOutButton {
-  float: right;
-  display: none;
-}
-
-.nextButton {
-  float: right;
-  display: none;
-}
-
-.registerButton:hover, .logOutButton:hover {
-  border: 2px solid #27abff;
-  background: white;
-  color: #27abff;
-  outline: none;
-}
-
-.switchLink {
-  color:blue;
-}
-
-.switcher {
-  width: 40%;
-  font-size: 10px;
+.descrip {
+  margin: auto;
+  font-size: 25px;
   font-style: normal;
   font-weight: 500;
-  line-height: 15px;
-  color: blue;
-  display: none;
-  /* float: right; */
 }
+
 
 
 

@@ -18,6 +18,7 @@ var upperLogInBtn = document.getElementById('upperLogIn');
 var menteeLabel = document.getElementById('menteeL');
 
 var studentCount = document.getElementById('studCountIn');
+var addInfo = document.getElementById('additionalInfo');
 var terms = document.getElementById("terms");
 
 var originalFontSize = studentCount.style.fontSize;
@@ -28,7 +29,7 @@ var formState = null;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Student") {
@@ -50,7 +51,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       }
     }
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
@@ -65,7 +66,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
   }
 });
@@ -81,6 +82,7 @@ function goNext(e) {
   if (checkFields()) {
     if (user.emailVerified == true) {
       theUserRN.studCount = studCount;
+      theUserRN.addInfo = addInfo.value;
       theUserRN.terms = true;
       if (formState < 4){
         theUserRN.formState = 4;
@@ -89,12 +91,12 @@ function goNext(e) {
       theCurrUser = databaseRef.child("mentorUsers").child(user.uid);
       theCurrUser.update(theUserRN).then(function() {
         //new code
-        console.log("entered new data")
+        //console.log("entered new data")
         window.location.href = "medtorMentorCompletion.html"
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
         // returnedPerson( {text: " "}).then(function(result){
         //   theObject = result;
-        //   console.log(theObject);
+        //   //console.log(theObject);
         // });
 
       });
@@ -108,7 +110,7 @@ function goNext(e) {
 function checkFields() {
   if (studentCount.value != 'none'){
     if(terms.checked == true){
-      console.log("fields are good");
+      //console.log("fields are good");
       return true;
     }
     else {
@@ -131,7 +133,7 @@ function goBack(e) {
 function changeColor(e, obj, labeler) {
   e = e || window.event;
   e.preventDefault();
-  // console.log("here");
+  // //console.log("here");
   if (obj.value != "none") {
     obj.style.color = "black";
     obj.style.fontSize = "14px";
@@ -173,6 +175,9 @@ function fillFields() {
   var eventer = new Event('change');
 
   studentCount.value = theUserRN["studCount"];
+  if (theUserRN["addInfo"] != null) {
+    addInfo.value = theUserRN["addInfo"];
+  }
   terms.checked = theUserRN["terms"];
 
   changeColor(eventer, studentCount, menteeL);

@@ -295,7 +295,7 @@ button:hover {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -352,7 +352,7 @@ button:hover {
   } */
 
   .contactUs {
-    width: 110px; /* changed */
+    width: 120px; /* changed */
     height: 34px;
     font-size: 14px;
   }
@@ -422,6 +422,27 @@ button:hover {
 
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
+
+  .innerSection {
+    width: 85%;
+  }
+  .description, .detailers {
+    margin-bottom:15px;
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .detailers {
+    margin-bottom: 0px;
+  }
+  .mainLogo {
+    height: auto;
+    width: 60%;
+  }
+
+}
+
+@media only screen and (max-width: 365px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -455,22 +476,4 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
-
-  .innerSection {
-    width: 85%;
-  }
-  .description, .detailers {
-    margin-bottom:15px;
-    font-size: 15px;
-    line-height: 19px;
-  }
-
-  .detailers {
-    margin-bottom: 0px;
-  }
-  .mainLogo {
-    height: auto;
-    width: 60%;
-  }
-
 }

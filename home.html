@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <link rel="icon" type = "image/png" href="favicon.png">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorHome.css?v=1.0.3">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
+          <li class = "logIn" id = "itemLogIn" href="medtorRegisterDec.html">
+            <a onclick = null href="medtorRegisterDec.html" style="text-decoration:none" class="logColor" id = "upperLogIn">
+              Register
+            </a>
+          </li>
+          <!-- <li>Data</li> -->
+        </nav>
+      </div>
+    </header>
+
+    <div class="midContainer">
+      <div class="content">
+        <img class="mainLogo" src="Icons/frontLogo.png">
+        <img class = "iPhoneLogo" src="Icons/MedtorDesignsiphoneLogo.png">
+        <a href="medtorAuthPass.html" id = "mentBtn" ><button class="menBtn">Mentor</button></a>
+        <a href="medtorAuthStud.html" id = "studBtn" ><button class="studBtn">Student</button></a>
+        <div class="userInSec" id = "welcomeSec">
+          <span id = "welcome">Welcome Friend</span>
+          <a href="#" onclick = "goNextPage()"><button class="profileBtn" id = "profBtn">My Profile</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="containerTwo">
+      <h3>How It Works</h3>
+      <section class = "steps">
+        <div class = "icons">
+          <img class="profile" src="Icons/ProfileIcon/profileIcon.png">
+          <h4>Create Your Profile</h4>
+          <article class="worksText">
+            You provide information about your trajectory as a pre-med student. What do you like do to? What research are you involved in? What do you want to specialize in as a doctor?
+          </article>
+        </div>
+
+        <div class = "icons">
+          <img class="match" src="Icons/FutureIcon/futureIcon.png">
+          <h4>Find Your Match</h4>
+          <article class="worksText">
+            With the information you provide, our algorithm will find five mentors who have followed a similar path and who will be a great fit for you!
+          </article>
+        </div>
+
+        <div class = "icons">
+          <img class="connect" src="Icons/connectIcon.png">
+          <h4>Connect Away!</h4>
+          <article class="worksText">
+            After assessing your options, pick the mentor you believe best suits you and connect away!
+          </article>
+        </div>
+
+      </section>
+
+    </div>
+
+    <div class="containerBottom">
+      <button class="contactUs" onclick = "window.location.href = 'medtorContactUs.html'">Contact Us</button>
+      <article class="infoText">
+        Created by Duke Students
+      </article>
+      <article class="infoText">
+        © 2020 Medtor. Version 1.0.3
+        <a href="medtorPrivacyPolicy.html">Privacy Policy</a>
+      </article>
+    </div>
+
+    <script src="medtorHome.js?1.0.3"></script>
+
+  </body>
+</html>

@@ -31,8 +31,18 @@ const form = document.forms['getEmail'];
 document.getElementById("passwordInput").addEventListener('keypress', enterKey);
 document.getElementById("emailInput").addEventListener('keypress', enterKey);
 
-console.log("working");
-//console.log(localStorage);
+//console.log("working");
+
+var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+if (iOS){
+  var one = document.getElementById("labeler");
+  one.style.left = "0px";
+  one.style.bottom = "0px";
+  var two = document.getElementById("labeler1");
+  two.style.left = "0px";
+  two.style.bottom = "0px";
+}
 
 // --FUNCTIONS--------------------------------------------------------------------------------------------
 
@@ -49,11 +59,11 @@ firebase.auth().onAuthStateChanged(function(user) {
       window.location.href = "medtorAuthPass.html"
     }
     // if (user.displayName == "student"){
-    //   console.log("student here");
+    //   //console.log("student here");
     // }
 
     //takes away display of form and replaces it with loggedIn header
-    console.log("didHere")
+    //console.log("didHere")
     document.getElementById("needLogIn").style.display = 'none';
     document.getElementById("loggedIn").style.display = 'block';
 
@@ -88,7 +98,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         databaseRef.child("studentUsers").child(user.uid).once("value",snapshot => {
           if (snapshot.exists()){
             //go to next page
-            console.log("would go to next page");
+            //console.log("would go to next page");
             localStorage.setItem("currUser", JSON.stringify(snapshot.val()));
             if (snapshot.val().formState == 5) {
               window.location.href = "medtorStudentCompletion.html";
@@ -112,27 +122,28 @@ firebase.auth().onAuthStateChanged(function(user) {
             theCurrUser.set(addingData).then(function() {
               //go to next page;
               localStorage.setItem("currUser", JSON.stringify(addingData));
-              console.log("would go to next page because data just submitted");
+              //console.log("would go to next page because data just submitted");
               window.location.href = "medtorStudentForm1.html";
             });
-            console.log("not snapshot");
+            //console.log("not snapshot");
           }
         });
         // document.getElementById("nextBtn").style.display = 'block';
         // document.getElementById("nextBtn").disable = false;
       }
       else {
-        console.log("here loggre fjdkj");
+        //console.log("here loggre fjdkj");
         // document.getElementById("nextBtn").style.display = 'none';
         // document.getElementById("nextBtn").disable = true;
+        console.log("here");
       }
 
     }
 
   } else {
     //displaying objects
-    console.log("didHere222")
-    // console.log(user.email);
+    //console.log("didHere222")
+    // //console.log(user.email);
     upperLogInBtn.innerHTML = "Register";
     upperLogInBtn.href = "medtorRegisterDec.html";
     upperLogInBtn.onclick = function(){
@@ -172,8 +183,18 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     switcherText.style.display = 'block';
 
+    var disableStudent = true;
+
     if (isIE || isFirefox) {
       document.getElementById("unsupported").style.display = "block"
+      document.getElementById("needLogIn").style.display = 'none';
+      document.getElementById("loggedIn").style.display = 'none';
+      regBtn.style.display = 'none';
+      switcherText.style.display = 'none';
+    }
+    else if (disableStudent) {
+      document.getElementById("noStudent").style.display = "block";
+      document.getElementById("unsupported").style.display = "none"
       document.getElementById("needLogIn").style.display = 'none';
       document.getElementById("loggedIn").style.display = 'none';
       regBtn.style.display = 'none';
@@ -217,10 +238,10 @@ function checkEdu(inputText) {
 function createAccount(e) {
   e = e || window.event;
   e.preventDefault();
-  console.log("creating...");
+  //console.log("creating...");
   var emailIn = document.getElementById("emailInput").value;
   var passwordIn = document.getElementById("passwordInput").value;
-  //console.log(passwordIn)
+  ////console.log(passwordIn)
   if (checkFormatting(emailIn)) {
     firebase.auth().createUserWithEmailAndPassword(emailIn, passwordIn).then(function(){
       var user = firebase.auth().currentUser;
@@ -228,12 +249,12 @@ function createAccount(e) {
         displayName: "Student"
       })
       sendVerification();
-      //console.log("here creating");
+      ////console.log("here creating");
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log("its not created")
+      //console.log("its not created")
       window.alert("Error: " + errorMessage);
     });
 
@@ -247,7 +268,7 @@ function sendVerification () {
   var user = firebase.auth().currentUser;
   var emailIn = document.getElementById("emailInput").value;
   user.sendEmailVerification().then(function() {
-    console.log("verification sent");
+    //console.log("verification sent");
     // Email sent.
   }).catch(function(error) {
     var errorMessage = error.message;
@@ -259,16 +280,16 @@ function sendVerification () {
 function logIn(e) {
   e = e || window.event;
   e.preventDefault();
-  console.log("woo");
+  //console.log("woo");
   var emailIn = document.getElementById("emailInput").value;
   var passwordIn = document.getElementById("passwordInput").value;
-  //console.log(passwordIn)
+  ////console.log(passwordIn)
   if (checkFormatting(emailIn)) {
      firebase.auth().signInWithEmailAndPassword(emailIn, passwordIn).catch(function(error) {
        // Handle Errors here.
        var errorCode = error.code;
        var errorMessage = error.message;
-       console.log("worked")
+       //console.log("worked")
        window.alert("Error: " + errorMessage);
      });
   }
@@ -278,7 +299,7 @@ function logIn(e) {
 function switchTo(e) {
   e = e || window.event;
   e.preventDefault();
-  console.log("switching");
+  //console.log("switching");
   if (onRegister) {
     document.getElementById('upperText').innerHTML = "Log in with your email and password";
     document.getElementById('switcher').innerHTML = "Don't have an account? Register";
@@ -287,7 +308,7 @@ function switchTo(e) {
     logInBtn.style.display = 'block';
     logInBtn.disable = false;
     onRegister = false;
-    console.log(regBtn.disable);
+    //console.log(regBtn.disable);
   }
   else {
     document.getElementById('upperText').innerHTML = "Enter your email below to create your profile";
@@ -333,7 +354,7 @@ function enterKey(e) {
 
 //log out feature
 function logOut(e) {
-  console.log("im logging out");
+  //console.log("im logging out");
   e = e || window.event;
   e.preventDefault();
   localStorage.clear();

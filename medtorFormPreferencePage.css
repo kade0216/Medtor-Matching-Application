@@ -386,7 +386,7 @@ select::after {
 }
 
 
-.form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
+.form input:focus ~ .nameForInput .codeText, .form input:valid ~ .nameForInput .codeText{
   transform: translateY(-150%);
   font-size: 12px;
   color: #27abff;
@@ -477,7 +477,7 @@ button:hover {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -538,7 +538,7 @@ button:hover {
     margin-bottom: 2px;
   }
 
-  .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
+  .form input:focus ~ .nameForInput .codeText, .form input:valid ~ .nameForInput .codeText{
     margin-bottom: -3px;
   }
 
@@ -551,7 +551,7 @@ button:hover {
   }
 
   .contactUs {
-    width: 110px; /* changed */
+    width: 120px; /* changed */
     height: 34px;
     font-size: 14px;
   }
@@ -579,12 +579,13 @@ button:hover {
   }
 
   .next {
-    width: 145px;
-    margin-left: calc(75vw - 20px - 145px - 80px);
+    width: 155px;
+    margin-left: calc(75vw - 10px - 155px - 80px);
   }
 
   .back {
     width: 80px;
+    margin-left: 5px;
   }
 }
 
@@ -626,6 +627,26 @@ button:hover {
 
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
+
+  .innerSection {
+    width: 75%;
+  }
+
+  .eachSide {
+    min-width: 260px;
+  }
+
+  .form, .termsSec {
+    min-width: 240px;
+  }
+
+  .eachSelect {
+    min-width: 240px;
+  }
+
+}
+
+@media only screen and (max-width: 365px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -659,21 +680,4 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
-
-  .innerSection {
-    width: 75%;
-  }
-
-  .eachSide {
-    min-width: 260px;
-  }
-
-  .form, .termsSec {
-    min-width: 240px;
-  }
-
-  .eachSelect {
-    min-width: 240px;
-  }
-
 }

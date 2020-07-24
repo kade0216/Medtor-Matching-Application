@@ -15,12 +15,12 @@ var functions = firebase.functions();
 
 var upperLogInBtn = document.getElementById('upperLogIn');
 
-console.log("working");
+//console.log("working");
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     //user signed in
-    console.log("here");
+    //console.log("here");
     // upperLogInBtn.display = 'none';
     // upperLogInBtn.disable = true;
 
@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("didHere2");
+    //console.log("didHere2");
     upperLogInBtn.innerHTML = "Register";
     upperLogInBtn.href = "#";
     upperLogInBtn.onclick = function(){

@@ -17,7 +17,7 @@ var upperLogInBtn = document.getElementById('upperLogIn');
 
 var theUserRN = null;
 var formState = null;
-console.log("here");
+//console.log("here");
 
 document.getElementById("section1").innerHTML = "Personal information you disclose to us. <br><br><i>In Short:  We collect personal information that you provide to us.</i><br><br>We collect personal information that you voluntarily provide to us when registering at the Services expressing an interest in obtaining information about us or our products and services, when participating in activities on the Services (such as posting messages in our online forums or entering competitions, contests or giveaways) or otherwise contacting us.<br><br>The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make and the products and features you use. The personal information we collect can include the following:<br><br>Publicly Available Personal Information. We collect first name, maiden name, last name, and nickname; email addresses; business email; current and former address; and other similar data.<br><br>All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.";
 
@@ -51,11 +51,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     };
 
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.href = "#";
     upperLogInBtn.onclick = function(){
-      console.log("trying to log out");
+      //console.log("trying to log out");
       logOut(event);
     };
 
@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     upperLogInBtn.innerHTML = "Register";
     //upperLogInBtn.href = "medtorHome.html";
     upperLogInBtn.href = "medtorRegisterDec.html";

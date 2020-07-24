@@ -31,10 +31,24 @@ var originalFontSize = homeStateIn.style.fontSize;
 var theUserRN = null;
 var formState = null;
 
+var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+if (iOS){
+  var one = document.getElementById("labeler");
+  one.style.left = "-3px";
+  one.style.bottom = "0px";
+  var two = document.getElementById("labeler1");
+  two.style.left = "-3px";
+  two.style.bottom = "0px";
+  var three = document.getElementById("labeler2");
+  three.style.left = "-3px";
+  three.style.bottom = "0px";
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Mentor") {
@@ -62,7 +76,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       }
     }
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
@@ -78,7 +92,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
   }
 });
@@ -101,7 +115,7 @@ function goNext(e) {
   var hobIn3 = hobbyIn3.value;
 
   if (checkFields(firstNameIn, lastNameIn, phoneIn, stateIn, gendIn, hobIn1, hobIn2, hobIn3)) {
-    console.log("data passes");
+    //console.log("data passes");
     if (user.emailVerified == true) {
 
       theUserRN.firstName = firstNameIn;
@@ -120,7 +134,7 @@ function goNext(e) {
       theCurrUser = databaseRef.child("studentUsers").child(user.uid);
       theCurrUser.update(theUserRN).then(function() {
         //new code
-        console.log("entered new data");
+        //console.log("entered new data");
         window.location.href = "medtorStudentForm2.html";
 
       });
@@ -137,36 +151,16 @@ function goNext(e) {
 function checkFields(first, last, phone, hState, gen, hob1, hob2, hob3) {
   var firstFormat = new RegExp(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i);
   var lastFormat = new RegExp(/^[a-z ,.'-]+$/i);
-  var phoneFormat = new RegExp(/^\d+$/);
-  var phoneList = phone.split("-");
   if (first.match(lastFormat) && last.match(lastFormat) && hState != "none" && gen != "none" && hob1 != "none" && hob2 != "none" && hob3 != "none") {
-    if (phoneList.length != 3) {
-      window.alert("Please input phone number in the format 555-555-5555");
-      console.log("0");
-      return false;
+    if (phone[0] != "(" && phone.length == 10) {
+      return true;
     }
-    else if (!(phoneList[0].match(phoneFormat)) || !(phoneList[1].match(phoneFormat)) || !(phoneList[2].match(phoneFormat))) {
-      window.alert("Please input phone number in the format 555-555-5555");
-      console.log("1");
-      return false;
-    }
-    else if (phoneList[0].length != 3) {
-      window.alert("Please input phone number in the format 555-555-5555");
-      console.log("2");
-      return false;
-    }
-    else if (phoneList[1].length != 3) {
-      window.alert("Please input phone number in the format 555-555-5555");
-      console.log("3");
-      return false;
-    }
-    else if (phoneList[2].length != 4) {
-      window.alert("Please input phone number in the format 555-555-5555");
-      console.log("4");
-      return false;
+    else if (phone[0] == "(" && phone.length == 13) {
+      return true;
     }
     else {
-      return true;
+      window.alert("Please input a proper phone number");
+      return false;
     }
   }
   else {
@@ -178,7 +172,7 @@ function checkFields(first, last, phone, hState, gen, hob1, hob2, hob3) {
 function changeColor(e, obj, labeler) {
   e = e || window.event;
   e.preventDefault();
-  console.log("here");
+  //console.log("here");
   if (obj.value != "none") {
     obj.style.color = "black";
     obj.style.fontSize = "16px";
@@ -260,4 +254,171 @@ function logOut(e) {
   }).catch(function(error) {
     // An error happened.
   });
+}
+
+var zChar = new Array(' ', '(', ')', '-', '.');
+var maxphonelength = 13;
+var phonevalue1;
+var phonevalue2;
+var cursorposition;
+
+function ParseForNumber1(object) {
+    phonevalue1 = ParseChar(object.value, zChar);
+}
+
+function ParseForNumber2(object) {
+    phonevalue2 = ParseChar(object.value, zChar);
+}
+
+function backspacerUP(object, e) {
+    if (e) {
+        e = e
+    } else {
+        e = window.event
+    }
+    if (e.which) {
+        var keycode = e.which
+    } else {
+        var keycode = e.keyCode
+    }
+
+    ParseForNumber1(object)
+
+    if (keycode >= 48) {
+        ValidatePhone(object)
+    }
+}
+
+function backspacerDOWN(object, e) {
+    if (e) {
+        e = e
+    } else {
+        e = window.event
+    }
+    if (e.which) {
+        var keycode = e.which
+    } else {
+        var keycode = e.keyCode
+    }
+    ParseForNumber2(object)
+}
+
+function GetCursorPosition() {
+
+    var t1 = phonevalue1;
+    var t2 = phonevalue2;
+    var bool = false
+    for (i = 0; i < t1.length; i++) {
+        if (t1.substring(i, 1) != t2.substring(i, 1)) {
+            if (!bool) {
+                cursorposition = i
+                bool = true
+            }
+        }
+    }
+}
+
+function ValidatePhone(object) {
+
+    var p = phonevalue1
+
+    p = p.replace(/[^\d]*/gi, "")
+
+    if (p.length < 3) {
+        object.value = p
+    } else if (p.length == 3) {
+        pp = p;
+        d4 = p.indexOf('(')
+        d5 = p.indexOf(')')
+        if (d4 == -1) {
+            pp = "(" + pp;
+        }
+        if (d5 == -1) {
+            pp = pp + ")";
+        }
+        object.value = pp;
+    } else if (p.length > 3 && p.length < 7) {
+        p = "(" + p;
+        l30 = p.length;
+        p30 = p.substring(0, 4);
+        p30 = p30 + ")"
+
+        p31 = p.substring(4, l30);
+        pp = p30 + p31;
+
+        object.value = pp;
+
+    } else if (p.length >= 7) {
+        p = "(" + p;
+        l30 = p.length;
+        p30 = p.substring(0, 4);
+        p30 = p30 + ")"
+
+        p31 = p.substring(4, l30);
+        pp = p30 + p31;
+
+        l40 = pp.length;
+        p40 = pp.substring(0, 8);
+        p40 = p40 + "-"
+
+        p41 = pp.substring(8, l40);
+        ppp = p40 + p41;
+
+        object.value = ppp.substring(0, maxphonelength);
+    }
+
+    GetCursorPosition()
+
+    if (cursorposition >= 0) {
+        if (cursorposition == 0) {
+            cursorposition = 2
+        } else if (cursorposition <= 2) {
+            cursorposition = cursorposition + 1
+        } else if (cursorposition <= 5) {
+            cursorposition = cursorposition + 2
+        } else if (cursorposition == 6) {
+            cursorposition = cursorposition + 2
+        } else if (cursorposition == 7) {
+            cursorposition = cursorposition + 4
+            e1 = object.value.indexOf(')')
+            e2 = object.value.indexOf('-')
+            if (e1 > -1 && e2 > -1) {
+                if (e2 - e1 == 4) {
+                    cursorposition = cursorposition - 1
+                }
+            }
+        } else if (cursorposition < 11) {
+            cursorposition = cursorposition + 3
+        } else if (cursorposition == 11) {
+            cursorposition = cursorposition + 1
+        } else if (cursorposition >= 12) {
+            cursorposition = cursorposition
+        }
+
+    }
+
+}
+
+function ParseChar(sStr, sChar) {
+    if (sChar.length == null) {
+        zChar = new Array(sChar);
+    } else zChar = sChar;
+
+    for (i = 0; i < zChar.length; i++) {
+        sNewStr = "";
+
+        var iStart = 0;
+        var iEnd = sStr.indexOf(sChar[i]);
+
+        while (iEnd != -1) {
+            sNewStr += sStr.substring(iStart, iEnd);
+            iStart = iEnd + 1;
+            iEnd = sStr.indexOf(sChar[i], iStart);
+        }
+        sNewStr += sStr.substring(sStr.lastIndexOf(sChar[i]) + 1, sStr.length);
+
+        sStr = sNewStr;
+    }
+
+    return sNewStr;
 }

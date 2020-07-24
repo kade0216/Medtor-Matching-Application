@@ -32,8 +32,18 @@ const form = document.forms['getEmail'];
 document.getElementById("passwordInput").addEventListener('keypress', enterKey);
 document.getElementById("emailInput").addEventListener('keypress', enterKey);
 
-console.log("working");
-//console.log(localStorage);
+//console.log("working");
+
+var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+if (iOS){
+  var one = document.getElementById("labeler");
+  one.style.left = "0px";
+  one.style.bottom = "0px";
+  var two = document.getElementById("labeler1");
+  two.style.left = "0px";
+  two.style.bottom = "0px";
+}
 
 // --FUNCTIONS--------------------------------------------------------------------------------------------
 
@@ -51,7 +61,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 
     //takes away display of form and replaces it with loggedIn header
-    console.log("didHere")
+    //console.log("didHere")
     document.getElementById("needLogIn").style.display = 'none';
     document.getElementById("loggedIn").style.display = 'block';
 
@@ -88,8 +98,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         databaseRef.child("mentorUsers").child(user.uid).once("value",snapshot => {
           if (snapshot.exists()){
             //go to next page
-            console.log("would go to next page");
-            console.log(snapshot.val());
+            //console.log("would go to next page");
+            //console.log(snapshot.val());
             localStorage.setItem("currUser", JSON.stringify(snapshot.val()));
             window.location.href = "medtorMentorForm1.html";
           }
@@ -106,7 +116,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             theCurrUser.set(addingData).then(function() {
               // localStorage["formState", "0"];
               localStorage.setItem("currUser", JSON.stringify(addingData));
-              console.log("would go to next page because data just submitted");
+              //console.log("would go to next page because data just submitted");
               window.location.href = "medtorMentorForm1.html";
             });
           }
@@ -115,7 +125,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById("nextBtn").disable = false;
       }
       else {
-        // console.log("not verified");
+        // //console.log("not verified");
         // document.getElementById("nextBtn").disable = true;
       }
 
@@ -123,7 +133,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //displaying objects
-    console.log("didHere2")
+    //console.log("didHere2")
     //changes upper button
     upperLogInBtn.innerHTML = "Register";
     upperLogInBtn.href = "medtorRegisterDec.html";
@@ -209,10 +219,10 @@ function checkEdu(inputText) {
 function createAccount(e) {
   e = e || window.event;
   e.preventDefault();
-  console.log("creating...");
+  //console.log("creating...");
   var emailIn = document.getElementById("emailInput").value;
   var passwordIn = document.getElementById("passwordInput").value;
-  console.log(passwordIn)
+  //console.log(passwordIn)
   if (checkFormatting(emailIn)) {
     firebase.auth().createUserWithEmailAndPassword(emailIn, passwordIn).then(function(){
       var user = firebase.auth().currentUser;
@@ -224,7 +234,7 @@ function createAccount(e) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log("its not created")
+      //console.log("its not created")
       window.alert("Error: " + errorMessage);
     });
   }
@@ -237,7 +247,7 @@ function sendVerification () {
   var user = firebase.auth().currentUser;
   var emailIn = document.getElementById("emailInput").value;
   user.sendEmailVerification().then(function() {
-    console.log("verification sent");
+    //console.log("verification sent");
     // Email sent.
   }).catch(function(error) {
     var errorMessage = error.message;
@@ -249,16 +259,16 @@ function sendVerification () {
 function logIn(e) {
   e = e || window.event;
   e.preventDefault();
-  console.log("woo");
+  //console.log("woo");
   var emailIn = document.getElementById("emailInput").value;
   var passwordIn = document.getElementById("passwordInput").value;
-  console.log(passwordIn)
+  //console.log(passwordIn)
   if (checkFormatting(emailIn)) {
      firebase.auth().signInWithEmailAndPassword(emailIn, passwordIn).catch(function(error) {
        // Handle Errors here.
        var errorCode = error.code;
        var errorMessage = error.message;
-       console.log("worked")
+       //console.log("worked")
        window.alert("Error: " + errorMessage);
      });
   }
@@ -268,7 +278,7 @@ function logIn(e) {
 function switchTo(e) {
   e = e || window.event;
   e.preventDefault();
-  console.log("switching");
+  //console.log("switching");
   if (onRegister) {
     document.getElementById('upperText').innerHTML = "Log in with your email and password";
     document.getElementById('switcher').innerHTML = "Don't have an account? Register";
@@ -277,7 +287,7 @@ function switchTo(e) {
     logInBtn.style.display = 'block';
     logInBtn.disable = false;
     onRegister = false;
-    console.log(regBtn.disable);
+    //console.log(regBtn.disable);
   }
   else {
     document.getElementById('upperText').innerHTML = "Enter your email below to create your profile";

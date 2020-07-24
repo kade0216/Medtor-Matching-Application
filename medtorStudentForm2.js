@@ -35,7 +35,7 @@ var formState = null;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Mentor") {
@@ -73,7 +73,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
@@ -85,7 +85,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     // theUserRN = JSON.parse(localStorage["currUser"]);
     // formState = theUserRN["formState"];
     // if (formState >= 2){
-    //   console.log("state here");
+    //   //console.log("state here");
     //   fillFields();
     // }
 
@@ -93,7 +93,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
   }
 });
@@ -121,7 +121,7 @@ function goNext(e) {
         theUserRN.formState = 2;
       }
       localStorage.setItem("currUser", JSON.stringify(theUserRN));
-      //console.log("data passes");
+      ////console.log("data passes");
       // extraData = {
       //   Undergrad: undergradInVal,
       //   UndergradLoc: univlocationInVal,
@@ -132,12 +132,12 @@ function goNext(e) {
       theCurrUser = databaseRef.child("studentUsers").child(user.uid);
       theCurrUser.update(theUserRN).then(function() {
         //new code
-        console.log("entered new data")
+        //console.log("entered new data")
         window.location.href = "medtorStudentForm3.html";
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
         // returnedPerson( {text: " "}).then(function(result){
         //   theObject = result;
-        //   console.log(theObject);
+        //   //console.log(theObject);
         // });
 
       });
@@ -150,7 +150,7 @@ function goNext(e) {
 
 function checkFields() {
   if (gradyearIn.value != 'none' && univlocationIn.value != 'none' && undergradIn.value != 'none' && majIn.value != 'none' && minIn.value != 'none'){
-    console.log('fields are good');
+    //console.log('fields are good');
     return true;
   }
   else {
@@ -169,8 +169,8 @@ function goBack(e) {
 function changeColor(e, obj, labeler) {
   e = e || window.event;
   e.preventDefault();
-  console.log("here");
-  console.log(obj.value);
+  //console.log("here");
+  //console.log(obj.value);
   if (obj.value != "none") {
     obj.style.color = "black";
     obj.style.fontSize = "14px";

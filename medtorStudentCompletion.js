@@ -19,12 +19,12 @@ var emailText = document.getElementById('emailer');
 var theUserRN = null;
 var formState = null;
 
-console.log("here");
+//console.log("here");
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Mentor") {
@@ -47,10 +47,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('emailIns').innerHTML = theUserRN.matchMentor.email;
     document.getElementById('phoneIns').innerHTML = theUserRN.matchMentor.phone;
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
-      console.log("trying to log out");
+      //console.log("trying to log out");
       logOut(event);
     };
 
@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
   else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
 
   }

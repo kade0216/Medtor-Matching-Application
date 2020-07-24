@@ -22,7 +22,7 @@ var passSec = document.getElementById("passionSec");
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Mentor") {
@@ -33,19 +33,19 @@ firebase.auth().onAuthStateChanged(function(user) {
     // }
     //MAKE SURE DISPLAY NAME IS CHANGED TO STUDENTDONE
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
     };
 
     // var person = localStorage['pObj'];
-    // console.log(person);
+    // //console.log(person);
     populateEducation();
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
   }
 });
@@ -60,7 +60,7 @@ function populateEducation() {
   var people = JSON.parse(localStorage['allPeople']);
   var specific = localStorage['accessedPerson'] - 1;
   person = people[specific];
-  console.log(person);
+  //console.log(person);
 
   var undergrad = person.Undergrad + " (" + person.UndergradLoc + ")";
   var underYear = person.UndergradYear;

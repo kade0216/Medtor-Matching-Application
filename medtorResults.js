@@ -34,7 +34,7 @@ var formState = null;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Mentor") {
@@ -54,9 +54,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         window.location.href = "medtorStudentCompletion.html";
       }
     }
-    
-    console.log(localStorage);
-    console.log("here");
+
+    //console.log(localStorage);
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
@@ -67,7 +67,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (localStorage.getItem("allPeople") === null) {
       var returnedPerson = firebase.functions().httpsCallable('findMatches');
       returnedPerson( {text: " "}).then(function(result){
-        console.log(result);
+        //console.log(result);
         per1 = result["data"]["firstObj"]["theObj"];
         per2 = result["data"]["secondObj"]["theObj"];
         per3 = result["data"]["thirdObj"]["theObj"];
@@ -118,7 +118,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
   }
 });
@@ -132,7 +132,7 @@ function goDetail(e, person) {
   e.preventDefault();
 
   localStorage.setItem("accessedPerson", person);
-  //console.log(localStorage);
+  ////console.log(localStorage);
 
   window.location.href = "medtorDetailView.html";
 }
@@ -152,11 +152,11 @@ function submitSelection(e) {
     allOutPeople = JSON.parse(localStorage["allPeople"]);
 
     var submitPerson = allOutPeople[selected];
-    // console.log(submitPerson.mentorUID);
+    // //console.log(submitPerson.mentorUID);
 
     var returnedResult = firebase.functions().httpsCallable('selectMentor');
     returnedResult( {text: submitPerson.mentorUID}).then(function(result){
-      console.log(result["data"][0]);
+      //console.log(result["data"][0]);
 
       if (result["data"][0] == 0) {
         localStorage.removeItem("allPeople");
@@ -183,7 +183,7 @@ function submitSelection(e) {
 
         var sendingEmail = firebase.functions().httpsCallable('sendMail');
         sendingEmail( {text: dataToBeSent}).then(function(resulter){
-          //console.log(resulter);
+          ////console.log(resulter);
           window.location.href = "medtorStudentCompletion.html";
         }).catch(function(resulter){
           window.alert("Servers are down: You will not receive an email regarding your mentor's information, but it will be displayed on the next page");
@@ -212,7 +212,7 @@ function changeColor(e, person){
     else {
       currPerson.getElementsByTagName("img")[0].src = "Icons/checkMark/checkedMarkFull.png";
       selected = index;
-      console.log(selected);
+      //console.log(selected);
     }
   }
   //selected = person;
@@ -241,7 +241,7 @@ function writeCell(cellSet, inputObject, nameFullSet, medSchoolSet, undergradSet
   for (var i = 0; i < setList.length; i++) {
     var eachCell = cellSet.getElementsByClassName(setList[i]);
     eachCell[0].childNodes[1].innerHTML = inList[i];
-    //console.log(eachCell[0].childNodes[1].innerHTML);
+    ////console.log(eachCell[0].childNodes[1].innerHTML);
   }
 }
 
@@ -261,7 +261,7 @@ function shortenCollege(collegeN) {
     var shortVersion = "";
     for (var v = 0; v < allWords.length; v++) {
       if (allWords[v][0] === "(" || allWords[v] === "the" || allWords[v] === "The" || allWords[v] === "of" || allWords[v] === "Of" || allWords[v] === "at" || allWords[v] === "At") {
-        //console.log(allWords[v][0]);
+        ////console.log(allWords[v][0]);
       }
       else {
         shortVersion += allWords[v][0];
@@ -286,7 +286,7 @@ function reloadData(e) {
 
   var returnedPerson = firebase.functions().httpsCallable('findMatches');
   returnedPerson( {text: " "}).then(function(result){
-    console.log(result);
+    //console.log(result);
     per1 = result["data"]["firstObj"]["theObj"];
     per2 = result["data"]["secondObj"]["theObj"];
     per3 = result["data"]["thirdObj"]["theObj"];

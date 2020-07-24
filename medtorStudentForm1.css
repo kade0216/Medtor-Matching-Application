@@ -210,14 +210,21 @@ h3 {
 }
 
 .form {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   width: 40%;
   min-width: 300px;
   position: relative;
-  height: 60px;
-  overflow: hidden;
+  /* height: 60px; */
+  height: 35px;
+  /* overflow: hidden; */
+  overflow: visible;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -233,7 +240,7 @@ h3 {
   font-weight: 500;
   height: 15px;
   color: black;
-  padding-left: 8px;
+  padding-left: 14px;
   /* position: absolute; */
 }
 
@@ -343,23 +350,38 @@ select::after {
 
 
 .form input {
-  width: 95%;
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 93.5%;
+  /* need to change for smaller */
   position: absolute;
   bottom: 0px;
-  height: 50%;
+  /* height: 50%; */
+  height: 33px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   border: 1px solid black;
   border-radius: 5px;
   font-size: 16px;
   outline: none;
   padding-left: 5px;
   font-family: 'Montserrat', sans-serif;
+  box-shadow: none !important;
 }
 
-.form label {
+.nameForInput {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   position: absolute;
-  margin-left: 8px;
-  bottom: 0px;
-  left: 0%;
+  margin-left: 10px;
+  /* need to change margin for smaller */
+  bottom: 1px;
+  left: 0px;
   width: 95%;
   height: 100%;
   pointer-events: none;
@@ -370,13 +392,17 @@ select::after {
 }
 
 .codeText {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   position: absolute;
   bottom: 5px;
   left: 0px;
   transition: all 0.2s ease;
 }
 
-.form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
+.form input:focus ~ .nameForInput .codeText, .form input:valid ~ .nameForInput .codeText{
   /* transform: translateY(-150%); */
   font-size: 12px;
   color: #27abff;
@@ -461,7 +487,7 @@ button:hover {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -517,12 +543,17 @@ button:hover {
     min-width: 300px;
   }
 
-  .form label {
-    font-size: 16px;
-    margin-bottom: 2px;
+  .form input {
+    width: 92.5%;
   }
 
-  .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
+  .nameForInput {
+    font-size: 16px;
+    left: 1px;
+    /* margin-bottom: 2px; */
+  }
+
+  .form input:focus ~ .nameForInput .codeText, .form input:valid ~ .nameForInput .codeText{
     margin-bottom: 20px;
   }
 
@@ -535,7 +566,7 @@ button:hover {
   }
 
   .contactUs {
-    width: 110px; /* changed */
+    width: 120px; /* changed */
     height: 34px;
     font-size: 14px;
   }
@@ -605,6 +636,30 @@ button:hover {
 
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
+
+  .innerSection {
+    width: 75%;
+  }
+
+  .eachSide {
+    min-width: 260px;
+  }
+
+  .form, .lining {
+    min-width: 240px;
+  }
+
+  .nameForInput {
+    bottom: 0px;
+  }
+
+  .eachSelect, .eachSelectAdj {
+    min-width: 240px;
+  }
+
+}
+
+@media only screen and (max-width: 365px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -638,21 +693,4 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
-
-  .innerSection {
-    width: 75%;
-  }
-
-  .eachSide {
-    min-width: 260px;
-  }
-
-  .form, .lining {
-    min-width: 240px;
-  }
-
-  .eachSelect, .eachSelectAdj {
-    min-width: 240px;
-  }
-
 }

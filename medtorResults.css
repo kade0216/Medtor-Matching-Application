@@ -195,6 +195,12 @@ h3 {
   text-align: center;
 }
 
+.smallerLoad {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
 .noDis {
   margin-top: 30px;
   font-size: 24px;
@@ -441,7 +447,7 @@ button:hover {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -607,7 +613,7 @@ button:hover {
   }
 
   .contactUs {
-    width: 110px; /* changed */
+    width: 120px; /* changed */
     height: 34px;
     font-size: 14px;
   }
@@ -715,39 +721,6 @@ button:hover {
 
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 530px) {
-  .container {
-    max-width: 1700px;
-    width: 96%;
-    margin: auto;
-    padding-top: 0%;
-    padding-bottom: 20%;
-  }
-
-  .upperLogo {
-    float: left;
-    margin-top: 15px;
-    width: 100px;
-  }
-
-  nav {
-    float: right;
-    line-height: 50px;
-  }
-
-  nav li {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 3px; /* changed */
-    line-height: normal;
-
-    background: rgba(255, 0, 0, 0.0);
-    border-color: rgba(255, 0, 0, 0.0);
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    text-align: center;
-  }
 
   .headerText {
     width: 250px;
@@ -822,5 +795,41 @@ button:hover {
     width: 16%;
     padding-left: 0%;
     padding-right: 1%;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .container {
+    max-width: 1700px;
+    width: 96%;
+    margin: auto;
+    padding-top: 0%;
+    padding-bottom: 20%;
+  }
+
+  .upperLogo {
+    float: left;
+    margin-top: 15px;
+    width: 100px;
+  }
+
+  nav {
+    float: right;
+    line-height: 50px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 3px; /* changed */
+    line-height: normal;
+
+    background: rgba(255, 0, 0, 0.0);
+    border-color: rgba(255, 0, 0, 0.0);
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
   }
 }

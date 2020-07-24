@@ -229,7 +229,7 @@ h3 {
   align-items: center;
 }
 
-.form {
+/* .form {
   width: 40%;
   min-width: 300px;
   position: relative;
@@ -241,6 +241,54 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+} */
+
+.form {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 40%;
+  min-width: 300px;
+  position: relative;
+  /* height: 60px; */
+  height: 35px;
+  /* overflow: hidden; */
+  overflow: visible;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 10px; */
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form2 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 350px;
+  position: relative;
+  /* height: 60px; */
+  height: 90px;
+  padding-left: 5px;
+  /* overflow: hidden; */
+  overflow: visible;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 10px; */
+  margin-top: 30px;
+
+}
+
+#medschoolInputOther, #undergradInputOther, #majorInputOther, #minorInputOther, #univlocInputOther, #medlocInputOther {
+  display: none;
+}
+
+#futureprof2InputOther, #gapyear2InputOther, #volunteer2InputOther, #research2InputOther {
+  display: none;
 }
 
 .eachSelect {
@@ -401,7 +449,7 @@ select::after {
 }
 
 
-.form input {
+/* .form input {
   width: 95%;
   position: absolute;
   bottom: 0px;
@@ -411,9 +459,53 @@ select::after {
   font-size: 16px;
   outline: none;
   padding-left: 5px;
+} */
+
+.form input {
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 93.5%;
+  /* need to change for smaller */
+  position: absolute;
+  bottom: 0px;
+  /* height: 50%; */
+  height: 33px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  padding-left: 5px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: none !important;
 }
 
-.form label {
+.form2 textarea {
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 93.5%;
+  position: absolute;
+  top: 0px;
+  height: 75px;
+  padding-top: 8px;
+  padding-bottom: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  outline: none;
+  padding-left: 5px;
+  box-shadow: none !important;
+}
+
+/* .form label {
   position: absolute;
   margin-left: 8px;
   bottom: 0px;
@@ -422,6 +514,46 @@ select::after {
   height: 100%;
   pointer-events: none;
   color: rgb(169, 169, 169, 80.0); black;
+} */
+
+.form label {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: absolute;
+  margin-left: 10px;
+  /* need to change margin for smaller */
+  bottom: 1px;
+  left: 0px;
+  width: 95%;
+  height: 100%;
+  pointer-events: none;
+  color: rgb(169, 169, 169, 80.0); black;
+  font-size: 16px;
+  margin-bottom: 2px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form2 label {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: absolute;
+  margin-left: 5px;
+
+  bottom: 58px;
+  left: 7px;
+  width: 95%;
+  height: 100%;
+  pointer-events: none;
+  color: rgb(169, 169, 169, 80.0);
+  font-size: 16px;
+  /* font-size: 16px; */
+  /* margin-bottom: 2px; */
+  font-family: 'Montserrat', sans-serif;
+  /* border-bottom: 1px solid black; */
 }
 
 .codeText {
@@ -431,7 +563,7 @@ select::after {
   transition: all 0.2s ease;
 }
 
-.form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
+.form input:focus ~ .nameForInput .codeText, .form input:valid ~ .nameForInput .codeText{
   /* transform: translateY(-100%); */
   font-size: 12px;
   color: #27abff;
@@ -442,7 +574,21 @@ select::after {
 
 }
 
+.form2 textarea:focus ~ .nameForInput .codeText, .form2 textarea:valid ~ .nameForInput .codeText{
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 2px;
+  padding-right: 5px;
+  margin-bottom: 20px;
+
+}
+
 .form input:focus {
+    border:1px solid #1975af;
+}
+
+.form2 textarea:focus {
     border:1px solid #1975af;
 }
 
@@ -520,7 +666,7 @@ button:hover {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -576,12 +722,25 @@ button:hover {
     min-width: 300px;
   }
 
-  .form label {
-    font-size: 16px;
-    margin-bottom: 2px;
+  .form input {
+    width: 92.5%;
   }
 
-  .form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
+  /* .form label {
+    font-size: 16px;
+    margin-bottom: 2px;
+  } */
+
+  .form label {
+    font-size: 16px;
+    margin-bottom: 1px;
+  }
+
+  .form2 label {
+    font-size: 16px;
+  }
+
+  .form input:focus ~ .nameForInput .codeText, .form input:valid ~ .nameForInput .codeText{
     margin-bottom: 20px;
   }
 
@@ -594,7 +753,7 @@ button:hover {
   }
 
   .contactUs {
-    width: 110px; /* changed */
+    width: 120px; /* changed */
     height: 34px;
     font-size: 14px;
   }
@@ -667,10 +826,69 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
+
+  .form2 {
+    width: 235px;
+  }
 }
 
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
+
+  .innerSection {
+    width: 75%;
+  }
+
+  .select2-selection__rendered{
+    font-size: 14px !important;
+  }
+
+  select {
+    font-size: 14px;
+  }
+
+  /* .select2-container{
+    width: 232.8px !important;
+  }
+
+  .select2-selection--single{
+    width: 232.8px !important;
+  } */
+
+  .form input{
+    font-size: 14px;
+  }
+
+  .form, .lining {
+    min-width: 240px;
+  }
+
+  .eachSide {
+    min-width: 240px;
+    align-items: center;
+  }
+
+  .custom-select2 {
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+
+  .custom-select3 {
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+
+  .form, .termsSec {
+    min-width: 240px;
+  }
+
+  .eachSelect {
+    min-width: 240px;
+  }
+
+}
+
+@media only screen and (max-width: 365px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -704,48 +922,4 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
-
-  .innerSection {
-    width: 75%;
-  }
-
-  .select2-selection__rendered{
-    font-size: 14px !important;
-  }
-
-  select {
-    font-size: 14px;
-  }
-
-  /* .select2-container{
-    width: 232.8px !important;
-  }
-
-  .select2-selection--single{
-    width: 232.8px !important;
-  } */
-
-  .eachSide {
-    min-width: 240px;
-    align-items: center;
-  }
-
-  .custom-select2 {
-    padding-left: 0px;
-    margin-left: 0px;
-  }
-
-  .custom-select3 {
-    padding-left: 0px;
-    margin-left: 0px;
-  }
-
-  .form, .termsSec {
-    min-width: 240px;
-  }
-
-  .eachSelect {
-    min-width: 240px;
-  }
-
 }

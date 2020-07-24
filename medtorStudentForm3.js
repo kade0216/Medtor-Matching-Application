@@ -41,7 +41,7 @@ var formState = null;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Mentor") {
@@ -69,7 +69,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       }
     }
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
@@ -86,7 +86,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
   }
 });
@@ -108,7 +108,7 @@ function goNext(e) {
 
   if (checkFields()) {
     if (user.emailVerified == true) {
-      //console.log("data passes");
+      ////console.log("data passes");
       theUserRN.research1 = res1;
       theUserRN.research2 = res2;
       theUserRN.volunteer1 = vol1;
@@ -135,12 +135,12 @@ function goNext(e) {
       theCurrUser = databaseRef.child("studentUsers").child(user.uid);
       theCurrUser.update(theUserRN).then(function() {
         //new code
-        console.log("entered new data")
+        //console.log("entered new data")
         window.location.href = "medtorFormPreferencePage.html";
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
         // returnedPerson( {text: " "}).then(function(result){
         //   theObject = result;
-        //   console.log(theObject);
+        //   //console.log(theObject);
         // });
 
       });
@@ -152,11 +152,15 @@ function goNext(e) {
 }
 
 function checkFields() {
-  if (research1.value != 'none' && research2.value != 'none' && volunteer1.value != 'none' && volunteer2.value != 'none' && gap1.value != 'none' && gap2.value != 'none' && future1.value != 'none' && future2.value != 'none'){
-    console.log('fields are good');
+  if (research1.value != 'none' && volunteer1.value != 'none' && gap1.value != 'none' && future1.value != 'none'){
+    //console.log('fields are good');
     return true;
   }
   else {
+    console.log(research1.value);
+    console.log(volunteer1.value);
+    console.log(gap1.value);
+    console.log(future1.value);
     window.alert("Incomplete: Fill in all fields with proper inputs");
     return false;
   }
@@ -171,7 +175,7 @@ function goBack(e) {
 function changeColor(e, obj, labeler) {
   e = e || window.event;
   e.preventDefault();
-  console.log("here");
+  //console.log("here");
   if (obj.value != "none") {
     obj.style.color = "black";
     obj.style.fontSize = "14px";

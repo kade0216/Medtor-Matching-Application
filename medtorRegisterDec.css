@@ -256,7 +256,7 @@ button:hover {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -299,7 +299,7 @@ button:hover {
   } */
 
   .contactUs {
-    width: 110px; /* changed */
+    width: 120px; /* changed */
     height: 34px;
     font-size: 14px;
   }
@@ -354,6 +354,25 @@ button:hover {
 }
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
+
+  .description {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .subheader {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  /* .innerSection {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  } */
+
+}
+
+@media only screen and (max-width: 365px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -387,20 +406,4 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
-
-  .description {
-    font-size: 22px;
-    line-height: 26px;
-  }
-
-  .subheader {
-    font-size: 14px;
-    line-height: 18px;
-  }
-
-  /* .innerSection {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-  } */
-
 }

@@ -149,7 +149,9 @@ h3 {
 /* form section */
 .innerSection {
   width: 500px;
-  height: 400px;
+  /* height: 400px; */
+  box-sizing: content-box;
+  padding-bottom: 50px;
   border: 3px solid #1975af;
   background-color: white;
   border-radius: 10px;
@@ -160,17 +162,42 @@ h3 {
 }
 
 .form {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   width: 400px;
   position: relative;
-  height: 60px;
-  overflow: hidden;
+  /* height: 60px; */
+  height: 35px;
+  /* overflow: hidden; */
+  overflow: visible;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
+  /* margin-top: 10px; */
+  margin-top: 35px;
 
 }
 
 .form2 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 400px;
+  position: relative;
+  /* height: 60px; */
+  height: 200px;
+  /* overflow: hidden; */
+  overflow: visible;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 10px; */
+  margin-top: 35px;
+
+}
+
+/* .form2 {
   width: 400px;
   position: relative;
   height: 200px;
@@ -179,21 +206,50 @@ h3 {
   margin-right: auto;
   margin-top: 25px;
 
-}
+} */
 
 .form input {
-  width: 95%;
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 93.5%;
   position: absolute;
   bottom: 0px;
-  height: 50%;
+  height: 33px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   border: 1px solid black;
   border-radius: 5px;
   font-size: 16px;
   outline: none;
   padding-left: 5px;
+  box-shadow: none !important;
 }
 
 .form2 textarea {
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 93.5%;
+  position: absolute;
+  top: 0px;
+  height: 200px;
+  padding-top: 8px;
+  padding-bottom: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  outline: none;
+  padding-left: 5px;
+  box-shadow: none !important;
+}
+
+/* .form2 textarea {
   width: 95%;
   position: relative;
   bottom: 0px;
@@ -206,22 +262,50 @@ h3 {
   padding-top: 8px;
   padding-bottom: 5px;
   margin-top: 10px;
-}
+} */
 
 
 .form label {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   position: absolute;
   margin-left: 5px;
-  bottom: 0px;
-  left: 0%;
+
+  bottom: 1px;
+  left: 0px;
   width: 95%;
   height: 100%;
   pointer-events: none;
   color: rgb(169, 169, 169, 80.0);
+  /* font-size: 16px; */
+  /* margin-bottom: 2px; */
+  font-family: 'Montserrat', sans-serif;
   /* border-bottom: 1px solid black; */
 }
 
 .form2 label {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: absolute;
+  margin-left: 5px;
+
+  bottom: 166px;
+  left: 0px;
+  width: 95%;
+  height: 100%;
+  pointer-events: none;
+  color: rgb(169, 169, 169, 80.0);
+  /* font-size: 16px; */
+  /* margin-bottom: 2px; */
+  font-family: 'Montserrat', sans-serif;
+  /* border-bottom: 1px solid black; */
+}
+
+/* .form2 label {
   position: absolute;
   margin-left: 5px;
   bottom: 156px;
@@ -230,48 +314,55 @@ h3 {
   height: 100%;
   pointer-events: none;
   color: rgb(169, 169, 169, 80.0);
-  /* border-bottom: 1px solid black; */
-}
+} */
 
 
 .codeText {
   position: absolute;
   bottom: 5px;
   left: 0px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.form input:focus + .nameForInput .codeText, .form input:valid + .nameForInput .codeText{
-  transform: translateY(-150%);
+.form input:focus ~ .nameForInput .codeText{
   font-size: 12px;
   color: #27abff;
   background-color: white;
   padding-left: 3px;
   padding-right: 5px;
-  margin-bottom: -1px;
+  margin-bottom: 21px;
 
 }
 
-.form2 textarea:focus + .nameForInput .codeText, .form2 textarea:valid + .nameForInput .codeText{
-  transform: translateY(-150%);
+.form input:valid ~ .nameForInput .codeText{
   font-size: 12px;
   color: #27abff;
   background-color: white;
   padding-left: 3px;
   padding-right: 5px;
-  margin-bottom: -1px;
+  margin-bottom: 21px;
 
 }
 
-/* .form2 textarea:focus + .nameForInput .codeText, .form2 textarea:valid + .nameForInput .codeText{
-  transform: translateY(-150%);
+.form2 textarea:focus ~ .nameForInput .codeText{
   font-size: 12px;
-  color: red;
+  color: #27abff;
   background-color: white;
   padding-left: 3px;
   padding-right: 5px;
-  margin-bottom: -1px;
-} */
+  margin-bottom: 21px;
+
+}
+
+.form2 textarea:valid ~ .nameForInput .codeText{
+  font-size: 12px;
+  color: #27abff;
+  background-color: white;
+  padding-left: 3px;
+  padding-right: 5px;
+  margin-bottom: 21px;
+
+}
 
 
 .form input:focus {
@@ -307,6 +398,8 @@ h3 {
   line-height: 15px;
   color: black;
   left:0px;
+  margin-top: 1px;
+  padding-left: 6px;
 }
 
 .buttons {
@@ -376,7 +469,7 @@ h3 {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -472,6 +565,14 @@ h3 {
     width: 240px;
   }
 
+  .form input {
+    bottom: 0px;
+  }
+
+  /* .form2 textarea {
+    bottom: 0px;
+  } */
+
   .emailDescription {
     width: 240px;
   }
@@ -483,13 +584,6 @@ h3 {
 
   .lining {
     width: 240px;
-  }
-
-
-  .contactUs {
-    width: 110px; /* changed */
-    height: 34px;
-    font-size: 14px;
   }
 
   .infoText {

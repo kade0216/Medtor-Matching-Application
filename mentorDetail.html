@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <link rel="icon" type = "image/png" href="favicon.png">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorDetailView.css?v=1.0.3">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
+          <li class = "logOut"><a style="text-decoration:none" href="#" class="logColor" id = "upperLogIn">Log Out</a></li>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="middleContainer">
+      <div class="headerArea">
+        <button class = "backBtn" onclick = "goBack(event)" >back</button>
+        <div class="headerText">
+          <img class = "profileLogo" src = "Icons/MedTorLogo2.png">
+          <h3>Mentor Matches</h3>
+        </div>
+      </div>
+
+      <div class="innerSection" id = "innerSec">
+        <div class="nameTitle" id="theName">
+          <span>Anshu Jonnalagadda</span>
+        </div>
+        <div class="edSection" id = "educationSec">
+          <div class = "secTitle">
+            <img class = "sectionLogo" src = "Icons/SchoolIcon/schoolIcon.png">
+            <span>Education</span>
+          </div>
+
+          <div class="innerInfo">
+              <b>Name:</b>
+              <span>Anshu Jonnalagadda</span>
+          </div>
+
+          <div class="innerInfo">
+              <b>Undergrad:</b>
+              <span>University of Washington</span>
+          </div>
+          <!-- <div class="innerInfo">
+              <b>Location:</b>
+              <span>WA</span>
+          </div> -->
+          <div class="innerInfo">
+              <b>Graduating Year:</b>
+              <span>2017</span>
+          </div>
+          <div class="innerInfo">
+              <b>Field of Study:</b>
+              <span>Neuroscience, Computer Science</span>
+          </div>
+          <div class="innerInfo">
+              <b>Medical School:</b>
+              <span>Duke University</span>
+          </div>
+          <!-- <div class="innerInfo">
+              <b>Location:</b>
+              <span>NC</span>
+          </div> -->
+          <div class="innerInfo">
+              <b>Intended Completion:</b>
+              <span>2023</span>
+          </div>
+
+        </div>
+        <div class="pathSection" id = "pSec">
+          <div class = "secTitle">
+            <img class = "sectionLogo" src = "Icons/FutureIcon/futureIcon.png">
+            <span>Path</span>
+          </div>
+
+          <div class="innerInfo">
+              <b>Research:</b>
+              <span>Cognitive Neuroscience</span>
+          </div>
+          <div class="innerInfo">
+              <b>Volunteering:</b>
+              <span>Children, Mental Health</span>
+          </div>
+          <div class="innerInfo">
+              <b>Gap Year:</b>
+              <span>No</span>
+          </div>
+          <div class="innerInfo">
+              <b>Possible Professions:</b>
+              <span>Cardiologist, Pediatrician</span>
+          </div>
+        </div>
+        <div class="passionSection" id = "passionSec">
+          <div class = "secTitle">
+            <img class = "sectionLogo" src = "Icons/PassionIcon/passionIcon.png">
+            <span>Passions</span>
+          </div>
+
+          <div class="innerInfo">
+              <b>Hobbies:</b>
+              <span>Cooking, Art, Sports</span>
+          </div>
+
+          <div class="innerInfo">
+              <b>Home State:</b>
+              <span>WA</span>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="load" id = "loading">
+        <span>Loading...</span>
+      </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="containerBottom">
+      <button class="contactUs" onclick = "window.location.href = 'medtorContactUs.html'">Contact Us</button>
+      <article class="infoText">
+        Created by Duke Students
+      </article>
+      <article class="infoText">
+        © 2020 Medtor.
+        <a href="medtorPrivacyPolicy.html">Privacy Policy</a>
+      </article>
+    </div>
+
+    <script src="medtorDetailView.js?1.0.3"></script>
+
+  </body>
+
+</html>

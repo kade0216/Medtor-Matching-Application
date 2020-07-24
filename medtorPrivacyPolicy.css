@@ -174,13 +174,13 @@ h3 {
 }
 
 .privacy{
-  width: 90%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 10px;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 16px;
   font-style: normal;
   font-weight: 500;
   color: black;
@@ -276,7 +276,7 @@ button:hover {
   margin-right: auto;
   margin-bottom: 5px;
 
-  width: 110px; /* changed */
+  width: 120px; /* changed */
   height: 34px;
   border-radius: 20px;
 
@@ -329,7 +329,7 @@ button:hover {
   } */
 
   .contactUs {
-    width: 110px; /* changed */
+    width: 120px; /* changed */
     height: 34px;
     font-size: 14px;
   }
@@ -349,7 +349,7 @@ button:hover {
 
 @media only screen and (max-width: 850px) {
   .innerSection {
-    width: 75%;
+    width: 80%;
   }
 
   .buttonClass {
@@ -399,6 +399,27 @@ button:hover {
 
 /* super small iPhone and other tablet resizing like iPhone 5*/
 @media only screen and (max-width: 500px) {
+
+  .innerSection {
+    width: 85%;
+  }
+  .description, .detailers {
+    margin-bottom:15px;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .detailers {
+    margin-bottom: 0px;
+  }
+  .mainLogo {
+    height: auto;
+    width: 60%;
+  }
+
+}
+
+@media only screen and (max-width: 365px) {
   .container {
     max-width: 1700px;
     width: 96%;
@@ -432,22 +453,4 @@ button:hover {
     font-size: 12px;
     text-align: center;
   }
-
-  .innerSection {
-    width: 75%;
-  }
-  .description, .detailers {
-    margin-bottom:15px;
-    font-size: 16px;
-    line-height: 21px;
-  }
-
-  .detailers {
-    margin-bottom: 0px;
-  }
-  .mainLogo {
-    height: auto;
-    width: 60%;
-  }
-
 }

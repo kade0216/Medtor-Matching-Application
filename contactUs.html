@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <link rel="icon" type = "image/png" href="favicon.png">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorContactUs.css?v=1.0.3">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
+          <li class = "logIn" id = "itemLogIn" href="medtorRegisterDec.html">
+            <a onclick = null href="medtorRegisterDec.html" style="text-decoration:none" class="logColor" id = "upperLogIn">
+              Register
+            </a>
+          </li>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="middleContainer" id = "theForm">
+      <div class="headerText">
+        <img class = "profileLogo" src = "Icons/MedTorLogo2.png">
+        <h3>Contact Us</h3>
+      </div>
+      <!-- <hr> -->
+      <form name = "getFeedback">
+        <div class="innerSection" id = "needFeedback">
+          <div class="description">
+            <span id = upperText>Feel free to provide feedback or report a bug</span>
+          </div>
+
+          <div class="form">
+            <input type="text" id = "emailInput" autocomplete="off" name = "email" required />
+            <label for="email" id = "labeler" class = "nameForInput">
+              <span class="codeText">Email</span>
+            </label>
+          </div>
+          <!-- <div class="lining">
+            <span>Please use .edu email</span>
+          </div> -->
+
+          <div class="form2">
+            <!---<input type="text" id = "feedbackInput" autocomplete="off" name = "feedback" required />--->
+            <textarea type = "text" name="feedback" id = "feedbackInput" required></textarea>
+            <label for="feedback" id = "labeler1" class = "nameForInput">
+              <span class="codeText">Feedback</span>
+            </label>
+          </div>
+        </div>
+
+        <div class = "buttons">
+          <button type="submit" id="submitButton">Submit</button>
+        </div>
+
+      </form>
+
+    </div>
+
+
+
+    <div class="containerBottom">
+      <button class="contactUs">Contact Us</button>
+      <article class="infoText">
+        Created by Duke Students
+      </article>
+      <article class="infoText">
+        © 2020 Medtor.
+        <a href="medtorPrivacyPolicy.html">Privacy Policy</a>
+      </article>
+    </div>
+
+    <script src="medtorContactUs.js?1.0.3"></script>
+
+  </body>
+</html>

@@ -33,6 +33,13 @@ var minIn = document.getElementById('minorInput');
 var medlocIn = document.getElementById('medlocInput');
 var medschoolIn = document.getElementById('medschoolInput');
 
+var undergradInOther = document.getElementById("otherInst");
+var univlocationInOther = document.getElementById("otherInstLoc");
+var majInOther = document.getElementById("otherMaj");
+var minInOther = document.getElementById("otherMin");
+var medschoolInOther = document.getElementById("otherMed");
+var medlocInOther = document.getElementById('otherMedLoc');
+
 var theUserRN = null;
 var formState = null;
 
@@ -41,7 +48,7 @@ var originalFontSize = gradyearIn.style.fontSize;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.emailVerified == false) {
-      console.log("userNotVerified");
+      //console.log("userNotVerified");
       window.location.href = "medtorHome.html";
     }
     if (user.displayName == "Student") {
@@ -63,7 +70,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 
     //user signed in
-    console.log("here");
+    //console.log("here");
     upperLogInBtn.innerHTML = "Log Out";
     upperLogInBtn.onclick = function(){
       logOut(event);
@@ -75,7 +82,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   } else {
     //user not signed in
-    console.log("here2");
+    //console.log("here2");
     window.location.href = "medtorHome.html";
   }
 });
@@ -105,11 +112,30 @@ function goNext(e) {
       theUserRN.MedSchool = medschoolInVal,
       theUserRN.MedSchoolLoc = medlocInVal;
       theUserRN.MedSchoolYear = gradInVal;
+      if (undergradInVal == "Other") {
+        theUserRN.UndergradOther = undergradInOther.value;
+      }
+      if (univlocationInVal == "Other") {
+        theUserRN.UndergradLocOther = univlocationInOther.value;
+      }
+      if (majInVal == "Other") {
+        theUserRN.MajorOther = majInOther.value;
+      }
+      if (minInVal == "Other") {
+        theUserRN.MinorOther = minInOther.value;
+      }
+      if (medschoolInVal == "Other") {
+        theUserRN.MedSchoolOther = medschoolInOther.value;
+      }
+      if (medlocInVal == "Other") {
+        theUserRN.MedSchoolLocOther = medlocInOther.value;
+      }
+
       if (formState < 2){
         theUserRN.formState = 2;
       }
       localStorage.setItem("currUser", JSON.stringify(theUserRN));
-      //console.log("data passes");
+      ////console.log("data passes");
       // extraData = {
       //   Undergrad: undergradInVal,
       //   UndergradLoc: univlocationInVal,
@@ -123,12 +149,12 @@ function goNext(e) {
       theCurrUser = databaseRef.child("mentorUsers").child(user.uid);
       theCurrUser.update(theUserRN).then(function() {
         //new code
-        console.log("entered new data")
+        //console.log("entered new data")
         window.location.href = "medtorMentorForm3.html";
         // var returnedPerson = firebase.functions().httpsCallable('findMatches');
         // returnedPerson( {text: " "}).then(function(result){
         //   theObject = result;
-        //   console.log(theObject);
+        //   //console.log(theObject);
         // });
 
       });
@@ -141,7 +167,31 @@ function goNext(e) {
 
 function checkFields() {
   if (gradyearIn.value != 'none' && gradIn.value != 'none' && univlocationIn.value != 'none' && undergradIn.value != 'none' && majIn.value != 'none' && minIn.value != 'none' && medlocIn.value != 'none' && medschoolIn.value != 'none'){
-    console.log('fields are good');
+    //console.log('fields are good');
+    if (univlocationIn.value == "Other" && (univlocationInOther.value == null || univlocationInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other university location");
+      return false;
+    }
+    if (undergradIn.value == "Other" && (undergradInOther.value == null || undergradInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other university");
+      return false;
+    }
+    if (majIn.value == "Other" && (majInOther.value == null || majInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other major");
+      return false;
+    }
+    if (minIn.value == "Other" && (minInOther.value == null || minInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other minor");
+      return false;
+    }
+    if (medlocIn.value == "Other" && (medlocInOther.value == null || medlocInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other med school location");
+      return false;
+    }
+    if (medschoolIn.value == "Other" && (medschoolInOther.value == null || medschoolInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other med school");
+      return false;
+    }
     return true;
   }
   else {
@@ -160,16 +210,34 @@ function goBack(e) {
 function changeColor(e, obj, labeler) {
   e = e || window.event;
   e.preventDefault();
-  // console.log("here");
+  // //console.log("here");
   if (obj.value != "none") {
     obj.style.color = "black";
     obj.style.fontSize = "16px";
     labeler.style.display = "block";
+    if (obj.id != "gradyearInput" && obj.id != "gradInput") {
+      var elem = "" + obj.id + "Other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
   else {
     obj.style.color = "rgb(169, 169, 169, 80.0)"
     obj.style.fontSize = originalFontSize;
     labeler.style.display = "none";
+    if (obj.id != "gradyearInput" && obj.id != "gradInput") {
+      var elem = "" + obj.id + "Other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
 }
 
@@ -304,6 +372,25 @@ function fillFields() {
   minIn.value = theUserRN["Minor"];
   medlocIn.value = theUserRN["MedSchoolLoc"];
   medschoolIn.value = theUserRN["MedSchool"];
+
+  if (univlocationIn.value == "Other") {
+    univlocationInOther.value = theUserRN["UndergradLocOther"];
+  }
+  if (undergradIn.value == "Other") {
+    undergradInOther.value = theUserRN["UndergradOther"];
+  }
+  if (majIn.value == "Other") {
+    majInOther.value = theUserRN["MajorOther"];
+  }
+  if (minIn.value == "Other") {
+    minInOther.value = theUserRN["MinorOther"];
+  }
+  if (medlocIn.value == "Other") {
+    medlocInOther.value = theUserRN["MedSchoolLocOther"];
+  }
+  if (medschoolIn.value == "Other") {
+    medschoolInOther.value = theUserRN["MedSchoolOther"];
+  }
 
   changeColor(eventer, gradyearIn, uYLabel);
   changeColor(eventer, gradIn, mYLabel);

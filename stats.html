@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medtor</title>
+    <link rel="icon" type = "image/png" href="favicon.png">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="medtorStats.css?v=1.0.3">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+    <!-- jQuery import -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <div class="topContainer">
+        <div class="containsLogo">
+          <a href="medtorHome.html"><img class = "upperLogo" src="Icons/logoText.png"></a>
+        </div>
+
+        <nav>
+          <li><a style="text-decoration:none" href="medtorHome.html">Home</a></li>
+          <!-- <li><a style="text-decoration:none" href="#">About</a></li> -->
+          <li class = "logIn" id = "itemLogIn" href="medtorRegisterDec.html">
+            <a onclick = null href="medtorRegisterDec.html" style="text-decoration:none" class="logColor" id = "upperLogIn">
+              Register
+            </a>
+          </li>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="middleContainer" id = "theForm">
+      <div class="headerText">
+        <img class = "profileLogo" src = "Icons/MedTorLogo2.png">
+        <h3>Total Stats</h3>
+      </div>
+      <!-- <hr> -->
+
+      <div class="innerSection" id = "stats">
+        <div class="mentStats">
+          <span>Mentor Stats</span>
+          <div class="insMentStats">
+            <div class="leftSide">
+              <div class="eachBoxL">
+                <span class = "num" id = "totMentors">0</span>
+                <span class = "descrip">Total Mentors</span>
+              </div>
+              <div class="eachBoxL">
+                <span class = "num" id = "totSchools">0</span>
+                <span class = "descrip">Total Med Schools</span>
+              </div>
+              <div class="eachBoxL">
+                <span class = "num" id = "totIncomplete">0</span>
+                <span class = "descrip">Total Incomplete</span>
+              </div>
+            </div>
+            <div class="rightSide">
+              <div class="eachBoxR">
+                <span class = "num" id = "totSpots">0</span>
+                <span class = "descrip">Total Student Spots</span>
+              </div>
+              <div class="eachBoxR">
+                <span class = "num" id = "zeroMent">0</span>
+                <span class = "descrip">Zero Student Mentors</span>
+              </div>
+              <div class="eachBoxR">
+                <span class = "num" id = "totSign">0</span>
+                <span class = "descrip">Total Sign Ups</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <a href="medtorStudentCompletion.html"><button id="nextBtn">Next Page</button></a> -->
+    </div>
+
+
+
+    <div class="containerBottom">
+      <button class="contactUs" onclick = "window.location.href = 'medtorContactUs.html'">Contact Us</button>
+      <article class="infoText">
+        Created by Duke Students
+      </article>
+      <article class="infoText">
+        © 2020 Medtor.
+        <a href="medtorPrivacyPolicy.html">Privacy Policy</a>
+      </article>
+    </div>
+
+
+
+    <script src="medtorStats.js?1.0.2"></script>
+
+  </body>
+
+</html>
