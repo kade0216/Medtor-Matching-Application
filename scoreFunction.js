@@ -47,6 +47,13 @@ function getScore(mentorObj, studentObj) {
   if (mentorObj.hobby3 === studentObj.hobby1 || mentorObj.hobby3 === studentObj.hobby2 || mentorObj.hobby3 === studentObj.hobby3){
     hobMatchScore += 1;
   }
+  if (mentorObj.hobby2 === "Other" && ((mentorObj.hobby2 === studentObj.hobby2) | (mentorObj.hobby2 === studentObj.hobby3))) {
+    hobMatchScore -= 1;
+  }
+  if (mentorObj.hobby3 === "Other" && ((mentorObj.hobby3 === studentObj.hobby2) | (mentorObj.hobby3 === studentObj.hobby3))) {
+    hobMatchScore -= 1;
+  }
+
 
   if (hobMatchScore === 1) {
     hobScore += 0.5;
@@ -76,6 +83,13 @@ function getScore(mentorObj, studentObj) {
   if (mentorObj.research2 === studentObj.research1 || mentorObj.research2 === studentObj.research2){
     researchMatchScore += 1;
   }
+  if (mentorObj.research1 === "N/A" && ((mentorObj.research1 === studentObj.research1) | (mentorObj.research1 === studentObj.research2))) {
+    researchMatchScore -= 1;
+  }
+  if (mentorObj.research2 === "N/A" && ((mentorObj.research2 === studentObj.research1) | (mentorObj.research2 === studentObj.research2))) {
+    researchMatchScore -= 1;
+  }
+
 
   if (researchMatchScore === 1){
     reScore = 1;
@@ -91,6 +105,12 @@ function getScore(mentorObj, studentObj) {
   }
   if (mentorObj.volunteer2 === studentObj.volunteer1 || mentorObj.volunteer2 === studentObj.volunteer2){
     volMatchScore += 1;
+  }
+  if (mentorObj.volunteer1 === "N/A" && ((mentorObj.volunteer1 === studentObj.volunteer1) | (mentorObj.volunteer1 === studentObj.volunteer2))) {
+    volMatchScore -= 1;
+  }
+  if (mentorObj.volunteer2 === "N/A" && ((mentorObj.volunteer2 === studentObj.volunteer1) | (mentorObj.volunteer2 === studentObj.volunteer2))) {
+    volMatchScore -= 1;
   }
 
   if (volMatchScore === 1){
@@ -111,6 +131,9 @@ function getScore(mentorObj, studentObj) {
   }
   if (mentorObj.profession2 === studentObj.profession1 || mentorObj.profession2 === studentObj.profession2){
     profMatchScore += 1;
+  }
+  if (mentorObj.profession2 === "Other" && studentObj.profession2 === "Other") {
+    profMatchScore -= 1;
   }
 
   if (profMatchScore === 1){
