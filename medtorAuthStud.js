@@ -183,7 +183,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     switcherText.style.display = 'block';
 
-    var disableStudent = true;
+    var disableStudent = false;
 
     if (isIE || isFirefox) {
       document.getElementById("unsupported").style.display = "block"
@@ -222,14 +222,14 @@ function checkFormatting(inputText){
 
 //checks if email ends in edu
 function checkEdu(inputText) {
-  if ((inputText.slice(-4)) == ".edu") {
+  if ((inputText.slice(-8)) == "duke.edu") {
     return true;
   }
   // else if ((inputText.slice(-4)) == ".com") {
   //   return true;
   // }
   else {
-    alert("Error: Please use .edu email");
+    alert("Error: Please use duke.edu email");
     return false;
   }
 }

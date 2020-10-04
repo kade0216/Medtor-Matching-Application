@@ -67,7 +67,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (localStorage.getItem("allPeople") === null) {
       var returnedPerson = firebase.functions().httpsCallable('findMatches');
       returnedPerson( {text: " "}).then(function(result){
-        //console.log(result);
+        console.log(result);
         per1 = result["data"]["firstObj"]["theObj"];
         per2 = result["data"]["secondObj"]["theObj"];
         per3 = result["data"]["thirdObj"]["theObj"];

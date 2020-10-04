@@ -32,6 +32,11 @@ theData( {text: " "}).then(function(result){
           }
       });
   });
+  for (var i = 1; i <= result['data']['allSchools'].length; i++) {
+    name = "cell" + i;
+    document.getElementById(name).style.display = "block";
+    document.getElementById(name).childNodes[1].innerHTML = result['data']['allSchools'][i-1];
+  }
 });
 
 document.getElementById("stats").style.display = "block";
