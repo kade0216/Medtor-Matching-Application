@@ -6,7 +6,7 @@ Website: www.medtor.org
 
 Contributers: Vin Somasundaram, Karan Desai, Anshu Jonnalagadda
 
-Vin Somasundaram - Main HTML/CSS/Javascript Page Structure and Development, Firebase Functions, Matching Algorithm, Data Storage, Logo and Graphics
+\tVin Somasundaram - Main HTML/CSS/Javascript Page Structure and Development, Firebase Functions, Matching Algorithm, Data Storage, Logo and Graphics
 
 Karan Desai - HTML/CSS Page Development, Matching Algorithm
 
