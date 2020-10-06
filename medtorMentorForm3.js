@@ -246,7 +246,6 @@ research1.addEventListener('change', e => {
 research2.addEventListener('change', e => {
   changeColor(e, research2, res2L);
 })
-
 volunteer1.addEventListener('change', e => {
   changeColor(e, volunteer1, vol1L);
 })

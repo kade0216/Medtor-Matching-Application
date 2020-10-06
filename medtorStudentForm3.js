@@ -33,6 +33,16 @@ var gap2 = document.getElementById("gapyear2Input");
 var future1 = document.getElementById('futureprof1Input');
 var future2 = document.getElementById("futureprof2Input");
 
+var research2Other = document.getElementById("otherR2");
+var volunteer2Other = document.getElementById("otherV2");
+var gap2Other = document.getElementById("otherG2");
+var future2Other = document.getElementById("otherP2");
+
+research2Other.style.fontSize = "14px";
+volunteer2Other.style.fontSize = "14px";
+gap2Other.style.fontSize = "14px";
+future2Other.style.fontSize = "14px";
+
 var originalFontSize = research1.style.fontSize;
 
 var theUserRN = null;
@@ -117,6 +127,19 @@ function goNext(e) {
       theUserRN.gap2 = g2;
       theUserRN.profession1 = prof1;
       theUserRN.profession2 = prof2;
+      if (res2 == "Other") {
+        theUserRN.research2Other = research2Other.value;
+      }
+      if (vol2 == "Other") {
+        theUserRN.volunteer2Other = volunteer2Other.value;
+      }
+      if (g2 == "Other") {
+        theUserRN.gap2Other = gap2Other.value;
+      }
+      if (prof2 == "Other") {
+        theUserRN.future2Other = future2Other.value;
+      }
+
       if (formState < 3){
         theUserRN.formState = 3;
       }
@@ -154,6 +177,22 @@ function goNext(e) {
 function checkFields() {
   if (research1.value != 'none' && volunteer1.value != 'none' && gap1.value != 'none' && future1.value != 'none'){
     //console.log('fields are good');
+    if (research2.value == "Other" && (research2Other.value == null || research2Other.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other research");
+      return false;
+    }
+    if (volunteer2.value == "Other" && (volunteer2Other.value == null || volunteer2Other.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other volunteering");
+      return false;
+    }
+    if (gap2.value == "Other" && (gap2Other.value == null || gap2Other.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other gap year");
+      return false;
+    }
+    if (future2.value == "Other" && (future2Other.value == null || future2Other.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other profession");
+      return false;
+    }
     return true;
   }
   else {
@@ -180,11 +219,29 @@ function changeColor(e, obj, labeler) {
     obj.style.color = "black";
     obj.style.fontSize = "14px";
     labeler.style.display = "block";
+    if (obj.id == "futureprof2Input" || obj.id == "gapyear2Input" || obj.id == "research2Input" || obj.id == "volunteer2Input") {
+      var elem = "" + obj.id + "Other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
   else {
     obj.style.color = "rgb(169, 169, 169, 80.0)"
     obj.style.fontSize = originalFontSize;
     labeler.style.display = "none";
+    if (obj.id == "futureprof2Input" || obj.id == "gapyear2Input" || obj.id == "research2Input" || obj.id == "volunteer2Input") {
+      var elem = "" + obj.id + "Other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
 }
 
@@ -245,6 +302,19 @@ function fillFields() {
   gap2.value = theUserRN["gap2"];
   future1.value = theUserRN["profession1"];
   future2.value = theUserRN["profession2"];
+
+  if (research2.value == "Other") {
+    research2Other.value = theUserRN["research2Other"];
+  }
+  if (volunteer2.value == "Other") {
+    volunteer2Other.value = theUserRN["volunteer2Other"];
+  }
+  if (gap2.value == "Other") {
+    gap2Other.value = theUserRN["gap2Other"];
+  }
+  if (future2.value == "Other") {
+    future2Other.value = theUserRN["future2Other"];
+  }
 
   changeColor(eventer, research1, res1L);
   changeColor(eventer, research2, res2L);

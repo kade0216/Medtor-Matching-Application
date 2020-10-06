@@ -26,6 +26,9 @@ var genderIn = document.getElementById("gend");
 var hobbyIn1 = document.getElementById("hobby1");
 var hobbyIn2 = document.getElementById("hobby2");
 var hobbyIn3 = document.getElementById("hobby3");
+
+var hobbyIn2Other = document.getElementById("other2In");
+var hobbyIn3Other = document.getElementById("other3In");
 var originalFontSize = homeStateIn.style.fontSize;
 
 var theUserRN = null;
@@ -126,6 +129,13 @@ function goNext(e) {
       theUserRN.hobby1 = hobIn1;
       theUserRN.hobby2 = hobIn2;
       theUserRN.hobby3 = hobIn3;
+      if (hobIn2 == "Other") {
+        theUserRN.hobby2other = hobbyIn2Other.value;
+      }
+      if (hobIn3 == "Other") {
+        theUserRN.hobby3other = hobbyIn3Other.value;
+      }
+
       if (formState < 1){
         theUserRN.formState = 1;
       }
@@ -151,17 +161,26 @@ function goNext(e) {
 function checkFields(first, last, phone, hState, gen, hob1, hob2, hob3) {
   var firstFormat = new RegExp(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i);
   var lastFormat = new RegExp(/^[a-z ,.'-]+$/i);
-  if (first.match(lastFormat) && last.match(lastFormat) && hState != "none" && gen != "none" && hob1 != "none" && hob2 != "none" && hob3 != "none") {
-    if (phone[0] != "(" && phone.length == 10) {
-      return true;
-    }
-    else if (phone[0] == "(" && phone.length == 13) {
-      return true;
-    }
-    else {
-      window.alert("Please input a proper phone number");
+  if (first.match(lastFormat) && last.match(lastFormat) && hState != "none" && gen != "none" && hob1 != "none" && hob2 != "none") {
+    // if (phone[0] != "(" && phone.length == 10) {
+    //   return true;
+    // }
+    // else if (phone[0] == "(" && phone.length == 13) {
+    //   return true;
+    // }
+    // else {
+    //   window.alert("Please input a proper phone number");
+    //   return false;
+    // }
+    if (hob2 == "Other" && (hobbyIn2Other.value == null || hobbyIn2Other.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other hobby");
       return false;
     }
+    if (hob3 == "Other" && (hobbyIn3Other.value == null || hobbyIn3Other.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other hobby");
+      return false;
+    }
+    return true;
   }
   else {
     window.alert("Incomplete: Fill in all fields with proper inputs");
@@ -177,11 +196,29 @@ function changeColor(e, obj, labeler) {
     obj.style.color = "black";
     obj.style.fontSize = "16px";
     labeler.style.display = "block";
+    if (obj.id == "hobby2" || obj.id == "hobby3") {
+      var elem = "" + obj.id + "other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
   else {
     obj.style.color = "rgb(169, 169, 169, 80.0)"
     obj.style.fontSize = originalFontSize;
     labeler.style.display = "none";
+    if (obj.id == "hobby2" || obj.id == "hobby3") {
+      var elem = "" + obj.id + "other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
 }
 
@@ -235,6 +272,12 @@ function fillFields() {
   hobbyIn1.value = theUserRN["hobby1"];
   hobbyIn2.value = theUserRN["hobby2"];
   hobbyIn3.value = theUserRN["hobby3"];
+  if (hobbyIn2.value == "Other") {
+    hobbyIn2Other.value = theUserRN["hobby2other"];
+  }
+  if (hobbyIn3.value == "Other") {
+    hobbyIn3Other.value = theUserRN["hobby3other"];
+  }
 
   changeColor(eventer, homeStateIn, homeLabel);
   changeColor(eventer, genderIn, genderLabel);

@@ -157,19 +157,27 @@ function populateEducation() {
   if (person.hobby2 == "Other"){
     hobbies += ", " + person.hobby2other;
   }
+  else if (person.hobby2 == "none" || person.hobby3 == "None") {
+    hobbies += "";
+  }
   else {
     hobbies += ", " + person.hobby2;
   }
   if (person.hobby3 == "Other"){
     hobbies += ", " + person.hobby3other;
   }
+  else if (person.hobby3 == "none" || person.hobby3 == "None") {
+    hobbies += "";
+  }
   else {
     hobbies += ", " + person.hobby3;
   }
 
-  
+
   var homeState = person.homeState;
   var name = person.firstName + " " + person.lastName;
+
+  var addInfo = person.addInfo;
 
   //setting displayName
   document.getElementById("theName").getElementsByTagName("span")[0].innerHTML = shortenName(person.firstName, person.lastName);
@@ -178,7 +186,7 @@ function populateEducation() {
   //setting variables
   var setEd = [name, undergrad, underYear, study, medSchool, medYear];
   var setPath = [research, volunteer, gapYear, profession];
-  var setPass = [hobbies, homeState];
+  var setPass = [hobbies, homeState, addInfo];
 
   for (var i = 0; i < 6; i ++){
     edSec.getElementsByTagName('span')[1+i].innerHTML = setEd[i];
@@ -186,7 +194,7 @@ function populateEducation() {
   for (var i = 0; i < 4; i ++){
     pathSec.getElementsByTagName('span')[1+i].innerHTML = setPath[i];
   }
-  for (var i = 0; i < 2; i ++){
+  for (var i = 0; i < 3; i ++){
     passSec.getElementsByTagName('span')[1+i].innerHTML = setPass[i];
   }
 

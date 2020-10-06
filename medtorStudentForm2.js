@@ -27,10 +27,15 @@ var undergradIn = document.getElementById('undergradInput');
 var majIn = document.getElementById('majorInput');
 var minIn = document.getElementById('minorInput');
 
-var originalFontSize = gradyearIn.style.fontSize;
+var undergradInOther = document.getElementById("otherInst");
+var univlocationInOther = document.getElementById("otherInstLoc");
+var majInOther = document.getElementById("otherMaj");
+var minInOther = document.getElementById("otherMin");
 
 var theUserRN = null;
 var formState = null;
+
+var originalFontSize = gradyearIn.style.fontSize;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -117,6 +122,19 @@ function goNext(e) {
       theUserRN.UndergradYear = gyInVal;
       theUserRN.Major = majInVal;
       theUserRN.Minor = minInVal;
+      if (undergradInVal == "Other") {
+        theUserRN.UndergradOther = undergradInOther.value;
+      }
+      if (univlocationInVal == "Other") {
+        theUserRN.UndergradLocOther = univlocationInOther.value;
+      }
+      if (majInVal == "Other") {
+        theUserRN.MajorOther = majInOther.value;
+      }
+      if (minInVal == "Other") {
+        theUserRN.MinorOther = minInOther.value;
+      }
+
       if (formState < 2){
         theUserRN.formState = 2;
       }
@@ -150,7 +168,22 @@ function goNext(e) {
 
 function checkFields() {
   if (gradyearIn.value != 'none' && univlocationIn.value != 'none' && undergradIn.value != 'none' && majIn.value != 'none' && minIn.value != 'none'){
-    //console.log('fields are good');
+    if (univlocationIn.value == "Other" && (univlocationInOther.value == null || univlocationInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other university location");
+      return false;
+    }
+    if (undergradIn.value == "Other" && (undergradInOther.value == null || undergradInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other university");
+      return false;
+    }
+    if (majIn.value == "Other" && (majInOther.value == null || majInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other major");
+      return false;
+    }
+    if (minIn.value == "Other" && (minInOther.value == null || minInOther.value == "")) {
+      window.alert("Incomplete: Please fill in the field for your other minor");
+      return false;
+    }
     return true;
   }
   else {
@@ -175,11 +208,29 @@ function changeColor(e, obj, labeler) {
     obj.style.color = "black";
     obj.style.fontSize = "14px";
     labeler.style.display = "block";
+    if (obj.id != "gradyearInput" && obj.id != "gradInput") {
+      var elem = "" + obj.id + "Other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
   else {
     obj.style.color = "rgb(169, 169, 169, 80.0)"
     obj.style.fontSize = originalFontSize;
     labeler.style.display = "none";
+    if (obj.id != "gradyearInput" && obj.id != "gradInput") {
+      var elem = "" + obj.id + "Other";
+      if (obj.value != "Other") {
+        document.getElementById(elem).style.display = "none";
+      }
+      else {
+        document.getElementById(elem).style.display = "flex";
+      }
+    }
   }
 }
 
@@ -280,6 +331,19 @@ function fillFields() {
   undergradIn.value = theUserRN["Undergrad"];
   majIn.value = theUserRN["Major"];
   minIn.value = theUserRN["Minor"];
+
+  if (univlocationIn.value == "Other") {
+    univlocationInOther.value = theUserRN["UndergradLocOther"];
+  }
+  if (undergradIn.value == "Other") {
+    undergradInOther.value = theUserRN["UndergradOther"];
+  }
+  if (majIn.value == "Other") {
+    majInOther.value = theUserRN["MajorOther"];
+  }
+  if (minIn.value == "Other") {
+    minInOther.value = theUserRN["MinorOther"];
+  }
 
   changeColor(eventer, gradyearIn, uYLabel);
   changeColor(eventer, univlocationIn, uLocLabel);
