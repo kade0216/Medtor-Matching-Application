@@ -6,7 +6,7 @@ Medtor, a free web application, is a mentor matching tool built to help pre-medi
 
 <b>Contributers</b>: Vin Somasundaram, Karan Desai, Anshu Jonnalagadda
 
-  <b> Vin Somasundaram</b>: Main HTML/CSS/Javascript Page Structure and Development, Firebase Functions, Matching Algorithm, Data Storage, Logo and Graphics
+  <b> Vin Somasundaram</b>: Main HTML/CSS/Javascript Page Structure and Development, UI Structure, Firebase Functions, Matching Algorithm, Data Storage and Retrieval, Logo and Graphics
 
   <b> Karan Desai</b>: HTML/CSS Page Development, Matching Algorithm
 
