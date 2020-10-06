@@ -8,9 +8,9 @@ Contributers: Vin Somasundaram, Karan Desai, Anshu Jonnalagadda
 
   <b>Vin Somasundaram</b>: Main HTML/CSS/Javascript Page Structure and Development, Firebase Functions, Matching Algorithm, Data Storage, Logo and Graphics
 
-  Karan Desai - HTML/CSS Page Development, Matching Algorithm
+  <b>Karan Desai</b>: HTML/CSS Page Development, Matching Algorithm
 
-  Anshu Jonnalaggada - Marketing
+  <b>Anshu Jonnnalagadda</b>: Research, Marketing
 
 Structure: Simply uses html/css/javascript for each page and stores data in firebase. Firebase functions was used for the matching algorithm, email sending, and data display. 
 
